@@ -7,11 +7,12 @@
     {% if request.user.is_authenticated %}
 
         {% trans 'Your username is' %} <b>{{ request.user.username }}</b>.
+        <p>home page when logged in</p>
 
     {% else %}
 
         {% trans 'You are a guest.' %}
-
+        <p>home page when not logged in</p>
     {% endif %}
 
 {% endblock %}

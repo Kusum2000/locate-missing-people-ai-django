@@ -1,17 +1,22 @@
+from __future__ import print_function
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+import time
 
+#import sib_api_v3_sdk
+#from sib_api_v3_sdk.rest import ApiException
+from pprint import pprint
+
+#configuration = sib_api_v3_sdk.Configuration()
+#configuration.api_key['api-key'] = settings.EMAIL_API_KEY
+#api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
 
 def send_mail(to, template, context):
-    html_content = render_to_string(f'accounts/emails/{template}.html', context)
-    text_content = render_to_string(f'accounts/emails/{template}.txt', context)
-
-    msg = EmailMultiAlternatives(context['subject'], text_content, settings.DEFAULT_FROM_EMAIL, [to])
-    msg.attach_alternative(html_content, 'text/html')
-    msg.send()
+    subject = "from the Python SDK!"
+    
 
 
 def send_activation_email(request, email, code):

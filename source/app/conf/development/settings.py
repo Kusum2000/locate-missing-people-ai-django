@@ -1,6 +1,6 @@
 import os
 import warnings
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from os.path import dirname
 
 warnings.simplefilter('error', DeprecationWarning)
@@ -67,8 +67,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(CONTENT_DIR, 'tmp/emails')
-EMAIL_HOST_USER = 'test@example.com'
-DEFAULT_FROM_EMAIL = 'test@example.com'
+#EMAIL_HOST_USER = ''
+
+EMAIL_API_KEY='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'
+DEFAULT_FROM_EMAIL = 'locatemissing19@gmail.com'
 
 DATABASES = {
     'default': {
@@ -92,7 +94,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-ENABLE_USER_ACTIVATION = True
+ENABLE_USER_ACTIVATION = False
 DISABLE_USERNAME = False
 LOGIN_VIA_EMAIL = True
 LOGIN_VIA_EMAIL_OR_USERNAME = False
