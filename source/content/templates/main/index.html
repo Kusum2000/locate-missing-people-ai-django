@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block content %}
-
+    <p>Common page for all</p>
     {% if request.user.is_authenticated %}
 
         {% trans 'Your username is' %} <b>{{ request.user.username }}</b>.
