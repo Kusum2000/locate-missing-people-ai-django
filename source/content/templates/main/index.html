@@ -5,10 +5,12 @@
 {% block content %}
     <p>Common page for all</p>
     {% if request.user.is_authenticated %}
-
+        {% if request.user.is_staff %}
+        
+        {% else %}
         {% trans 'Your username is' %} <b>{{ request.user.username }}</b>.
-        <p>home page when logged in</p>
-
+        
+        {% endif %}
     {% else %}
 
         {% trans 'You are a guest.' %}
