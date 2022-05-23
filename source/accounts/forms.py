@@ -1,5 +1,5 @@
 from datetime import timedelta
-
+from localflavor.in_.forms import INStateSelect, INZipCodeField
 from django import forms
 from django.forms import ValidationError
 from django.conf import settings
@@ -8,7 +8,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.utils import timezone
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-
+from matplotlib import pyplot
+from accounts.models import FileMissing
+from accounts.detect_face import detect_face
 
 class UserCacheMixin:
     user_cache = None
@@ -253,3 +255,21 @@ class RemindUsernameForm(UserCacheMixin, forms.Form):
         self.user_cache = user
 
         return email
+
+
+class MissingForm(forms.ModelForm):
+    img = forms.ImageField(label=_('Upload Image(s)'),widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    dob = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    date_of_missing = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    time_of_missing = forms.TimeField(widget=forms.TimeInput(attrs={'type':
+    'time'}))
+    state = forms.CharField(label=_(u"County"), widget=INStateSelect, max_length=50)
+    zip_code = INZipCodeField(label=_(u"Postcode"))
+    class Meta:
+        model = FileMissing
+        fields = ['img', 'first_name', 'last_name', 'dob', 
+        'date_of_missing','time_of_missing',
+        'street','area','city','state','zip_code']
+
+
+ 

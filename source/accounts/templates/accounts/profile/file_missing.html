@@ -1,0 +1,23 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+    <h4>{% trans 'Upload details of Person who went Missing' %}</h4>
+    {% if request.FILES %}  
+        <h3>Succesfully uploaded </h3>  
+        <img src="{{ request.FILES.img.url}}" alt="connect" style="max-height:300px">  
+    {% endif %}  
+    <form method="post" enctype="multipart/form-data" id="file-missing-form">
+
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <b-form-timepicker v-model="value" locale="en"></b-form-timepicker>
+        <button class="btn btn-success">{% trans 'Submit' %}</button>
+
+    </form>
+    {% endif %}
+
+{% endblock %}

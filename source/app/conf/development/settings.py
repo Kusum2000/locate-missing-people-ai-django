@@ -2,9 +2,10 @@ import os
 import warnings
 from django.utils.translation import gettext_lazy as _
 from os.path import dirname
-
+from django.utils.deprecation import RemovedInDjango41Warning
 warnings.simplefilter('error', DeprecationWarning)
-
+warnings.simplefilter('error', RemovedInDjango41Warning)
+warnings.filterwarnings("ignore", category=DeprecationWarning) 
 BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 CONTENT_DIR = os.path.join(BASE_DIR, 'content')
 
@@ -26,6 +27,7 @@ INSTALLED_APPS = [
     
     # Vendor apps
     'bootstrap4',
+    'localflavor',
 
     # Application apps
     'main',

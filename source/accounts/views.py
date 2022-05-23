@@ -1,3 +1,5 @@
+from re import template
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, REDIRECT_FIELD_NAME
 from django.contrib.auth.tokens import default_token_generator
@@ -6,6 +8,7 @@ from django.contrib.auth.views import (
     LogoutView as BaseLogoutView, PasswordChangeView as BasePasswordChangeView,
     PasswordResetDoneView as BasePasswordResetDoneView, PasswordResetConfirmView as BasePasswordResetConfirmView,
 )
+from django.forms import ValidationError
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.crypto import get_random_string
 from django.utils.decorators import method_decorator
@@ -16,18 +19,21 @@ from django.utils.translation import gettext_lazy as _
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
-from django.views.generic import View, FormView
+from django.views.generic import View, FormView, TemplateView
 from django.conf import settings
+from requests import request
+
+from accounts.detect_face import detect_face
 
 from .utils import (
     send_activation_email, send_reset_password_email, send_forgotten_username_email, send_activation_change_email,
 )
 from .forms import (
-    SignInViaUsernameForm, SignInViaEmailForm, SignInViaEmailOrUsernameForm, SignUpForm,
+    MissingForm, SignInViaUsernameForm, SignInViaEmailForm, SignInViaEmailOrUsernameForm, SignUpForm,
     RestorePasswordForm, RestorePasswordViaEmailOrUsernameForm, RemindUsernameForm,
     ResendActivationCodeForm, ResendActivationCodeViaEmailForm, ChangeProfileForm, ChangeEmailForm,
 )
-from .models import Activation
+from .models import Activation, FileMissing
 
 
 class GuestOnlyView(View):
@@ -37,6 +43,7 @@ class GuestOnlyView(View):
             return redirect(settings.LOGIN_REDIRECT_URL)
 
         return super().dispatch(request, *args, **kwargs)
+
 
 
 class LogInView(GuestOnlyView, FormView):
@@ -83,6 +90,7 @@ class LogInView(GuestOnlyView, FormView):
             return redirect(redirect_to)
 
         return redirect(settings.LOGIN_REDIRECT_URL)
+
 
 
 class SignUpView(GuestOnlyView, FormView):
@@ -202,6 +210,7 @@ class RestorePasswordView(GuestOnlyView, FormView):
         send_reset_password_email(self.request, user.email, token, uid)
 
         return redirect('accounts:restore_password_done')
+
 
 
 class ChangeProfileView(LoginRequiredMixin, FormView):
@@ -329,3 +338,34 @@ class RestorePasswordDoneView(BasePasswordResetDoneView):
 
 class LogOutView(LoginRequiredMixin, BaseLogoutView):
     template_name = 'accounts/log_out.html'
+
+
+class FileMissingView(LoginRequiredMixin, FormView):
+    template_name = 'accounts/profile/file_missing.html'
+    form_class= MissingForm
+    def form_valid(self, form):
+        request = self.request
+        image= request.FILES.get('img')
+        person = MissingForm(request.POST, request.FILES).save(commit=False)
+        
+        
+        faces = detect_face(image)
+        if faces==0:
+            messages.error(request,_('No face found in the Image.'))
+            return redirect('accounts:file_missing')
+        user = request.user
+        person.user_id = user.id
+        person.save()
+
+        messages.success(request, _('Your case has been submitted.'))
+
+        return redirect('accounts:file_missing')
+
+class ViewMissingView(LoginRequiredMixin,TemplateView):
+    template_name = 'accounts/profile/missing_list.html'
+
+class MatchView(LoginRequiredMixin,TemplateView):
+    template_name = 'accounts/profile/match.html'
+
+class ViewUsersView(LoginRequiredMixin,TemplateView):
+    template_name = 'accounts/profile/user_list.html'

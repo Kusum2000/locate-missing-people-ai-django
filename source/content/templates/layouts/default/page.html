@@ -1,4 +1,4 @@
-{% load static %}
+
 {% load bootstrap4 %}
 {% load i18n %}
 
@@ -7,19 +7,20 @@
 <!DOCTYPE html>
 <html lang="{{ language_code }}">
 <head>
+{% load static %}
 
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="An example of Django project with basic user functionality.">
-    <meta name="author" content="Yehor Smoliakov">
+    <meta name="author" content="Locating Missing People">
 
     <link rel="icon" href="{% static 'favicon.ico' %}">
 
     <title>Locate Missing People</title>
 
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -71,12 +72,12 @@
 
     <div class="navbar-collapse " id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto w-100 nav-justified">
-        <a class="nav-item nav-link" href="#">File Case</a>
-        <a class="nav-item nav-link" href="#">Missing Cases</a>
-        <a class="nav-item nav-link" href="#">Match</a>
+        <a class="nav-item nav-link" href="{% url 'accounts:file_missing' %}">File Case</a>
+        <a class="nav-item nav-link" href="{% url 'accounts:view_missing' %}">Missing Cases</a>
+        <a class="nav-item nav-link" href="{% url 'accounts:match_missing' %}">Match</a>
 
         {% if request.user.is_staff %}
-        <a class="nav-item nav-link" href="#">Users</a>
+        <a class="nav-item nav-link" href="{% url 'accounts:user_list' %}">Users</a>
         {% endif %}
 
       </div>
@@ -84,7 +85,7 @@
 </nav>
 {% endif %}
 
-<div class="container-fluid mt-3">
+<div class="col-md-6 offset-md-3">
 
     {% bootstrap_messages %}
 
