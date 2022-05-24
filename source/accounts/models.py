@@ -10,22 +10,28 @@ from django.core.files.storage import FileSystemStorage
 fs = FileSystemStorage(location='/media/missing/')
 
 class FileMissing(models.Model):
+    STATUS=(
+        ('Not found', 'Not found'),
+        ('Found', 'Found')
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    img = models.ImageField(upload_to='images/')
+    img_id = models.CharField(max_length=100,null=True)
+    img = models.ImageField(upload_to='missing/',null=True,blank=False)
 
-    first_name = models.CharField(_('First name'),max_length=30, blank=True)
-    last_name = models.CharField(_('Last name'),max_length=90, blank=True)
-    dob = models.DateField(_('Date of Birth'),blank=True)
-    date_of_missing = models.DateField(_('Date of Missing'))
-    time_of_missing = models.TimeField(_('Time of Missing'))
+    first_name = models.CharField(_('First name'),max_length=30, blank=False)
+    last_name = models.CharField(_('Last name'),max_length=90, blank=False)
+    dob = models.DateField(_('Date of Birth'),blank=False)
+    date_of_missing = models.DateField(_('Date of Missing'),blank=False)
+    time_of_missing = models.TimeField(_('Time of Missing'),blank=False)
 
     filed_at = models.DateTimeField(auto_now_add=True)
 
-    street = models.CharField(_("Street"), max_length=128)
-    area = models.CharField(_("Area"), max_length=128, blank=True)
-    city = models.CharField(_("City"), max_length=64, default="Bangalore")
-    state = INStateField(_("State"))
-    zip_code = models.CharField(_("Pin code"),max_length=6 )
+    street = models.CharField(_("Street"), max_length=128,blank=False)
+    area = models.CharField(_("Area"), max_length=128,blank=False)
+    city = models.CharField(_("City"), max_length=64, default="Bangalore",blank=False)
+    state = INStateField(_("State"),blank=False)
+    zip_code = models.CharField(_("Pin code"),max_length=6,blank=False )
+    status = models.CharField(max_length=20, null=True, choices=STATUS, default='Not found')
 
 
 class Activation(models.Model):

@@ -263,7 +263,7 @@ class MissingForm(forms.ModelForm):
     date_of_missing = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     time_of_missing = forms.TimeField(widget=forms.TimeInput(attrs={'type':
     'time'}))
-    state = forms.CharField(label=_(u"County"), widget=INStateSelect, max_length=50)
+    state = forms.CharField(label=_(u"State"), widget=INStateSelect, max_length=50)
     zip_code = INZipCodeField(label=_(u"Postcode"))
     class Meta:
         model = FileMissing

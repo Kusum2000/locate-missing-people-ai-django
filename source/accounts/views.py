@@ -1,4 +1,7 @@
 from re import template
+import cv2
+from PIL import Image
+import imutils
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, REDIRECT_FIELD_NAME
@@ -21,9 +24,10 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.generic import View, FormView, TemplateView
 from django.conf import settings
+import numpy as np
 from requests import request
 
-from accounts.detect_face import detect_face
+from accounts.detect_face import detect_face, FaceAligner
 
 from .utils import (
     send_activation_email, send_reset_password_email, send_forgotten_username_email, send_activation_change_email,
@@ -35,6 +39,7 @@ from .forms import (
 )
 from .models import Activation, FileMissing
 
+fa = FaceAligner(desiredFaceWidth=224)
 
 class GuestOnlyView(View):
     def dispatch(self, request, *args, **kwargs):
@@ -345,20 +350,33 @@ class FileMissingView(LoginRequiredMixin, FormView):
     form_class= MissingForm
     def form_valid(self, form):
         request = self.request
-        image= request.FILES.get('img')
-        person = MissingForm(request.POST, request.FILES).save(commit=False)
-        
-        
-        faces = detect_face(image)
-        if faces==0:
-            messages.error(request,_('No face found in the Image.'))
-            return redirect('accounts:file_missing')
+        images= request.FILES.getlist('img')
+        data = request.POST
         user = request.user
-        person.user_id = user.id
-        person.save()
+        for image in images:
+            faces = detect_face(image)
+            if len(faces)==0:
+                messages.error(request,_('No face found in the Image.'))
+                return redirect('accounts:file_missing')
+            person= FileMissing.objects.create(
+                user_id= user.id,
+                img_id = data['first_name']+data['last_name']+'_'+str(data['date_of_missing']),
+                img = image,
+                first_name = data['first_name'],
+                last_name = data['last_name'],
+                dob = data['dob'],
+                date_of_missing = data['date_of_missing'],
+                time_of_missing = data['time_of_missing'],
 
+                street = data['street'],
+                area = data['area'],
+                city = data['city'],
+                state = data['state'],
+                zip_code = data['zip_code'],
+            )
+            
+        
         messages.success(request, _('Your case has been submitted.'))
-
         return redirect('accounts:file_missing')
 
 class ViewMissingView(LoginRequiredMixin,TemplateView):
