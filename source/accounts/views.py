@@ -1,3 +1,4 @@
+import os
 from re import template
 import cv2
 from PIL import Image
@@ -358,22 +359,27 @@ class FileMissingView(LoginRequiredMixin, FormView):
             if len(faces)==0:
                 messages.error(request,_('No face found in the Image.'))
                 return redirect('accounts:file_missing')
-            person= FileMissing.objects.create(
-                user_id= user.id,
-                img_id = data['first_name']+data['last_name']+'_'+str(data['date_of_missing']),
-                img = image,
-                first_name = data['first_name'],
-                last_name = data['last_name'],
-                dob = data['dob'],
-                date_of_missing = data['date_of_missing'],
-                time_of_missing = data['time_of_missing'],
+            for face in faces:
+                person= FileMissing.objects.create(
+                    user_id= user.id,
+                    img_id = data['first_name']+data['last_name']+'_'+str(data['date_of_missing']),
+                    img = image,
+                    first_name = data['first_name'],
+                    last_name = data['last_name'],
+                    dob = data['dob'],
+                    date_of_missing = data['date_of_missing'],
+                    time_of_missing = data['time_of_missing'],
 
-                street = data['street'],
-                area = data['area'],
-                city = data['city'],
-                state = data['state'],
-                zip_code = data['zip_code'],
-            )
+                    street = data['street'],
+                    area = data['area'],
+                    city = data['city'],
+                    state = data['state'],
+                    zip_code = data['zip_code'],
+                )
+                print(person.img)
+                img = cv2.imread(settings.MEDIA_ROOT+'/'+ str(person.img))
+                aligned_img = fa.align(img, face['keypoints']['left_eye'], face['keypoints']['right_eye'])
+                cv2.imwrite(settings.MEDIA_ROOT+'/'+str(person.img),aligned_img)
             
         
         messages.success(request, _('Your case has been submitted.'))
