@@ -1,3 +1,4 @@
+django
 django_forms_bootstrap
 django-bootstrap4
 Pillow
