@@ -1,11 +1,12 @@
 
 from django.urls import path
 
+
 from .views import (
     LogInView, MatchView, ResendActivationCodeView, RemindUsernameView, SignUpView, ActivateView, LogOutView,
     ChangeEmailView, ChangeEmailActivateView, ChangeProfileView, ChangePasswordView,
     RestorePasswordView, RestorePasswordDoneView, RestorePasswordConfirmView,
-    FileMissingView, ViewMissingView, ViewUsersView,
+    FileMissingView, ViewMissingView, ViewUsersView, video_stream,
 )
 
 app_name = 'accounts'
@@ -33,5 +34,6 @@ urlpatterns = [
     path('missing/file', FileMissingView.as_view(), name='file_missing'),
     path('missing/view', ViewMissingView.as_view(), name='view_missing'),
     path('missing/match', MatchView.as_view(), name='match_missing'),
+    path('monitor/', video_stream, name='monitor'),
     path('user-list/', ViewUsersView.as_view(), name='user_list'),
 ]

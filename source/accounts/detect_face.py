@@ -7,7 +7,7 @@ from imutils import face_utils
 import matplotlib.pyplot as plt
 import numpy as np
 import cv2
-
+detector = MTCNN()
 class FaceAligner:
     def __init__(self, desiredLeftEye=(0.31, 0.31),
         desiredFaceWidth=224, desiredFaceHeight=None):
@@ -62,7 +62,7 @@ class FaceAligner:
 
 def detect_face(img):
     pixels = pyplot.imread(img)
-    detector = MTCNN()
+    
     faces = detector.detect_faces(pixels)
     #print(faces)
     return faces

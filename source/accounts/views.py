@@ -2,6 +2,7 @@ import os
 from re import template
 import cv2
 from PIL import Image
+from django.http.response import StreamingHttpResponse
 import imutils
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -29,6 +30,7 @@ import numpy as np
 from requests import request
 
 from accounts.detect_face import detect_face, FaceAligner
+from accounts.camera import VideoCamera
 
 from .utils import (
     send_activation_email, send_reset_password_email, send_forgotten_username_email, send_activation_change_email,
@@ -354,11 +356,16 @@ class FileMissingView(LoginRequiredMixin, FormView):
         images= request.FILES.getlist('img')
         data = request.POST
         user = request.user
+        face_list=[]
         for image in images:
             faces = detect_face(image)
+            face_list.append((faces, image))
+        for faces, image in face_list:
             if len(faces)==0:
                 messages.error(request,_('No face found in the Image.'))
                 return redirect('accounts:file_missing')
+        for faces,image in face_list:
+            
             for face in faces:
                 person= FileMissing.objects.create(
                     user_id= user.id,
@@ -388,8 +395,21 @@ class FileMissingView(LoginRequiredMixin, FormView):
 class ViewMissingView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/missing_list.html'
 
+def gen(camera):
+        while True:
+            frame = camera.get_frame()
+            yield (b'--frame\r\n'
+                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+def video_stream(request):
+        return StreamingHttpResponse(gen(VideoCamera()),
+                        content_type='multipart/x-mixed-replace; boundary=frame')
+
 class MatchView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/match.html'
+    
+    
+
 
 class ViewUsersView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/user_list.html'

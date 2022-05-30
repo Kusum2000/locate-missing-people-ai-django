@@ -6,6 +6,8 @@
 {% block content %}
     <p>Common page for all</p>
     {% if request.user.is_authenticated %}
+    <h1> Live Video Stream </h1>
+    <img src = "{% url 'accounts:monitor' %}" alt="video stream">
         {% if request.user.is_staff %}
         <p>Admin matching case</p>
         {% else %}

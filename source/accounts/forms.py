@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.utils import timezone
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
-from matplotlib import pyplot
+from matplotlib import pyplot, widgets
 from accounts.models import FileMissing
 from accounts.detect_face import detect_face
 
@@ -258,18 +258,19 @@ class RemindUsernameForm(UserCacheMixin, forms.Form):
 
 
 class MissingForm(forms.ModelForm):
-    img = forms.ImageField(label=_('Upload Image(s)'),widget=forms.ClearableFileInput(attrs={'multiple': True}))
-    dob = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    img = forms.ImageField(label=_('Upload clear Face(s) of the missing person'),widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    dob = forms.DateField(label=_('Date of Birth'), widget=forms.DateInput(attrs={'type': 'date'}))
     date_of_missing = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     time_of_missing = forms.TimeField(widget=forms.TimeInput(attrs={'type':
     'time'}))
+    extra_info = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Unique features of the person. Eg, scars, moles, cloth last worn, height, etc.'   }))
     state = forms.CharField(label=_(u"State"), widget=INStateSelect, max_length=50)
     zip_code = INZipCodeField(label=_(u"Postcode"))
     class Meta:
         model = FileMissing
-        fields = ['img', 'first_name', 'last_name', 'dob', 
-        'date_of_missing','time_of_missing',
-        'street','area','city','state','zip_code']
+        fields = ('img', 'first_name', 'last_name','gender', 'dob', 
+        'date_of_missing','time_of_missing', 'extra_info',
+        'street','area','city','state','zip_code')
 
 
  

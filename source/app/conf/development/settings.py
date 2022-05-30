@@ -6,6 +6,7 @@ from django.utils.deprecation import RemovedInDjango41Warning
 warnings.simplefilter('error', DeprecationWarning)
 warnings.simplefilter('error', RemovedInDjango41Warning)
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
+
 BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 CONTENT_DIR = os.path.join(BASE_DIR, 'content')
 

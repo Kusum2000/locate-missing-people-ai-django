@@ -74,7 +74,7 @@
       <div class="navbar-nav mx-auto w-100 nav-justified">
         <a class="nav-item nav-link" href="{% url 'accounts:file_missing' %}">File Case</a>
         <a class="nav-item nav-link" href="{% url 'accounts:view_missing' %}">Missing Cases</a>
-        <a class="nav-item nav-link" href="{% url 'accounts:match_missing' %}">Match</a>
+        <a class="nav-item nav-link" href="{% url 'accounts:match_missing' %}">Live Tracking</a>
 
         {% if request.user.is_staff %}
         <a class="nav-item nav-link" href="{% url 'accounts:user_list' %}">Users</a>
