@@ -25,14 +25,14 @@ class FileMissing(models.Model):
         ('Female', 'Female'),
         ('Other', 'Other'),
     )
-    gender = models.CharField(_('Sex'),max_length=6, choices=GENDER_CHOICES,null=True,blank=False)
+    gender = models.CharField(_('Sex'),max_length=6, choices=GENDER_CHOICES,blank=False)
     dob = models.DateField(blank=False)
     date_of_missing = models.DateField(_('Date of Missing'),blank=False)
     time_of_missing = models.TimeField(_('Time of Missing'),blank=False)
 
     filed_at = models.DateTimeField(null=True,auto_now_add=True)
 
-    extra_info = models.TextField(_("Addition Info"),max_length=200, blank=False,null=True)
+    extra_info = models.TextField(_("Addition Info"),max_length=200, blank=False)
     street = models.CharField(_("Street"), max_length=128,blank=False)
     area = models.CharField(_("Area"), max_length=128,blank=False)
     city = models.CharField(_("City"), max_length=64, default="Bangalore",blank=False)

@@ -30,7 +30,6 @@ import numpy as np
 from requests import request
 
 from accounts.detect_face import detect_face, FaceAligner
-from accounts.camera import VideoCamera
 
 from .utils import (
     send_activation_email, send_reset_password_email, send_forgotten_username_email, send_activation_change_email,
@@ -395,6 +394,19 @@ class FileMissingView(LoginRequiredMixin, FormView):
 class ViewMissingView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/missing_list.html'
 
+class VideoCamera(object):
+    def __init__(self):
+        self.cap = cv2.VideoCapture(0)
+    def __del__(self):
+        self.cap.release()
+    def get_frame(self):
+        ret, frame = self.cap.read()
+        missing_labels= FileMissing.objects.values_list('img_id', flat=True)
+        missing_imgs= FileMissing.objects.values_list('img', flat=True)
+        print(missing_imgs,missing_labels)
+        frame_flip = cv2.flip(frame, 1)
+        ret, frame = cv2.imencode('.jpg', frame_flip)
+        return frame.tobytes()
 def gen(camera):
         while True:
             frame = camera.get_frame()
