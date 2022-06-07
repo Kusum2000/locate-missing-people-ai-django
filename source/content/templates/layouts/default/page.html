@@ -17,28 +17,281 @@
     <link rel="icon" href="{% static 'favicon.ico' %}">
 
     <title>Locate Missing People</title>
-
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Alex Brush' rel='stylesheet'>
+    
+    <style>
+        div.transbox {
+        margin-left : 280px;
+        margin-right : 280px;
+        margin-top : 40px;
+        margin-bottom : 40px;
+        background-color: #ffffff;
+        opacity: 0.6;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-top : 5%;
+        padding-bottom : 5%;
+        padding-left : 6%;
+        padding-right : 6%;
+        }
+        
+        blockquote {
+        font-size: 2em;
+        line-height: 1.5em;
+        font-family:  'Sofia';
+        }
 
+        blockquote:before {
+        content: open-quote;
+        }
+
+        blockquote:after {
+        content: close-quote;
+        }
+
+        blockquote:before,
+        blockquote:after {
+        display: inline-block;
+        vertical-align: bottom;
+        color: orange;
+        font-size: 4em;
+        top: .2em;
+        position: relative;
+        }
+        
+        .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(60, 65, 74);
+        color: white;
+        text-align: center;
+        }
+        
+        div.cardstyle {
+        background-color: #8d5d5de5;
+        text-align: center;
+        font-family: Courier New ;
+        color: rgb(204, 180, 160) ;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-top : 5%;
+        padding-bottom : 5%;
+        padding-left : 6%;
+        padding-right : 6%;
+        }
+
+
+
+
+        
+        
+
+        body{
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-wrap: wrap;
+        background: linear-gradient(to bottom right, rgba(143, 55, 55, 0.752), rgb(187, 69, 69), rgb(90, 28, 28));
+        }
+
+        .lbox{
+        min-height: 575px;
+        float:20px;
+        font-size: 20px;
+        width: 275px;
+        margin: 2rem;
+        border-radius: 15px;
+        background: #8d5d5de5;
+        }
+
+        .lbox .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3rem;
+        color: rgba(62, 18, 18, 0.634);
+        }
+
+        .lbox .header .title{
+        font-weight: 600;
+        }
+
+        .one .sort{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 14.1px;
+        }
+
+        .one .sort .day{
+        padding: 0.4rem 1.2rem;
+        margin: 0 0.1rem;
+        cursor: pointer;
+        }
+
+        .one .sort .day.active,
+        .one .sort .day:active{
+        background: rgb(206, 166, 118);
+        border-radius: 25px;
+        }
+
+        ::selection{
+        background: rgba(178, 126, 49, 0.959);
+        }
+
+        .photo{
+        width: 75px;
+        background: rgb(215, 164, 44);
+        border-radius: 50%;
+        border: 5px solid rgb(215, 164, 44);
+        box-shadow: 0 0 20px rgba(242, 198, 192, 0.958);
+        margin: 1rem 0;
+        }
+
+        .main{
+        width: 100px;
+        }
+
+        .profile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2.7rem;
+        }
+
+        .profile .person{
+        display: flex;
+        margin: 1rem 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        }
+
+        .profile .person.first{
+        z-index: 10;
+        transform: translateY(-25%);
+        }
+
+        .profile .person.first .photo{
+        background: rgb(235, 197, 107);
+        border: 5px solid rgb(235, 197, 107);
+        box-shadow: 0 0 20px white;
+        }
+
+        .first .fa-crown{
+        color: gold;
+        filter: drop-shadow(0px 0px 5px gold);
+        }
+
+        .num{
+        color: white;
+        }
+
+        .fa-caret-up{
+        color: rgb(255, 255, 252);
+        font-size: 21px;
+        }
+
+        .link{
+        margin: 0.2rem 0;
+        color: #fff;
+        margin-top: -0.3rem;
+        font-size: 13px;
+        }
+
+        .points{
+        color: rgba(62, 18, 18, 0.634);
+        font-size: 20px;
+        }
+
+        .second{
+        margin-right: -0.7rem !important;
+        }
+
+        .third{
+        margin-left: -0.7rem !important;
+        }
+
+        .p_img{
+        width: 50px;
+        background: #fff;
+        border-radius: 50%;
+        }
+
+        .flex{
+        display: flex;
+        align-items: center;
+        }
+
+        .others{
+        display: flex;
+        width: 100%;
+        margin-top: 1rem;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 30px;
+        background: rgba(210, 255, 213, 0.3);
+        }
+
+        .info .points{
+        margin-left: 0.2rem;
+        margin-right: 1.2rem;
+        }
+
+        .info .link{
+        margin: 0 1rem;
+        }
+
+        .rank{
+        display: flex;
+        align-items: center;
+        margin: 0 1rem;
+        flex-direction: column-reverse;
+        }
+
+        .rank i{
+        margin-top: -5px !important;
+        }
+
+        .rank .num{
+        margin: 0 !important; 
+        } 
+
+
+
+
+
+
+    </style>
+        
 </head>
 
-<body style=" background-image: url('media/loginwindowphoto1.jpg');
-background-repeat: no-repeat;
-background-size: 100%;">
+<body style=" background-image: url('media/bghugpicture.jpeg');
+background-repeat: 100%;
+background-size: 90%;
+background-color: white;">
 
     
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand" href="/">{% trans 'Home' %}</a>
+    <a class="navbar-brand" href="/">{% trans "Find'eM" %}</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'change_language' %}">{% trans 'Change language' %}</a>
             </li>
@@ -108,5 +361,6 @@ background-size: 100%;">
 
 <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
 
+    
 </body>
 </html>
