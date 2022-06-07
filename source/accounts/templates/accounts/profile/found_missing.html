@@ -1,0 +1,21 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">  
+    <h4>{% trans 'Upload Found Person Details' %}</h4>
+
+    <form method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        {% bootstrap_form form %}
+
+        <button class="btn btn-primary">{% trans 'Start Matching' %}</button>
+
+    </form>
+
+   
+</div>  
+{% endblock %}

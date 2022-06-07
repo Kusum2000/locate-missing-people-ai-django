@@ -1,5 +1,8 @@
+from cProfile import label
 from datetime import timedelta
+from django_countries import CountryCode
 from localflavor.in_.forms import INStateSelect, INZipCodeField
+from phonenumber_field.formfields import PhoneNumberField
 from django import forms
 from django.forms import ValidationError
 from django.conf import settings
@@ -9,8 +12,10 @@ from django.utils import timezone
 from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 from matplotlib import pyplot, widgets
-from accounts.models import FileMissing
+from phonenumbers import PhoneNumberType, region_code_for_number
+from accounts.models import FileMissing, Found
 from accounts.detect_face import detect_face
+
 
 class UserCacheMixin:
     user_cache = None
@@ -273,4 +278,12 @@ class MissingForm(forms.ModelForm):
         'street','area','city','state','zip_code')
 
 
- 
+class FoundForm(forms.ModelForm):
+    img = forms.ImageField(label=_('Upload clear Face of the missing person'))
+    phone_number = PhoneNumberField(label=_('Enter your Contact Number'), region='IN')
+    state = forms.CharField(label=_(u"State"), widget=INStateSelect, max_length=50)
+    zip_code = INZipCodeField(label=_(u"Postcode"))
+
+    class Meta:
+        model = Found
+        fields = ('img','phone_number','street','area','city','state','zip_code')

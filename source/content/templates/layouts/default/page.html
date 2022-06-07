@@ -20,22 +20,297 @@
     <title>Locate Missing People</title>
 
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <style>
+        div.transbox {
+        margin-left : 280px;
+        margin-right : 280px;
+        margin-top : 40px;
+        margin-bottom : 40px;
+        background-color: #ffffff;
+        opacity: 0.6;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-top : 5%;
+        padding-bottom : 5%;
+        padding-left : 6%;
+        padding-right : 6%;
+        }
+        
+        blockquote {
+        font-size: 2em;
+        line-height: 1.5em;
+        font-family:  'Sofia';
+        }
+
+        blockquote:before {
+        content: open-quote;
+        }
+
+        blockquote:after {
+        content: close-quote;
+        }
+
+        blockquote:before,
+        blockquote:after {
+        display: inline-block;
+        vertical-align: bottom;
+        color: orange;
+        font-size: 4em;
+        top: .2em;
+        position: relative;
+        }
+        
+        .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(60, 65, 74);
+        color: rgba(229, 229, 229, 0.659);
+        text-align: center;
+        }
+        
+        div.cardstyle {
+        background-color: #8d5d5de5;
+        text-align: center;
+        font-family: Courier New ;
+        color: rgb(204, 180, 160) ;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-top : 5%;
+        padding-bottom : 5%;
+        padding-left : 6%;
+        padding-right : 6%;
+        }
+        p.steps-p{
+            color:rgb(118, 52, 5) ;
+          text-align: center;
+          font-weight: 500;
+          font-size: 30px; 
+          padding-top: 50px;
+          font-family: Courier New;
+        }
+        .steps-ol{
+            color:rgb(163, 145, 54) ;
+            font-weight: 500;
+            font-size: 30px; 
+            padding-top: 40px;
+            padding-left: 90px;
+            font-family: Courier New;
+        }
+
+        .navbar-custom {
+        background-color: rgba(240, 240, 240, 0.738);
+        }
+        /* change the brand and text color */
+        
+        /* change the link color */
+        .navbar-custom .navbar-nav .nav-link {
+            color: rgba(54, 54, 54, 0.699);
+        }
+        /* change the color of active or hovered links */
+        .navbar-custom  .nav-item.active .nav-link:active,
+        .navbar-custom .nav-link:hover {
+            color: black;
+        }
+
+        body{
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-wrap: wrap;
+        background: linear-gradient(to bottom right, rgba(143, 55, 55, 0.752), rgb(107, 47, 47), rgb(90, 28, 28));
+        }
+        .block-div{
+            margin-top: 2em;
+        }
+
+        .lbox{
+        min-height: 575px;
+        float:20px;
+        font-size: 20px;
+        width: 275px;
+        margin: 2rem;
+        border-radius: 15px;
+        background: #8d5d5de5;
+        }
+
+        .lbox .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3rem;
+        color: rgba(62, 18, 18, 0.634);
+        }
+
+        .lbox .header .title{
+        font-weight: 600;
+        }
+
+        .one .sort{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 14.1px;
+        }
+
+        .one .sort .day{
+        padding: 0.4rem 1.2rem;
+        margin: 0 0.1rem;
+        cursor: pointer;
+        }
+
+        .one .sort .day.active,
+        .one .sort .day:active{
+        background: rgb(206, 166, 118);
+        border-radius: 25px;
+        }
+
+        ::selection{
+        background: rgba(178, 126, 49, 0.959);
+        }
+
+        .photo{
+        width: 75px;
+        background: rgb(215, 164, 44);
+        border-radius: 50%;
+        border: 5px solid rgb(215, 164, 44);
+        box-shadow: 0 0 20px rgba(242, 198, 192, 0.958);
+        margin: 1rem 0;
+        }
+
+        .main{
+        width: 100px;
+        }
+
+        .profile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2.7rem;
+        }
+
+        .profile .person{
+        display: flex;
+        margin: 1rem 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        }
+
+        .profile .person.first{
+        z-index: 10;
+        transform: translateY(-25%);
+        }
+
+        .profile .person.first .photo{
+        background: rgb(235, 197, 107);
+        border: 5px solid rgb(235, 197, 107);
+        box-shadow: 0 0 20px white;
+        }
+
+        .first .fa-crown{
+        color: gold;
+        filter: drop-shadow(0px 0px 5px gold);
+        }
+
+        .num{
+        color: white;
+        }
+
+        .fa-caret-up{
+        color: rgb(253, 253, 247);
+        font-size: 21px;
+        }
+
+        .link{
+        margin: 0.7rem 0;
+        color: #fff;
+        margin-top: -0.3rem;
+        font-size: 13px;
+        }
+
+        .points{
+        color: rgba(62, 18, 18, 0.634);
+        font-size: 20px;
+        }
+
+        .second{
+        margin-right: -0.7rem !important;
+        }
+
+        .third{
+        margin-left: -0.7rem !important;
+        }
+
+        .p_img{
+        width: 50px;
+        background: #fff;
+        border-radius: 50%;
+        }
+
+        .flex{
+        display: flex;
+        align-items: center;
+        }
+
+        .others{
+        display: flex;
+        width: 100%;
+        margin-top: 2rem;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 30px;
+        background: rgba(205, 131, 111, 0.3);
+        }
+
+        .info .points{
+        margin-left: 0.2rem;
+        margin-right: 1.2rem;
+        }
+
+        .info .link{
+        margin: 0 1rem;
+        }
+
+        .rank{
+        display: flex;
+        align-items: center;
+        margin: 0 1rem;
+        flex-direction: column-reverse;
+        }
+
+        .rank i{
+        margin-top: -5px !important;
+        }
+
+        .rank .num{
+        margin: 0 !important; 
+        } 
+
+    </style>
 
 </head>
 
-<body>
+<body style=" background-image: url('media/bghugpicture.jpeg');
+background-repeat: 100%;
+background-size: 90%;">
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark static-top">
-
-    <a class="navbar-brand" href="/">{% trans 'Home' %}</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark  static-top">
+    
+    <a class="navbar-brand" href="/"><b>Find'eM</b></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'change_language' %}">{% trans 'Change language' %}</a>
             </li>
@@ -62,22 +337,28 @@
         </ul>
 
         <ul class="navbar-nav">
-            <a class="navbar-brand" href="/"><b>{{ request.user.username }}</b></a>
+            <a class="navbar-brand" href="/">{{ request.user.username }}</a>
         </ul>
     </div>
 
 </nav>
 {% if request.user.is_authenticated %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light w-100 justified">
+<nav class="navbar navbar-expand-lg navbar-custom  w-100 justified">
 
     <div class="navbar-collapse " id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto w-100 nav-justified">
-        <a class="nav-item nav-link" href="{% url 'accounts:file_missing' %}">File Case</a>
-        <a class="nav-item nav-link" href="{% url 'accounts:view_missing' %}">Missing Cases</a>
-        <a class="nav-item nav-link" href="{% url 'accounts:match_missing' %}">Live Tracking</a>
+        <li class="nav-item">
+        <a class="nav-item nav-link" href="{% url 'accounts:file_missing' %}">File Case</a></li>
+        <li class="nav-item">
+        <a class="nav-item nav-link" href="{% url 'accounts:view_missing' %}">Missing Cases</a></li>
+        <li class="nav-item">
+        <a class="nav-item nav-link" href="{% url 'accounts:found_missing' %}">Find Match</a></li>
+        <li class="nav-item">
+        <a class="nav-item nav-link" href="{% url 'accounts:match_missing' %}">Live Tracking</a></li>
 
         {% if request.user.is_staff %}
-        <a class="nav-item nav-link" href="{% url 'accounts:user_list' %}">Users</a>
+        <li class="nav-item">
+        <a class="nav-item nav-link" href="{% url 'accounts:user_list' %}">Users</a></li>
         {% endif %}
 
       </div>
@@ -85,12 +366,12 @@
 </nav>
 {% endif %}
 
-<div class="col-md-6 offset-md-3">
+<div class="block-div">
 
     {% bootstrap_messages %}
 
     {% block content %}
-        No content.
+        
     {% endblock %}
 
 </div>

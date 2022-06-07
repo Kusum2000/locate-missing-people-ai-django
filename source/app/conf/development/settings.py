@@ -11,7 +11,7 @@ BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 CONTENT_DIR = os.path.join(BASE_DIR, 'content')
 
 SECRET_KEY = 'NhfTvayqggTBPswCXXhWaN69HuglgZIkM'
-
+PHONENUMBER_DEFAULT_REGION='IN'
 DEBUG = True
 ALLOWED_HOSTS = []
 
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # Vendor apps
     'bootstrap4',
     'localflavor',
+    'phonenumber_field',
 
     # Application apps
     'main',
@@ -57,6 +58,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.media',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -119,6 +121,8 @@ USE_L10N = True
 LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('en', _('English')),
+    ('hi',_('Hindi')),
+    ('kn',_('Kannada')),
     ('ru', _('Russian')),
     ('zh-Hans', _('Simplified Chinese')),
     ('fr', _('French')),

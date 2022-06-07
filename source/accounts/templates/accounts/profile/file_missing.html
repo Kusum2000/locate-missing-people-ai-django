@@ -5,6 +5,7 @@
 
 {% block content %}
     {% if request.user.is_authenticated %}
+    <div class="col-md-6 offset-md-3">
     <h4>{% trans 'Upload details of Person who went Missing' %}</h4>
     {% if request.FILES %}  
         <h3>Succesfully uploaded </h3>  
@@ -19,5 +20,5 @@
 
     </form>
     {% endif %}
-
+    </div>
 {% endblock %}

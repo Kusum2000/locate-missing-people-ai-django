@@ -9,7 +9,7 @@ import numpy as np
 import cv2
 detector = MTCNN()
 class FaceAligner:
-    def __init__(self, desiredLeftEye=(0.31, 0.31),
+    def __init__(self, desiredLeftEye=(0.30, 0.30),
         desiredFaceWidth=224, desiredFaceHeight=None):
         # store the facial landmark predictor, desired output left
         # eye position, and desired output face width + height

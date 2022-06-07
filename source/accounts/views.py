@@ -6,6 +6,7 @@ from django.http.response import StreamingHttpResponse
 import imutils
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.db.models.expressions import RawSQL
 from django.contrib.auth import login, authenticate, REDIRECT_FIELD_NAME
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -13,8 +14,9 @@ from django.contrib.auth.views import (
     LogoutView as BaseLogoutView, PasswordChangeView as BasePasswordChangeView,
     PasswordResetDoneView as BasePasswordResetDoneView, PasswordResetConfirmView as BasePasswordResetConfirmView,
 )
+from django.db.models import Count
 from django.forms import ValidationError
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.crypto import get_random_string
 from django.utils.decorators import method_decorator
 from django.utils.http import url_has_allowed_host_and_scheme
@@ -28,18 +30,20 @@ from django.views.generic import View, FormView, TemplateView
 from django.conf import settings
 import numpy as np
 from requests import request
+import matplotlib.pyplot as plt
 
 from accounts.detect_face import detect_face, FaceAligner
+from accounts.match_face import preprocess,feature_extraction, encode_img, match_faces
 
 from .utils import (
     send_activation_email, send_reset_password_email, send_forgotten_username_email, send_activation_change_email,
 )
 from .forms import (
-    MissingForm, SignInViaUsernameForm, SignInViaEmailForm, SignInViaEmailOrUsernameForm, SignUpForm,
+    FoundForm, MissingForm, SignInViaUsernameForm, SignInViaEmailForm, SignInViaEmailOrUsernameForm, SignUpForm,
     RestorePasswordForm, RestorePasswordViaEmailOrUsernameForm, RemindUsernameForm,
     ResendActivationCodeForm, ResendActivationCodeViaEmailForm, ChangeProfileForm, ChangeEmailForm,
 )
-from .models import Activation, FileMissing
+from .models import Activation, FileMissing, Found
 
 fa = FaceAligner(desiredFaceWidth=224)
 
@@ -347,9 +351,55 @@ class LogOutView(LoginRequiredMixin, BaseLogoutView):
     template_name = 'accounts/log_out.html'
 
 
+class FoundMissingView(LoginRequiredMixin, FormView):
+    template_name= 'accounts/profile/found_missing.html'
+    form_class= FoundForm
+    img_list=[]
+    label_list = []
+    
+    missing_imgs = FileMissing.objects.values('img')
+    missing_labels = FileMissing.objects.values('img_id')
+    for img in missing_imgs:
+        img_list.append(img['img'])
+    for img_id in missing_labels:
+        label_list.append(img_id['img_id'])
+
+    def form_valid(self, form):
+        request = self.request
+        missing_imgs = self.img_list
+        missing_labels= self.label_list
+        # Change the password
+        #form.save()
+        img= request.FILES.get('img')
+        print(img.name)
+        img_save_path =  settings.MEDIA_ROOT+'/check/'+img.name
+        with open(img_save_path, 'wb+') as f:
+            for chunk in img.chunks():
+                f.write(chunk)
+        faces = detect_face(img)
+        
+        aligned_img = fa.align(cv2.imread(img_save_path), faces[0]['keypoints']['left_eye'], faces[0]['keypoints']['right_eye'])
+
+        final_img_list, labels_encoded, final_labels_list = preprocess(settings.MEDIA_ROOT, missing_imgs,missing_labels,aligned_img)
+        #print(final_img_list)
+        encoded_predict_img = encode_img(labels_encoded,aligned_img)
+        encoded_missing_imgs= feature_extraction(final_img_list,labels_encoded)
+        predicted_person,predicted_img = match_faces(encoded_missing_imgs,encoded_predict_img,final_labels_list)
+        print(predicted_person,predicted_img)
+
+        messages.success(self.request, _('You have found a missing person!'))
+
+        return render(request,'accounts/profile/found_missing.html', {'form': form})
+
 class FileMissingView(LoginRequiredMixin, FormView):
     template_name = 'accounts/profile/file_missing.html'
     form_class= MissingForm
+    missing_labels= FileMissing.objects.values_list('img_id', flat=True)
+    missing_imgs= FileMissing.objects.values_list('img', flat=True)
+    #for i in range(len(missing_labels)):
+        #print("'{}'".format(missing_labels[i]))
+    #for i in range(len(missing_labels)):
+        #print("'{}'".format(missing_imgs[i]))
     def form_valid(self, form):
         request = self.request
         images= request.FILES.getlist('img')
@@ -361,12 +411,12 @@ class FileMissingView(LoginRequiredMixin, FormView):
             face_list.append((faces, image))
         for faces, image in face_list:
             if len(faces)==0:
-                messages.error(request,_('No face found in the Image.'))
+                messages.error(request,_(str(len(faces))+' face(s) found in the Image: '+ str(image)))
                 return redirect('accounts:file_missing')
         for faces,image in face_list:
             
-            for face in faces:
-                person= FileMissing.objects.create(
+            face=faces[0]
+            person= FileMissing.objects.create(
                     user_id= user.id,
                     img_id = data['first_name']+data['last_name']+'_'+str(data['date_of_missing']),
                     img = image,
@@ -375,6 +425,7 @@ class FileMissingView(LoginRequiredMixin, FormView):
                     dob = data['dob'],
                     date_of_missing = data['date_of_missing'],
                     time_of_missing = data['time_of_missing'],
+                    extra_info = data['extra_info'],
 
                     street = data['street'],
                     area = data['area'],
@@ -382,17 +433,17 @@ class FileMissingView(LoginRequiredMixin, FormView):
                     state = data['state'],
                     zip_code = data['zip_code'],
                 )
-                print(person.img)
-                img = cv2.imread(settings.MEDIA_ROOT+'/'+ str(person.img))
-                aligned_img = fa.align(img, face['keypoints']['left_eye'], face['keypoints']['right_eye'])
-                cv2.imwrite(settings.MEDIA_ROOT+'/'+str(person.img),aligned_img)
+            print(person.img)
+            img = cv2.imread(settings.MEDIA_ROOT+'/'+ str(person.img))
+            aligned_img = fa.align(img, face['keypoints']['left_eye'], face['keypoints']['right_eye'])
+            cv2.imwrite(settings.MEDIA_ROOT+'/'+str(person.img),aligned_img)
             
         
         messages.success(request, _('Your case has been submitted.'))
         return redirect('accounts:file_missing')
 
-class ViewMissingView(LoginRequiredMixin,TemplateView):
-    template_name = 'accounts/profile/missing_list.html'
+
+    
 
 class VideoCamera(object):
     def __init__(self):
@@ -421,7 +472,23 @@ class MatchView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/match.html'
     
     
+class ViewMissingView(LoginRequiredMixin,TemplateView):
+    template_name = 'accounts/profile/missing_list.html'
 
+    raw = 'Select date_of_missing-dob from accounts_filemissing u where u.id=accounts_filemissing.id'
+    path = settings.MEDIA_ROOT
+    missing_cases = FileMissing.objects.filter(status='Not found').order_by('-date_of_missing').values('img_id','img')
+    unique_missing = FileMissing.objects.values('img_id','user_id', 'first_name',
+    'last_name','gender', 'dob', 
+        'date_of_missing','time_of_missing', 'extra_info',
+        'street','area','city','state','zip_code').annotate(total_filed=Count('img_id'),age=RawSQL(raw, ())).order_by('-date_of_missing','time_of_missing')
+    found_cases = Found.objects.values('user_id','img_id').annotate(total_filed=Count('img_id')).order_by()
+    #print(unique_missing)
+    extra_context={'individual_cases':unique_missing,'missing_cases':missing_cases, 'path':path}
 
 class ViewUsersView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/user_list.html'
+    users=User.objects.all()
+    missing_cases = FileMissing.objects.values('user_id','img_id','status').annotate(total_filed=Count('user_id')).order_by('-date_of_missing')
+    found_cases = Found.objects.values('user_id','img_id').annotate(total_filed=Count('img_id')).order_by()
+    extra_context={'users':users,'missing':missing_cases,'found':found_cases}

@@ -6,8 +6,20 @@ from django.contrib.auth.models import User
 from localflavor.in_.models import INStateField
 from django.utils.translation import gettext as _
 from django.core.files.storage import FileSystemStorage
+from phonenumber_field.modelfields import PhoneNumberField
 
-fs = FileSystemStorage(location='/media/missing/')
+class Found(models.Model):
+    user_id = models.CharField(max_length=100,blank=False)
+    img_id = models.CharField(max_length=100, blank=False)
+    img = models.ImageField(upload_to='found/',null=True,blank=False)
+    found_at = models.DateTimeField(null=True,auto_now_add=True)
+    phone_number = PhoneNumberField(blank=False)
+    street = models.CharField(_("Street"), max_length=128,blank=False)
+    area = models.CharField(_("Area"), max_length=128,blank=False)
+    city = models.CharField(_("City"), max_length=64, default="Bangalore",blank=False)
+    state = INStateField(_("State"),blank=False)
+    zip_code = models.CharField(_("Pin code"),max_length=6,blank=False )
+
 
 class FileMissing(models.Model):
     STATUS=(
@@ -32,7 +44,7 @@ class FileMissing(models.Model):
 
     filed_at = models.DateTimeField(null=True,auto_now_add=True)
 
-    extra_info = models.TextField(_("Addition Info"),max_length=200, blank=False)
+    extra_info = models.TextField(_("Addition Info"),max_length=180, blank=False)
     street = models.CharField(_("Street"), max_length=128,blank=False)
     area = models.CharField(_("Area"), max_length=128,blank=False)
     city = models.CharField(_("City"), max_length=64, default="Bangalore",blank=False)

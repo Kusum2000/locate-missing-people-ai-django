@@ -3,18 +3,151 @@
 {% load i18n %}
 
 {% block content %}
-    <p>Common page for all</p>
-    {% if request.user.is_authenticated %}
-        {% if request.user.is_staff %}
-        
-        {% else %}
-        {% trans 'Your username is' %} <b>{{ request.user.username }}</b>.
-        
-        {% endif %}
-    {% else %}
+<h1 style="color:rgb(118, 52, 5) ;
+    text-align: center; 
+    font-family: Courier New;"><b>What we do?</b><br/></h1>
+    
 
-        {% trans 'You are a guest.' %}
-        <p>home page when not logged in</p>
-    {% endif %}
 
+    <div class="transbox">
+       <blockquote>India is witnessing a shocking trend in the number of cases
+        of missing children, women and men being reported across the country.
+        At this time and age, we see that face recognition  is used in various streams and platforms. 
+        We have set out with an objective, 
+        "To Create A Robust And Efficient Face Recognition To Find People Missing Or Lost"</blockquote>
+    </div>
+    
+    <div class="row">
+      <div style="width:74%; margin-left: 26px; ">  
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="cardstyle">
+                  <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >Total people missing</h5>
+                  <p class="card-text" style="font-size:50px;  ">3,56,874</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="cardstyle">
+                  <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >Total people found</h5>
+                  <p class="card-text"style="font-size:50px; "  >2,22,859</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="cardstyle">
+                  <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >No of users<br/>.</h5>
+                  <p class="card-text"  style="font-size:50px; ">7,84,851</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="steps-p" >
+          <b>Steps to file a case:</b></p>
+            
+            <ol class="steps-ol">
+              <li><b>Go to File Missing Tab</b></li>
+              <li><b>Upload 3-5 faces of the missing person</b></li>
+              <li><b>Enter the details and hit submit</b></li>
+              <li><b>You will be notified if the case was successfully submitted</b></li>
+            </ol>
+          
+          <p class="steps-p" ><b>To upload a person you found:</b></p>
+            
+            <ol class="steps-ol">
+              <li><b>Go to File Missing Tab</b></li>
+              <li><b>Upload 3-5 faces of the missing person</b></li>
+              <li><b>Go to File Missing Tab</b></li>
+              <li><b>Go to File Missing Tab</b></li>
+            </ol>
+          
+          <p class="steps-p" ><b>To view all the people who went missing:</b></p>
+            
+            <ol class="steps-ol">
+              <li><b>Go to File Missing Tab</b></li>
+              <li><b>Upload 3-5 faces of the missing person</b></li>
+              <li><b>Go to File Missing Tab</b></li>
+              <li><b>Go to File Missing Tab</b></li>
+            </ol>
+          
+        </div>
+      </div>
+      <div>
+        <div>
+          <div class="lbox one">
+            <div class="header">
+              <i class="arrow fas fa-chevron-left"></i>
+              <h3 class="title">Leaderboard</h3>
+            </div>
+            <div class="sort">
+              <div class="day">Today</div>
+              <div class="day active">Week</div>
+              <div class="day">Month</div>
+            </div>
+            <div class="profile">
+              <div class="person second">
+                <div class="num">2</div>
+                <i class="fas fa-caret-up"></i>
+                <img src="https://image.flaticon.com/icons/png/512/949/949666.png" alt="" class="photo">
+                <p class="link">@dorisklien</p>
+                <p class="points">8023</p>
+              </div>
+              <div class="person first">
+                <div class="num">1</div>
+                <i class="fa-solid fa-crown"></i>
+                <img src="https://image.flaticon.com/icons/png/512/4086/4086600.png" alt="" class="photo main">
+                <p class="link">@sher234</p>
+                <p class="points">8122</p>
+              </div>
+              <div class="person third">
+                <div class="num">3</div>
+                <i class="fas fa-caret-up"></i>
+                <img src="https://image.flaticon.com/icons/png/512/4333/4333609.png" alt="" class="photo">
+                <p class="link">@lord_0980</p>
+                <p class="points">7884</p>
+              </div>
+            </div>
+            <div class="rest">
+              <div class="others flex">
+                <div class="rank">
+                  <i class="fas fa-caret-up"></i>
+                  <p class="num">4</p>
+                </div>
+                <div class="info flex">
+                  <img src="https://image.flaticon.com/icons/png/512/2922/2922510.png" alt="" class="p_img">
+                  <p class="link">@adam56</p>
+                  <p class="points">7861</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+      
+
+
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      
+      <div class="footer"><p> Kusum Ramachandra-20181ISE0042 &nbsp | &nbsp Keerthana K-20181ISE0038​ &nbsp | &nbsp 
+        Ansuiya Sharma I-20181ISE0008 &nbsp | &nbsp Carol Sachin Chavan-20181ISE0017</p>
+
+      </div>
 {% endblock %}
