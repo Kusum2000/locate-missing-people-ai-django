@@ -4,7 +4,8 @@
 
 {% block content %}
     <h1 style="color:rgb(118, 52, 5) ;
-    text-align: center; 
+    text-align: center;
+    font-weight: 600; 
     font-family: Courier New;"><br/>What we do?<br/></h1>
     {% if request.user.is_authenticated %}
         {% if request.user.is_staff %}
@@ -62,6 +63,7 @@
           <p style="color:rgb(118, 52, 5) ;
           text-align: center;
           font-weight: 500;
+          font-family: courier;
           font-size: 40px; 
           padding-top: 50px;
           font-family: Courier New;">
@@ -101,7 +103,7 @@
           <p style="color:rgb(118, 52, 5) ;
           text-align: center;
           font-weight: 500;
-          font-size: 30px; 
+          font-size: 40px; 
           padding-top: 50px;
           font-family: Courier New;"><b>To view all the people who went missing:</b></p>
             
