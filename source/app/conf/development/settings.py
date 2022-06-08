@@ -74,7 +74,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(CONTENT_DIR, 'tmp/emails')
 #EMAIL_HOST_USER = ''
 
-EMAIL_API_KEY='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'
 DEFAULT_FROM_EMAIL = 'locatemissing19@gmail.com'
 
 DATABASES = {

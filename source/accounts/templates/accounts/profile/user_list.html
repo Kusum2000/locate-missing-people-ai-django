@@ -36,6 +36,14 @@
                 {% endfor %}
                 
                 </td>
+                <td>
+                {% for f in found %}
+                    {% if f.user_id == x.username %}
+                <table><tr><td>{{f.img_id}}</td>
+                <td>{{f.found_at}}</td></tr></table>
+                {% endif %}
+                {% endfor %}
+                </td>
               </tr>
               {% endfor %}
             </tbody>

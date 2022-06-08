@@ -29,11 +29,18 @@ from django.views.decorators.debug import sensitive_post_parameters
 from django.views.generic import View, FormView, TemplateView
 from django.conf import settings
 import numpy as np
+from operator import itemgetter
+import phonenumbers
 from requests import request
 import matplotlib.pyplot as plt
 
 from accounts.detect_face import detect_face, FaceAligner
 from accounts.match_face import preprocess,feature_extraction, encode_img, match_faces
+pathToExecutable = (
+    "C:/Program Files/GNU Octave/Octave-7.1.0/mingw64/bin/octave-cli.exe"
+)
+os.environ['OCTAVE_EXECUTABLE'] = pathToExecutable
+from oct2py import octave
 
 from .utils import (
     send_activation_email, send_reset_password_email, send_forgotten_username_email, send_activation_change_email,
@@ -356,9 +363,9 @@ class FoundMissingView(LoginRequiredMixin, FormView):
     form_class= FoundForm
     img_list=[]
     label_list = []
-    
-    missing_imgs = FileMissing.objects.values('img')
-    missing_labels = FileMissing.objects.values('img_id')
+
+    missing_imgs = FileMissing.objects.filter(status='Not found').values('img')
+    missing_labels = FileMissing.objects.filter(status='Not found').values('img_id')
     for img in missing_imgs:
         img_list.append(img['img'])
     for img_id in missing_labels:
@@ -366,6 +373,7 @@ class FoundMissingView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         request = self.request
+        data=request.POST
         missing_imgs = self.img_list
         missing_labels= self.label_list
         # Change the password
@@ -382,14 +390,39 @@ class FoundMissingView(LoginRequiredMixin, FormView):
 
         final_img_list, labels_encoded, final_labels_list = preprocess(settings.MEDIA_ROOT, missing_imgs,missing_labels,aligned_img)
         #print(final_img_list)
+        
+        flatten_new,fc7_new,fc6_new,missing_labels_en= feature_extraction(final_img_list,labels_encoded)
+        
+        
+        encoded_missing_imgs=octave.fuse(flatten_new,fc7_new,fc6_new,missing_labels_en)
         encoded_predict_img = encode_img(labels_encoded,aligned_img)
-        encoded_missing_imgs= feature_extraction(final_img_list,labels_encoded)
-        predicted_person,predicted_img = match_faces(encoded_missing_imgs,encoded_predict_img,final_labels_list)
-        print(predicted_person,predicted_img)
+        predicted_id,predicted_score,predicted_list = match_faces(encoded_missing_imgs,encoded_predict_img,final_labels_list)
+        
+        newlist = sorted(predicted_list.items(),reverse=True, key=lambda x: x[1])
+        print(newlist)
+        if predicted_score>=5.04:
+            messages.error(self.request, _('Person not found in the database'))
+            return redirect('accounts:found_missing')
+        else:
+            found = Found.objects.create(
+                img_id=predicted_id,
+                img=img,
+                user_id = request.user.username,
+                phone_number=data['phone_number'],
+                street=data['street'],
+                area=data['area'],
+                city=data['city'],
+                state=data['state'],
+                zip_code=data['zip_code'],
+            )
+            FileMissing.objects.filter(img_id=found.img_id).update(status="Found") # this will update only
+            messages.success(self.request, _('You have found a missing person! '+str(predicted_id)))
+            
+        
 
-        messages.success(self.request, _('You have found a missing person!'))
 
-        return render(request,'accounts/profile/found_missing.html', {'form': form})
+
+        return redirect('accounts:found_missing')
 
 class FileMissingView(LoginRequiredMixin, FormView):
     template_name = 'accounts/profile/file_missing.html'
@@ -470,6 +503,8 @@ def video_stream(request):
 
 class MatchView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/match.html'
+
+
     
     
 class ViewMissingView(LoginRequiredMixin,TemplateView):
@@ -478,7 +513,7 @@ class ViewMissingView(LoginRequiredMixin,TemplateView):
     raw = 'Select date_of_missing-dob from accounts_filemissing u where u.id=accounts_filemissing.id'
     path = settings.MEDIA_ROOT
     missing_cases = FileMissing.objects.filter(status='Not found').order_by('-date_of_missing').values('img_id','img')
-    unique_missing = FileMissing.objects.values('img_id','user_id', 'first_name',
+    unique_missing = FileMissing.objects.filter(status='Not found').values('img_id','user_id', 'first_name',
     'last_name','gender', 'dob', 
         'date_of_missing','time_of_missing', 'extra_info',
         'street','area','city','state','zip_code').annotate(total_filed=Count('img_id'),age=RawSQL(raw, ())).order_by('-date_of_missing','time_of_missing')
@@ -490,5 +525,5 @@ class ViewUsersView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/user_list.html'
     users=User.objects.all()
     missing_cases = FileMissing.objects.values('user_id','img_id','status').annotate(total_filed=Count('user_id')).order_by('-date_of_missing')
-    found_cases = Found.objects.values('user_id','img_id').annotate(total_filed=Count('img_id')).order_by()
+    found_cases = Found.objects.values('user_id','img_id','found_at').annotate(total_filed=Count('img_id')).order_by('-found_at')
     extra_context={'users':users,'missing':missing_cases,'found':found_cases}

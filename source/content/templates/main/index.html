@@ -3,6 +3,22 @@
 {% load i18n %}
 
 {% block content %}
+<p class="blink_me" style="width:100%; background-color: rgb(118, 52, 5); color:gold;">
+  {% for m in missing %}
+  {% for u in users%}
+
+  {% if m.user_id == u.id %}
+  {% for f in found %}
+  <span>{{f.img_id}} found at {{f.street}} {{f.area}}, {{f.city}}
+    {{f.state}}-{{f.zip_code}} 
+    {% if u.is_staff is not False %}{{f.phone_number}}{%endif%}. 
+  </span>
+  {%endfor%}
+  {%endif%}
+  {%endfor%}
+  
+  {% endfor %}
+</p>
 <h1 style="color:rgb(118, 52, 5) ;
     text-align: center; 
     font-family: Courier New;"><b>What we do?</b><br/></h1>
@@ -25,7 +41,7 @@
               <div class="card-body">
                 <div class="cardstyle">
                   <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >Total people missing</h5>
-                  <p class="card-text" style="font-size:50px;  ">3,56,874</p>
+                  <p class="card-text" style="font-size:50px;  ">{{missing_count}}</p>
                 </div>
               </div>
             </div>
@@ -35,7 +51,7 @@
               <div class="card-body">
                 <div class="cardstyle">
                   <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >Total people found</h5>
-                  <p class="card-text"style="font-size:50px; "  >2,22,859</p>
+                  <p class="card-text"style="font-size:50px; "  >{{found_count}}</p>
                 </div>
               </div>
             </div>
@@ -45,7 +61,7 @@
               <div class="card-body">
                 <div class="cardstyle">
                   <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >No of users<br/>.</h5>
-                  <p class="card-text"  style="font-size:50px; ">7,84,851</p>
+                  <p class="card-text"  style="font-size:50px; ">{{users_count}}</p>
                 </div>
               </div>
             </div>
@@ -100,21 +116,21 @@
                 <i class="fas fa-caret-up"></i>
                 <img src="https://image.flaticon.com/icons/png/512/949/949666.png" alt="" class="photo">
                 <p class="link">@dorisklien</p>
-                <p class="points">8023</p>
+                <p class="points">0</p>
               </div>
               <div class="person first">
                 <div class="num">1</div>
                 <i class="fa-solid fa-crown"></i>
                 <img src="https://image.flaticon.com/icons/png/512/4086/4086600.png" alt="" class="photo main">
                 <p class="link">@sher234</p>
-                <p class="points">8122</p>
+                <p class="points">1</p>
               </div>
               <div class="person third">
                 <div class="num">3</div>
                 <i class="fas fa-caret-up"></i>
                 <img src="https://image.flaticon.com/icons/png/512/4333/4333609.png" alt="" class="photo">
                 <p class="link">@lord_0980</p>
-                <p class="points">7884</p>
+                <p class="points">0</p>
               </div>
             </div>
             <div class="rest">
@@ -126,7 +142,7 @@
                 <div class="info flex">
                   <img src="https://image.flaticon.com/icons/png/512/2922/2922510.png" alt="" class="p_img">
                   <p class="link">@adam56</p>
-                  <p class="points">7861</p>
+                  <p class="points">0</p>
                 </div>
               </div>
             </div>

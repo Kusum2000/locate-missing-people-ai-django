@@ -20,11 +20,7 @@ from sklearn.decomposition import PCA
 from sklearn.pipeline import Pipeline
 
 
-pathToExecutable = (
-    "C:/Program Files/GNU Octave/Octave-7.1.0/mingw64/bin/octave-cli.exe"
-)
-os.environ['OCTAVE_EXECUTABLE'] = pathToExecutable
-from oct2py import octave
+
 
 model = tf.keras.applications.VGG16(
             include_top=True,
@@ -62,14 +58,14 @@ def encode_img(missing_labels,aligned_img):
     img2 = cv2.merge((img,img,img))
     img = img_to_array(img2)
     i=np.array([img])
-    with tf.device('/device:cpu:0'):
-        encode = models.Sequential()
-        encode.add(model)
-        encode.add(layers.Flatten())
-        encode.add(layers.Dense(512, activation='relu'))
-        encode.add(layers.Dropout(0.5))
-        encode.add(layers.Dense(len(set(missing_labels))-1, activation='softmax'))
-        predict_img=encode.predict(i)
+    
+    encode = models.Sequential()
+    encode.add(model)
+    encode.add(layers.Flatten())
+    encode.add(layers.Dense(512, activation='relu'))
+    encode.add(layers.Dropout(0.5))
+    encode.add(layers.Dense(len(set(missing_labels))-1,activation='softmax'))
+    predict_img=encode.predict(i)
     return predict_img
 
 
@@ -126,10 +122,9 @@ def feature_extraction(images,missing_labels_en):
     pipeline = Pipeline([('scaling', StandardScaler()), ('pca', PCA(n_components=len(images)))])
     flatten_new=pcaFuse(Flatten_list,pipeline)
     fc7_new=pcaFuse(FC7_list,pipeline)
-    fc6_new=pcaFuse(FC7_list,pipeline)
-    t=octave.fuse(flatten_new,fc7_new,fc6_new,missing_labels_en)
+    fc6_new=pcaFuse(FC7_list,pipeline)    
 
-    return t
+    return flatten_new,fc7_new,fc6_new, missing_labels_en
 
 def match_faces(encoded_dataset,predict_img,missing_labels):
     min=0
@@ -149,4 +144,4 @@ def match_faces(encoded_dataset,predict_img,missing_labels):
             min=v
             result=k
     print(result,min)
-    return(result,min)
+    return(result,min,individual_rank)

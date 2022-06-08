@@ -17,7 +17,7 @@
 
     <link rel="icon" href="{% static 'favicon.ico' %}">
 
-    <title>Locate Missing People</title>
+    <title>Find'eM</title>
 
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <style>
@@ -67,6 +67,16 @@
         background-color: rgb(60, 65, 74);
         color: rgba(229, 229, 229, 0.659);
         text-align: center;
+        }
+
+        .blink_me{
+            padding: 3px;
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker{
+            50%{
+                opacity: 0;
+            }
         }
         
         div.cardstyle {
@@ -353,8 +363,7 @@ background-size: 90%;">
         <a class="nav-item nav-link" href="{% url 'accounts:view_missing' %}">Missing Cases</a></li>
         <li class="nav-item">
         <a class="nav-item nav-link" href="{% url 'accounts:found_missing' %}">Find Match</a></li>
-        <li class="nav-item">
-        <a class="nav-item nav-link" href="{% url 'accounts:match_missing' %}">Live Tracking</a></li>
+        
 
         {% if request.user.is_staff %}
         <li class="nav-item">
