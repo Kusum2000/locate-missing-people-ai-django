@@ -1,36 +1,48 @@
 {% extends 'layouts/default/page.html' %}
 
-{% load i18n %}
-
 {% block content %}
-<p class="blink_me" style="width:100%; background-color: rgb(118, 52, 5); color:gold;">
+{% load bootstrap4 %}
+{% load i18n %}
+{% get_current_language as language_code %}
+{% if request.user.is_authenticated %}
+<div class="card-group d-flex justify-content-center" style="margin: 0 auto; align-items: center; margin: 0 auto; /* Added */
+float: none; /* Added */">
   {% for m in missing %}
-  {% for u in users%}
-
-  {% if m.user_id == u.id %}
-  {% for f in found %}
-  <span>{{f.img_id}} found at {{f.street}} {{f.area}}, {{f.city}}
-    {{f.state}}-{{f.zip_code}} 
-    {% if u.is_staff is not False %}{{f.phone_number}}{%endif%}. 
-  </span>
-  {%endfor%}
-  {%endif%}
-  {%endfor%}
-  
-  {% endfor %}
-</p>
+  {% if m.status == 'Found' %}
+    {% for u in users%}
+      {% if m.user_id == u.id and m.user_id == request.user.id or u.is_superuser %}
+      
+        {% for f in found %}
+        <div class="card" style="max-width:fit-content ;background-color: #8d5d5de5; color:rgb(246, 240, 205); padding: 10px 10px; margin:5px 10px; display: inline-flex;" >
+          <div style="margin: auto;">
+          <img  src="{{MEDIA_URL}}{{f.img}}" alt="{{f.img_id}}" width="100px"></div>
+          <div class="card-body" style="padding:0;">
+          
+            <h5 class="card-title">{{f.img_id}}</h5>
+            <p class="card-text"> {% trans 'Found at' %} {{f.street}} {{f.area}}<br/>, {{f.city}}
+              {{f.state}}-{{f.zip_code}} <br/>
+              {% if request.user.is_superuser %}{{f.phone_number}}{%endif%} 
+            </p>
+          </div>
+        </div>
+        {%endfor%}
+      
+        
+        
+      {%endif%}
+    {%endfor%}
+    {%endif%}
+    {% endfor %}
+  </div>
+{%endif%}
 <h1 style="color:rgb(118, 52, 5) ;
     text-align: center; 
-    font-family: Courier New;"><b>What we do?</b><br/></h1>
+    font-family: Courier New;"><b>{% trans 'What we do?' %}</b><br/></h1>
     
 
 
     <div class="transbox">
-       <blockquote>India is witnessing a shocking trend in the number of cases
-        of missing children, women and men being reported across the country.
-        At this time and age, we see that face recognition  is used in various streams and platforms. 
-        We have set out with an objective, 
-        "To Create A Robust And Efficient Face Recognition To Find People Missing Or Lost"</blockquote>
+       <blockquote class="blockquote-o"></blockquote><span>{% trans  'India is witnessing a shocking trend in the number of cases of missing children, women and men being reported across the country. At this time and age, we see that face recognition  is used in various streams and platforms. We have set out with an objective, "To Create A Robust And Efficient Face Recognition To Find People Missing Or Lost"' %}</span><blockquote class="blockquote-c" align="right"></blockquote>
     </div>
     
     <div class="row">
@@ -40,7 +52,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="cardstyle">
-                  <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >Total people missing</h5>
+                  <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >{% trans 'Total people missing' %}</h5>
                   <p class="card-text" style="font-size:50px;  ">{{missing_count}}</p>
                 </div>
               </div>
@@ -50,7 +62,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="cardstyle">
-                  <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >Total people found</h5>
+                  <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >{% trans 'Total people found' %}</h5>
                   <p class="card-text"style="font-size:50px; "  >{{found_count}}</p>
                 </div>
               </div>
@@ -60,7 +72,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="cardstyle">
-                  <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >No of users<br/>.</h5>
+                  <h5 class="card-title" style="font-size: 28px; font-weight: 600; color:rgba(62, 18, 18, 0.634) ;" >{% trans 'No of users' %}<br/></h5>
                   <p class="card-text"  style="font-size:50px; ">{{users_count}}</p>
                 </div>
               </div>
@@ -69,31 +81,31 @@
         </div>
         <div>
           <p class="steps-p" >
-          <b>Steps to file a case:</b></p>
+          <b>{% trans 'Steps to file a case:' %}</b></p>
             
             <ol class="steps-ol">
-              <li><b>Go to File Missing Tab</b></li>
-              <li><b>Upload 3-5 faces of the missing person</b></li>
-              <li><b>Enter the details and hit submit</b></li>
-              <li><b>You will be notified if the case was successfully submitted</b></li>
+              <li><b>{% trans 'Go to File Missing Tab' %}</b></li>
+              <li><b>{% trans 'Upload 3-5 faces of the missing person' %}</b></li>
+              <li><b>{% trans 'Enter the details and hit submit' %}</b></li>
+              <li><b>{% trans 'You will be notified if the case was successfully submitted' %}</b></li>
             </ol>
           
-          <p class="steps-p" ><b>To upload a person you found:</b></p>
+          <p class="steps-p" ><b>{% trans 'To upload a person you found:' %}</b></p>
             
             <ol class="steps-ol">
-              <li><b>Go to File Missing Tab</b></li>
-              <li><b>Upload 3-5 faces of the missing person</b></li>
-              <li><b>Go to File Missing Tab</b></li>
-              <li><b>Go to File Missing Tab</b></li>
+              <li><b>{% trans 'Go to Find Match Tab' %}</b></li>
+              <li><b>{% trans 'Upload face of the missing person' %}</b></li>
+              <li><b>{% trans 'Enter your phone number and details of where you found them' %}</b></li>
+              <li><b>{% trans 'Hit submit and matching is initiated, wait until the process is completed' %}</b></li>
             </ol>
           
-          <p class="steps-p" ><b>To view all the people who went missing:</b></p>
+          <p class="steps-p" ><b>{% trans 'To view all the people who went missing:' %}</b></p>
             
             <ol class="steps-ol">
-              <li><b>Go to File Missing Tab</b></li>
-              <li><b>Upload 3-5 faces of the missing person</b></li>
-              <li><b>Go to File Missing Tab</b></li>
-              <li><b>Go to File Missing Tab</b></li>
+              <li><b>{% trans "Go to Missing Cases Tab" %}</b></li>
+              <li><b>{% trans 'Upload 3-5 faces of the missing person' %}</b></li>
+              <li><b>{% trans 'Go to File Missing Tab' %}</b></li>
+              <li><b>{% trans 'All the people who have not been found yet are displayed' %}</b></li>
             </ol>
           
         </div>
@@ -103,34 +115,34 @@
           <div class="lbox one">
             <div class="header">
               <i class="arrow fas fa-chevron-left"></i>
-              <h3 class="title">Leaderboard</h3>
+              <h3 class="title">{% trans 'Leaderboard' %}</h3>
             </div>
             <div class="sort">
-              <div class="day">Today</div>
-              <div class="day active">Week</div>
-              <div class="day">Month</div>
+              <div class="day">{% trans 'Today' %}</div>
+              <div class="day active">{% trans 'All Time' %}</div>
+              <div class="day">{% trans 'Month' %}</div>
             </div>
             <div class="profile">
               <div class="person second">
                 <div class="num">2</div>
                 <i class="fas fa-caret-up"></i>
                 <img src="https://image.flaticon.com/icons/png/512/949/949666.png" alt="" class="photo">
-                <p class="link">@dorisklien</p>
-                <p class="points">0</p>
+                <p class="link">@{{rank2.user_id}}</p>
+                <p class="points">{{rank2.total_filed}}</p>
               </div>
               <div class="person first">
                 <div class="num">1</div>
                 <i class="fa-solid fa-crown"></i>
                 <img src="https://image.flaticon.com/icons/png/512/4086/4086600.png" alt="" class="photo main">
-                <p class="link">@sher234</p>
-                <p class="points">1</p>
+                <p class="link">@{{rank1.user_id}}</p>
+                <p class="points">{{rank1.total_filed}}</p>
               </div>
               <div class="person third">
                 <div class="num">3</div>
                 <i class="fas fa-caret-up"></i>
                 <img src="https://image.flaticon.com/icons/png/512/4333/4333609.png" alt="" class="photo">
-                <p class="link">@lord_0980</p>
-                <p class="points">0</p>
+                <p class="link">@{{rank3.user_id}}</p>
+                <p class="points">{{rank3.total_filed}}</p>
               </div>
             </div>
             <div class="rest">
@@ -141,9 +153,23 @@
                 </div>
                 <div class="info flex">
                   <img src="https://image.flaticon.com/icons/png/512/2922/2922510.png" alt="" class="p_img">
-                  <p class="link">@adam56</p>
-                  <p class="points">0</p>
+                  <p class="link">@{{rank4.user_id}}</p>
+                  <p class="points">{{rank4.total_filed}}</p>
                 </div>
+                {% for f in rank_rest %}<ol start="5">
+                  <div class="others flex">
+                    <div class="rank">
+                      <i class="fas fa-caret-up"></i>
+                      <p class="num"><li></li></p>
+                    </div>
+                    <div class="info flex">
+                      <img src="https://image.flaticon.com/icons/png/512/2922/2922510.png" alt="" class="p_img">
+                      <p class="link">@{{f.user_id}}</p>
+                      <p class="points">{{f.total_filed}}</p>
+                    </div>
+                  </div>
+                </ol>
+                {% endfor %}
               </div>
             </div>
           </div>

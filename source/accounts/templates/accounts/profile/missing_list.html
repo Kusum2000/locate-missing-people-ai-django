@@ -11,12 +11,12 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Images</th>
-            <th scope="col">Name</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Went Missing</th>
-            <th scope="col">Age</th>
-            <th scope="col">Place</th>
+            <th scope="col">{% trans 'Images' %}</th>
+            <th scope="col">{% trans 'Name' %}</th>
+            <th scope="col">{% trans 'Gender' %}</th>
+            <th scope="col">{% trans 'Went Missing' %}</th>
+            <th scope="col">{% trans 'Age' %}</th>
+            <th scope="col">{% trans 'Place' %}</th>
           </tr>
         </thead>
         <tbody>
@@ -24,20 +24,20 @@
           <tr>
             <th scope="row">{{ x.img_id }}</th>
             <td>
-                <div class="card-group">
+              <div class="card-group">
 
-                    {% for m in missing_cases %}
-                        {% if m.img_id == x.img_id %}
-                            <div class="card" style="max-width:10em ;" >
-                                <img class="card-img" src="{{MEDIA_URL}}{{m.img}}" alt="{{m.img_id}}" width="30px">
-                                <div class="card-img-overlay" style="padding:0;">
-                                    </div>
-                            </div>
+                {% for m in missing_cases %}
+                  {% if m.img_id == x.img_id %}
+                      <div class="card" style="max-width:10em ;" >
+                          <img class="card-img" src="{{MEDIA_URL}}{{m.img}}" alt="{{m.img_id}}" width="30px">
+                          <div class="card-img-overlay" style="padding:0;">
+                          </div>
+                      </div>
                         
-                        {% endif %}
-                    {% endfor %}
+                    {% endif %}
+                  {% endfor %}
                 </div>
-                </td>
+            </td>
             <td>{{ x.first_name }} {{ x.last_name }}</td>
             <td>{{ x.gender }}</td>
             <td>{{ x.date_of_missing }} {{x.time_of_missing}}</td>

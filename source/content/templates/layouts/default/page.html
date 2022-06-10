@@ -15,37 +15,42 @@
     <meta name="description" content="An example of Django project with basic user functionality.">
     <meta name="author" content="Locating Missing People">
 
-    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
 
     <title>Find'eM</title>
 
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <style>
+
         div.transbox {
-        margin-left : 280px;
-        margin-right : 280px;
-        margin-top : 40px;
-        margin-bottom : 40px;
+            
+            margin: auto;
+            
+        width:50%;
+        margin-top : 20px;
+        margin-bottom : 20px;
         background-color: #ffffff;
         opacity: 0.6;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        padding-top : 5%;
-        padding-bottom : 5%;
-        padding-left : 6%;
-        padding-right : 6%;
-        }
-        
-        blockquote {
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-left : 3%;
+        padding-right : 3%;
         font-size: 2em;
         line-height: 1.5em;
         font-family:  'Sofia';
         }
+        
+        div.transbox span{
+            padding-left: 6%;
+            padding-right: 4%;
+        }
 
-        blockquote:before {
+        blockquote.blockquote-o:before {
         content: open-quote;
         }
 
-        blockquote:after {
+        blockquote.blockquote-c:after {
         content: close-quote;
         }
 
@@ -130,7 +135,7 @@
         background: linear-gradient(to bottom right, rgba(143, 55, 55, 0.752), rgb(107, 47, 47), rgb(90, 28, 28));
         }
         .block-div{
-            margin-top: 2em;
+            margin-top: 0.5em;
         }
 
         .lbox{
@@ -302,6 +307,15 @@
         .rank .num{
         margin: 0 !important; 
         } 
+        @media only screen and (max-width: 600px) {
+            .col-md-6{
+                width:100%;
+            }
+            div.transbox{
+                width:99%;
+            }
+}
+       
 
     </style>
 
@@ -358,16 +372,16 @@ background-size: 90%;">
     <div class="navbar-collapse " id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto w-100 nav-justified">
         <li class="nav-item">
-        <a class="nav-item nav-link" href="{% url 'accounts:file_missing' %}">File Case</a></li>
+        <a class="nav-item nav-link" href="{% url 'accounts:file_missing' %}">{% trans 'File Case' %}</a></li>
         <li class="nav-item">
-        <a class="nav-item nav-link" href="{% url 'accounts:view_missing' %}">Missing Cases</a></li>
+        <a class="nav-item nav-link" href="{% url 'accounts:view_missing' %}">{% trans 'Missing Cases' %}</a></li>
         <li class="nav-item">
-        <a class="nav-item nav-link" href="{% url 'accounts:found_missing' %}">Find Match</a></li>
+        <a class="nav-item nav-link" href="{% url 'accounts:found_missing' %}">{% trans 'Find Match' %}</a></li>
         
 
         {% if request.user.is_staff %}
         <li class="nav-item">
-        <a class="nav-item nav-link" href="{% url 'accounts:user_list' %}">Users</a></li>
+        <a class="nav-item nav-link" href="{% url 'accounts:user_list' %}">{% trans 'Users' %}</a></li>
         {% endif %}
 
       </div>

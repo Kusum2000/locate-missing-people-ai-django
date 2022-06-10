@@ -1,5 +1,6 @@
 import os
 import warnings
+import environ
 from django.utils.translation import gettext_lazy as _
 from os.path import dirname
 from django.utils.deprecation import RemovedInDjango41Warning
@@ -10,7 +11,11 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 CONTENT_DIR = os.path.join(BASE_DIR, 'content')
 
-SECRET_KEY = 'NhfTvayqggTBPswCXXhWaN69HuglgZIkM'
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
+SECRET_KEY = env('SECRET_KEY')
 PHONENUMBER_DEFAULT_REGION='IN'
 DEBUG = True
 ALLOWED_HOSTS = []
@@ -30,6 +35,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'localflavor',
     'phonenumber_field',
+    'rosetta',
 
     # Application apps
     'main',
@@ -69,12 +75,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
-
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('PS2')
 EMAIL_FILE_PATH = os.path.join(CONTENT_DIR, 'tmp/emails')
-#EMAIL_HOST_USER = ''
 
-DEFAULT_FROM_EMAIL = 'locatemissing19@gmail.com'
+
+DEFAULT_FROM_EMAIL = env('EMAIL_HOST_USER')
+
+MAIL_TOKEN = env('MAIL_TOKEN')
 
 DATABASES = {
     'default': {
@@ -98,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-ENABLE_USER_ACTIVATION = False
+ENABLE_USER_ACTIVATION = True
 DISABLE_USERNAME = False
 LOGIN_VIA_EMAIL = True
 LOGIN_VIA_EMAIL_OR_USERNAME = False
@@ -122,10 +133,8 @@ LANGUAGES = [
     ('en', _('English')),
     ('hi',_('Hindi')),
     ('kn',_('Kannada')),
-    ('ru', _('Russian')),
-    ('zh-Hans', _('Simplified Chinese')),
-    ('fr', _('French')),
-    ('es', _('Spanish')),
+    #('te',_('Telugu')),
+    #('ta',_('Tamil')),
 ]
 
 TIME_ZONE = 'UTC'

@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block content %}
-
+<div class="col-md-6 offset-md-3">
     {% get_current_language as language_code %}
     {% get_available_languages as languages %}
 
@@ -29,5 +29,5 @@
         <button class="btn btn-success">{% trans 'Change' %}</button>
 
     </form>
-
+</div>
 {% endblock %}

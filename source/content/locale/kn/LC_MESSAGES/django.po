@@ -1,0 +1,612 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-10 16:39+0530\n"
+"PO-Revision-Date: 2022-06-10 16:48+0000\n"
+"Last-Translator: Administrator 1 <locatemissing19@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\accounts\forms.py:25
+msgid "Password"
+msgstr "ಗುಪ್ತಪದ"
+
+#: .\accounts\forms.py:31
+msgid "Remember me"
+msgstr "ನನ್ನನ್ನು ನೆನಪಿನಲ್ಲಿ ಇಡು"
+
+#: .\accounts\forms.py:40
+msgid "You entered an invalid password."
+msgstr "ನೀವು ಅಮಾನ್ಯವಾದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿದ್ದೀರಿ."
+
+#: .\accounts\forms.py:46
+msgid "Username"
+msgstr "ಬಳಕೆದಾರ ಹೆಸರು"
+
+#: .\accounts\forms.py:59
+msgid "You entered an invalid username."
+msgstr "ನೀವು ಅಮಾನ್ಯವಾದ ಬಳಕೆದಾರ ಹೆಸರನ್ನು ನಮೂದಿಸಿರುವಿರಿ."
+
+#: .\accounts\forms.py:62 .\accounts\forms.py:86 .\accounts\forms.py:110
+#: .\accounts\forms.py:197 .\accounts\forms.py:215 .\accounts\forms.py:258
+msgid "This account is not active."
+msgstr "ಈ ಖಾತೆಯು ಸಕ್ರಿಯವಾಗಿಲ್ಲ."
+
+#: .\accounts\forms.py:70 .\accounts\forms.py:122 .\accounts\forms.py:161
+#: .\accounts\forms.py:187 .\accounts\forms.py:228 .\accounts\forms.py:248
+msgid "Email"
+msgstr "ಇಮೇಲ್"
+
+#: .\accounts\forms.py:83 .\accounts\forms.py:168 .\accounts\forms.py:194
+#: .\accounts\forms.py:255
+msgid "You entered an invalid email address."
+msgstr "ನೀವು ಅಮಾನ್ಯ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿದ್ದೀರಿ."
+
+#: .\accounts\forms.py:94 .\accounts\forms.py:135 .\accounts\forms.py:205
+msgid "Email or Username"
+msgstr "ಇಮೇಲ್ ಅಥವಾ ಬಳಕೆದಾರ ಹೆಸರು"
+
+#: .\accounts\forms.py:107 .\accounts\forms.py:142 .\accounts\forms.py:212
+msgid "You entered an invalid email address or username."
+msgstr "ನೀವು ಅಮಾನ್ಯ ಇಮೇಲ್ ವಿಳಾಸ ಅಥವಾ ಬಳಕೆದಾರ ಹೆಸರನ್ನು ನಮೂದಿಸಿದ್ದೀರಿ."
+
+#: .\accounts\forms.py:122
+msgid "Required. Enter an existing email address."
+msgstr "ಅಗತ್ಯವಿದೆ. ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ."
+
+#: .\accounts\forms.py:129
+msgid "You can not use this email address."
+msgstr "ನೀವು ಈ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಬಳಸಲು ಸಾಧ್ಯವಿಲ್ಲ."
+
+#: .\accounts\forms.py:145 .\accounts\forms.py:171
+msgid "This account has already been activated."
+msgstr "ಈ ಖಾತೆಯನ್ನು ಈಗಾಗಲೇ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ."
+
+#: .\accounts\forms.py:149 .\accounts\forms.py:175
+msgid "Activation code not found."
+msgstr "ಸಕ್ರಿಯಗೊಳಿಸುವ ಕೋಡ್ ಕಂಡುಬಂದಿಲ್ಲ."
+
+#: .\accounts\forms.py:153 .\accounts\forms.py:179
+msgid ""
+"Activation code has already been sent. You can request a new code in 24 "
+"hours."
+msgstr ""
+"ಸಕ್ರಿಯಗೊಳಿಸುವ ಕೋಡ್ ಅನ್ನು ಈಗಾಗಲೇ ಕಳುಹಿಸಲಾಗಿದೆ. ನೀವು 24 ಗಂಟೆಗಳಲ್ಲಿ ಹೊಸ ಕೋಡ್ "
+"ಅನ್ನು ವಿನಂತಿಸಬಹುದು."
+
+#: .\accounts\forms.py:223 .\accounts\models.py:33
+msgid "First name"
+msgstr "ಮೊದಲ ಹೆಸರು"
+
+#: .\accounts\forms.py:224 .\accounts\models.py:34
+msgid "Last name"
+msgstr "ಕೊನೆಯ ಹೆಸರು"
+
+#: .\accounts\forms.py:238
+msgid "Please enter another email."
+msgstr "ದಯವಿಟ್ಟು ಇನ್ನೊಂದು ಇಮೇಲ್ ನಮೂದಿಸಿ."
+
+#: .\accounts\forms.py:242
+msgid "You can not use this mail."
+msgstr "ನೀವು ಈ ಮೇಲ್ ಅನ್ನು ಬಳಸಲಾಗುವುದಿಲ್ಲ."
+
+#: .\accounts\forms.py:266
+msgid "Upload clear Face(s) of the missing person"
+msgstr "ಕಾಣೆಯಾದ ವ್ಯಕ್ತಿಯ ಸ್ಪಷ್ಟ ಮುಖ(ಗಳನ್ನು) ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+
+#: .\accounts\forms.py:267
+msgid "Date of Birth"
+msgstr ""
+"526 / 5,000\n"
+"Translation results\n"
+"ಹುಟ್ತಿದ ದಿನ"
+
+#: .\accounts\forms.py:272 .\accounts\forms.py:284 .\accounts\models.py:20
+#: .\accounts\models.py:51
+msgid "State"
+msgstr "ರಾಜ್ಯ"
+
+#: .\accounts\forms.py:273 .\accounts\forms.py:285
+msgid "Postcode"
+msgstr "ಅಂಚೆ ಕೋಡ್"
+
+#: .\accounts\forms.py:282
+msgid "Upload clear Face of the missing person"
+msgstr "ಕಾಣೆಯಾದ ವ್ಯಕ್ತಿಯ ಸ್ಪಷ್ಟ ಮುಖವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+
+#: .\accounts\forms.py:283
+msgid "Enter your Contact Number"
+msgstr "ನಿಮ್ಮ ಸಂಪರ್ಕ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ"
+
+#: .\accounts\models.py:17 .\accounts\models.py:48
+msgid "Street"
+msgstr "ಬೀದಿ"
+
+#: .\accounts\models.py:18 .\accounts\models.py:49
+msgid "Area"
+msgstr "ಪ್ರದೇಶ"
+
+#: .\accounts\models.py:19 .\accounts\models.py:50
+msgid "City"
+msgstr "ನಗರ"
+
+#: .\accounts\models.py:21 .\accounts\models.py:52
+msgid "Pin code"
+msgstr "ಪಿನ್ ಕೋಡ್"
+
+#: .\accounts\models.py:40
+msgid "Sex"
+msgstr "ಸೆಕ್ಸ್"
+
+#: .\accounts\models.py:42
+msgid "Date of Missing"
+msgstr "ಕಾಣೆಯಾದ ದಿನಾಂಕ"
+
+#: .\accounts\models.py:43
+msgid "Time of Missing"
+msgstr "ಕಾಣೆಯಾದ ಸಮಯ"
+
+#: .\accounts\models.py:47
+msgid "Addition Info"
+msgstr "ಸೇರ್ಪಡೆ ಮಾಹಿತಿ"
+
+#: .\accounts\templates\accounts\emails\activate_profile.html:11
+#: .\accounts\templates\accounts\emails\activate_profile.txt:3
+msgid "To activate your profile, please follow this link:"
+msgstr "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು, ದಯವಿಟ್ಟು ಈ ಲಿಂಕ್ ಅನ್ನು ಅನುಸರಿಸಿ:"
+
+#: .\accounts\templates\accounts\emails\change_email.html:15
+#: .\accounts\templates\accounts\emails\change_email.txt:3
+msgid "To change your current email address, please follow the link:"
+msgstr ""
+"ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಬದಲಾಯಿಸಲು, ದಯವಿಟ್ಟು ಲಿಂಕ್ ಅನ್ನು ಅನುಸರಿಸಿ:"
+
+#: .\accounts\templates\accounts\emails\forgotten_username.html:15
+#: .\accounts\templates\accounts\emails\forgotten_username.txt:3
+msgid "Your username is:"
+msgstr "ನಿಮ್ಮ ಬಳಕೆದಾರ ಹೆಸರು:"
+
+#: .\accounts\templates\accounts\emails\restore_password_email.html:15
+#: .\accounts\templates\accounts\emails\restore_password_email.txt:3
+msgid ""
+"You received this email because you requested a password reset for your user"
+" account."
+msgstr ""
+"ನಿಮ್ಮ ಬಳಕೆದಾರ ಖಾತೆಗೆ ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ನೀವು ವಿನಂತಿಸಿರುವ ಕಾರಣ ನೀವು ಈ "
+"ಇಮೇಲ್ ಅನ್ನು ಸ್ವೀಕರಿಸಿದ್ದೀರಿ."
+
+#: .\accounts\templates\accounts\emails\restore_password_email.html:19
+#: .\accounts\templates\accounts\emails\restore_password_email.txt:5
+msgid "Please, go to the following page and choose a new password:"
+msgstr "ದಯವಿಟ್ಟು, ಕೆಳಗಿನ ಪುಟಕ್ಕೆ ಹೋಗಿ ಮತ್ತು ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ:"
+
+#: .\accounts\templates\accounts\log_in.html:8
+#: .\accounts\templates\accounts\log_in.html:15
+#: .\accounts\templates\accounts\remind_username.html:23
+#: .\accounts\templates\accounts\resend_activation_code.html:23
+#: .\accounts\templates\accounts\restore_password.html:23
+#: .\content\templates\layouts\default\page.html:353
+msgid "Log in"
+msgstr "ಲಾಗಿನ್ ಮಾಡಿ"
+
+#: .\accounts\templates\accounts\log_in.html:23
+msgid "Forgot your password?"
+msgstr "ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಮರೆತಿರುವಿರಾ?"
+
+#: .\accounts\templates\accounts\log_in.html:26
+msgid "Forgot your username?"
+msgstr "ನಿಮ್ಮ ಬಳಕೆದಾರ ಹೆಸರನ್ನು ಮರೆತಿರುವಿರಾ?"
+
+#: .\accounts\templates\accounts\log_out.html:7
+msgid "Logged out"
+msgstr "ಲಾಗ್ ಔಟ್"
+
+#: .\accounts\templates\accounts\log_out.html:10
+msgid "Thanks for spending some quality time with the site today."
+msgstr "ಇಂದು ಸೈಟ್‌ನೊಂದಿಗೆ ಸ್ವಲ್ಪ ಗುಣಮಟ್ಟದ ಸಮಯವನ್ನು ಕಳೆದಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು."
+
+#: .\accounts\templates\accounts\log_out.html:14
+msgid "Log in again"
+msgstr "ಮತ್ತೆ ಲಾಗ್ ಇನ್ ಮಾಡಿ"
+
+#: .\accounts\templates\accounts\profile\change_email.html:8
+msgid "Change email"
+msgstr "ಇಮೇಲ್ ಬದಲಾಯಿಸಿ"
+
+#: .\accounts\templates\accounts\profile\change_email.html:15
+#: .\accounts\templates\accounts\profile\change_password.html:15
+#: .\accounts\templates\accounts\profile\change_profile.html:15
+#: .\accounts\templates\accounts\restore_password_confirm.html:21
+#: .\content\templates\main\change_language.html:29
+msgid "Change"
+msgstr "ಬದಲಾವಣೆ"
+
+#: .\accounts\templates\accounts\profile\change_password.html:8
+#: .\content\templates\layouts\default\page.html:343
+msgid "Change password"
+msgstr "ಗುಪ್ತಪದವನ್ನು ಬದಲಿಸಿ"
+
+#: .\accounts\templates\accounts\profile\change_profile.html:8
+#: .\content\templates\layouts\default\page.html:346
+msgid "Change profile"
+msgstr "ಪ್ರೊಫೈಲ್ ಬದಲಾಯಿಸಿ"
+
+#: .\accounts\templates\accounts\profile\file_missing.html:9
+msgid "Upload details of Person who went Missing"
+msgstr "ಕಾಣೆಯಾದ ವ್ಯಕ್ತಿಯ ವಿವರಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+
+#: .\accounts\templates\accounts\profile\file_missing.html:19
+msgid "Submit"
+msgstr "ಸಲ್ಲಿಸು"
+
+#: .\accounts\templates\accounts\profile\found_missing.html:8
+msgid "Upload Found Person Details"
+msgstr "ಕಂಡುಬಂದ ವ್ಯಕ್ತಿಯ ವಿವರಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ"
+
+#: .\accounts\templates\accounts\profile\found_missing.html:15
+msgid "Start Matching"
+msgstr "ಹೊಂದಾಣಿಕೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ"
+
+#: .\accounts\templates\accounts\profile\match.html:14
+msgid "Your username is"
+msgstr "ನಿಮ್ಮ ಬಳಕೆದಾರಹೆಸರು"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:14
+msgid "Images"
+msgstr "ಚಿತ್ರಗಳು"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:15
+msgid "Name"
+msgstr "ಹೆಸರು"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:16
+msgid "Gender"
+msgstr "ಲಿಂಗ"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:17
+msgid "Went Missing"
+msgstr "ಕಾಣೆಯಾಯಿತು"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:18
+msgid "Age"
+msgstr "ವಯಸ್ಸು"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:19
+msgid "Place"
+msgstr "ಸ್ಥಳ"
+
+#: .\accounts\templates\accounts\profile\user_list.html:12
+msgid "User ID"
+msgstr "ಬಳಕೆದಾರರ ಗುರುತು"
+
+#: .\accounts\templates\accounts\profile\user_list.html:13
+msgid "User Name"
+msgstr "ಬಳಕೆದಾರ ಹೆಸರು"
+
+#: .\accounts\templates\accounts\profile\user_list.html:14
+msgid "Email ID"
+msgstr "ಇಮೇಲ್ ಐಡಿ"
+
+#: .\accounts\templates\accounts\profile\user_list.html:15
+msgid "Cases Filed"
+msgstr "ಪ್ರಕರಣಗಳು ದಾಖಲಾಗಿವೆ"
+
+#: .\accounts\templates\accounts\profile\user_list.html:16
+msgid "People Found"
+msgstr "ಜನರು ಕಂಡುಬಂದಿದ್ದಾರೆ"
+
+#: .\accounts\templates\accounts\remind_username.html:8
+msgid "Remind a username"
+msgstr "ಬಳಕೆದಾರ ಹೆಸರನ್ನು ನೆನಪಿಸಿ"
+
+#: .\accounts\templates\accounts\remind_username.html:15
+#: .\accounts\templates\accounts\resend_activation_code.html:15
+#: .\accounts\templates\accounts\restore_password.html:15
+msgid "Next"
+msgstr "ಮುಂದೆ"
+
+#: .\accounts\templates\accounts\resend_activation_code.html:8
+msgid "Resend an activation code"
+msgstr "ಸಕ್ರಿಯಗೊಳಿಸುವ ಕೋಡ್ ಅನ್ನು ಮರುಕಳುಹಿಸಿ"
+
+#: .\accounts\templates\accounts\restore_password.html:8
+#: .\accounts\templates\accounts\restore_password_confirm.html:8
+#: .\accounts\templates\accounts\restore_password_done.html:7
+msgid "Restore password"
+msgstr "ಪಾಸ್ವರ್ಡ್ ಮರುಸ್ಥಾಪಿಸಿ"
+
+#: .\accounts\templates\accounts\restore_password_confirm.html:13
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಎರಡು ಬಾರಿ ನಮೂದಿಸಿ ಇದರಿಂದ ನೀವು ಅದನ್ನು "
+"ಸರಿಯಾಗಿ ಟೈಪ್ ಮಾಡಿರುವುದನ್ನು ನಾವು ಪರಿಶೀಲಿಸಬಹುದು."
+
+#: .\accounts\templates\accounts\restore_password_confirm.html:28
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+"ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅಮಾನ್ಯವಾಗಿದೆ, ಬಹುಶಃ ಇದನ್ನು ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ. "
+"ದಯವಿಟ್ಟು ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ವಿನಂತಿಸಿ."
+
+#: .\accounts\templates\accounts\restore_password_done.html:10
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered."
+msgstr ""
+"ನೀವು ನಮೂದಿಸಿದ ಇಮೇಲ್‌ನೊಂದಿಗೆ ಖಾತೆಯು ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ, ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ "
+"ಹೊಂದಿಸಲು ನಾವು ನಿಮಗೆ ಸೂಚನೆಗಳನ್ನು ಇಮೇಲ್ ಮಾಡಿದ್ದೇವೆ."
+
+#: .\accounts\templates\accounts\restore_password_done.html:11
+msgid "You should receive them shortly."
+msgstr "ನೀವು ಅವುಗಳನ್ನು ಶೀಘ್ರದಲ್ಲೇ ಸ್ವೀಕರಿಸಬೇಕು."
+
+#: .\accounts\templates\accounts\restore_password_done.html:15
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you signed up with, and check your spam folder."
+msgstr ""
+"ನೀವು ಇಮೇಲ್ ಸ್ವೀಕರಿಸದಿದ್ದರೆ, ದಯವಿಟ್ಟು ನೀವು ಸೈನ್ ಅಪ್ ಮಾಡಿದ ವಿಳಾಸವನ್ನು "
+"ನಮೂದಿಸಿರುವಿರಿ ಎಂಬುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ ಮತ್ತು ನಿಮ್ಮ ಸ್ಪ್ಯಾಮ್ ಫೋಲ್ಡರ್ ಅನ್ನು "
+"ಪರಿಶೀಲಿಸಿ."
+
+#: .\accounts\templates\accounts\sign_up.html:8
+#: .\content\templates\layouts\default\page.html:356
+msgid "Create an account"
+msgstr "ಖಾತೆಯನ್ನು ತೆರೆಯಿರಿ"
+
+#: .\accounts\templates\accounts\sign_up.html:15
+msgid "Create"
+msgstr "ರಚಿಸಿ"
+
+#: .\accounts\views.py:146
+msgid ""
+"You are signed up. To activate the account, follow the link sent to the "
+"mail."
+msgstr ""
+"ನೀವು ಸೈನ್ ಅಪ್ ಆಗಿದ್ದೀರಿ. ಖಾತೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು, ಮೇಲ್ಗೆ ಕಳುಹಿಸಲಾದ ಲಿಂಕ್ "
+"ಅನ್ನು ಅನುಸರಿಸಿ."
+
+#: .\accounts\views.py:153
+msgid "You are successfully signed up!"
+msgstr "ನೀವು ಯಶಸ್ವಿಯಾಗಿ ಸೈನ್ ಅಪ್ ಆಗಿದ್ದೀರಿ!"
+
+#: .\accounts\views.py:171
+msgid "You have successfully activated your account!"
+msgstr "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ನೀವು ಯಶಸ್ವಿಯಾಗಿ ಸಕ್ರಿಯಗೊಳಿಸಿರುವಿರಿ!"
+
+#: .\accounts\views.py:201
+msgid "A new activation code has been sent to your email address."
+msgstr "ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸಕ್ಕೆ ಹೊಸ ಸಕ್ರಿಯಗೊಳಿಸುವ ಕೋಡ್ ಅನ್ನು ಕಳುಹಿಸಲಾಗಿದೆ."
+
+#: .\accounts\views.py:247
+msgid "Profile data has been successfully updated."
+msgstr "ಪ್ರೊಫೈಲ್ ಡೇಟಾವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ."
+
+#: .\accounts\views.py:281
+msgid "To complete the change of email address, click on the link sent to it."
+msgstr ""
+"ಇಮೇಲ್ ವಿಳಾಸದ ಬದಲಾವಣೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು, ಅದಕ್ಕೆ ಕಳುಹಿಸಲಾದ ಲಿಂಕ್ ಅನ್ನು ಕ್ಲಿಕ್ "
+"ಮಾಡಿ."
+
+#: .\accounts\views.py:286
+msgid "Email successfully changed."
+msgstr "ಇಮೇಲ್ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಬದಲಾಯಿಸಲಾಗಿದೆ."
+
+#: .\accounts\views.py:304
+msgid "You have successfully changed your email!"
+msgstr "ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನೀವು ಯಶಸ್ವಿಯಾಗಿ ಬದಲಾಯಿಸಿರುವಿರಿ!"
+
+#: .\accounts\views.py:317
+msgid "Your username has been successfully sent to your email."
+msgstr "ನಿಮ್ಮ ಬಳಕೆದಾರರ ಹೆಸರನ್ನು ನಿಮ್ಮ ಇಮೇಲ್‌ಗೆ ಯಶಸ್ವಿಯಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆ."
+
+#: .\accounts\views.py:332
+msgid "Your password was changed."
+msgstr "ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಬದಲಾಯಿಸಲಾಗಿದೆ."
+
+#: .\accounts\views.py:344
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr ""
+"ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಹೊಂದಿಸಲಾಗಿದೆ. ನೀವು ಮುಂದೆ ಹೋಗಿ ಈಗ ಲಾಗ್ ಇನ್ ಮಾಡಬಹುದು."
+
+#: .\accounts\views.py:400
+msgid "Person not found in the database"
+msgstr "ಡೇಟಾಬೇಸ್‌ನಲ್ಲಿ ವ್ಯಕ್ತಿ ಕಂಡುಬಂದಿಲ್ಲ"
+
+#: .\accounts\views.py:415
+msgid "You have found a missing person! "
+msgstr "ಕಾಣೆಯಾದ ವ್ಯಕ್ತಿಯನ್ನು ನೀವು ಕಂಡುಕೊಂಡಿದ್ದೀರಿ!"
+
+#: .\accounts\views.py:443
+msgid " face(s) found in the Image: "
+msgstr "ಚಿತ್ರದಲ್ಲಿ ಕಂಡುಬರುವ ಮುಖ(ಗಳು):"
+
+#: .\accounts\views.py:471
+msgid "Your case has been submitted."
+msgstr "ನಿಮ್ಮ ಪ್ರಕರಣವನ್ನು ಸಲ್ಲಿಸಲಾಗಿದೆ."
+
+#: .\app\conf\development\settings.py:133
+#: .\app\conf\production\settings.py:115
+msgid "English"
+msgstr "ಆಂಗ್ಲ"
+
+#: .\app\conf\development\settings.py:134
+msgid "Hindi"
+msgstr "ಹಿಂದಿ"
+
+#: .\app\conf\development\settings.py:135
+msgid "Kannada"
+msgstr "ಕನ್ನಡ"
+
+#: .\app\conf\production\settings.py:116
+msgid "Russian"
+msgstr "ರಷ್ಯನ್"
+
+#: .\app\conf\production\settings.py:117
+msgid "Simplified Chinese"
+msgstr "ಸರಳೀಕೃತ ಚೈನೀಸ್"
+
+#: .\app\conf\production\settings.py:118
+msgid "French"
+msgstr "ಫ್ರೆಂಚ್"
+
+#: .\app\conf\production\settings.py:119
+msgid "Spanish"
+msgstr "ಸ್ಪ್ಯಾನಿಷ್"
+
+#: .\content\templates\layouts\default\page.html:339
+#: .\content\templates\main\change_language.html:10
+msgid "Change language"
+msgstr "ಭಾಷೆ ಬದಲಾಯಿಸಿ"
+
+#: .\content\templates\layouts\default\page.html:349
+msgid "Log out"
+msgstr "ಲಾಗ್ ಔಟ್"
+
+#: .\content\templates\layouts\default\page.html:375
+msgid "File Case"
+msgstr "ಫೈಲ್ ಕೇಸ್"
+
+#: .\content\templates\layouts\default\page.html:377
+msgid "Missing Cases"
+msgstr "ಕಾಣೆಯಾದ ಪ್ರಕರಣಗಳು"
+
+#: .\content\templates\layouts\default\page.html:379
+msgid "Find Match"
+msgstr "ಹೊಂದಾಣಿಕೆಯನ್ನು ಹುಡುಕಿ"
+
+#: .\content\templates\layouts\default\page.html:384
+msgid "Users"
+msgstr "ಬಳಕೆದಾರರು"
+
+#: .\content\templates\main\change_language.html:19
+msgid "Select the language"
+msgstr "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+
+#: .\content\templates\main\index.html:14
+msgid "Found at"
+msgstr "ನಲ್ಲಿ ಕಂಡುಬಂದಿದೆ"
+
+#: .\content\templates\main\index.html:30
+msgid "What we do?"
+msgstr "ನಾವು ಏನು ಮಾಡುತ್ತೇವೆ?"
+
+#: .\content\templates\main\index.html:35
+msgid ""
+"India is witnessing a shocking trend in the number of cases of missing "
+"children, women and men being reported across the country. At this time and "
+"age, we see that face recognition  is used in various streams and platforms."
+" We have set out with an objective, \"To Create A Robust And Efficient Face "
+"Recognition To Find People Missing Or Lost\""
+msgstr ""
+"ದೇಶಾದ್ಯಂತ ವರದಿಯಾಗುತ್ತಿರುವ ಮಕ್ಕಳು, ಮಹಿಳೆಯರು ಮತ್ತು ಪುರುಷರು ಕಾಣೆಯಾದ ಪ್ರಕರಣಗಳ "
+"ಸಂಖ್ಯೆಯಲ್ಲಿ ಭಾರತವು ಆಘಾತಕಾರಿ ಪ್ರವೃತ್ತಿಯನ್ನು ನೋಡುತ್ತಿದೆ. ಈ ಸಮಯದಲ್ಲಿ ಮತ್ತು "
+"ವಯಸ್ಸಿನಲ್ಲಿ, ವಿವಿಧ ಸ್ಟ್ರೀಮ್‌ಗಳು ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳಲ್ಲಿ ಮುಖ "
+"ಗುರುತಿಸುವಿಕೆಯನ್ನು ಬಳಸುವುದನ್ನು ನಾವು ನೋಡುತ್ತೇವೆ. \"ಕಾಣೆಯಾದ ಅಥವಾ ಕಳೆದುಹೋದ "
+"ಜನರನ್ನು ಹುಡುಕಲು ದೃಢವಾದ ಮತ್ತು ಸಮರ್ಥ ಮುಖ ಗುರುತಿಸುವಿಕೆಯನ್ನು ರಚಿಸಲು\" ಎಂಬ "
+"ಉದ್ದೇಶವನ್ನು ನಾವು ಹೊಂದಿದ್ದೇವೆ."
+
+#: .\content\templates\main\index.html:45
+msgid "Total people missing"
+msgstr "ಒಟ್ಟು ಜನರು ಕಾಣೆಯಾಗಿದ್ದಾರೆ"
+
+#: .\content\templates\main\index.html:55
+msgid "Total people found"
+msgstr "ಒಟ್ಟು ಜನರು ಕಂಡುಬಂದಿದ್ದಾರೆ"
+
+#: .\content\templates\main\index.html:65
+msgid "No of users"
+msgstr "ಬಳಕೆದಾರರ ಸಂಖ್ಯೆ"
+
+#: .\content\templates\main\index.html:74
+msgid "Steps to file a case:"
+msgstr ""
+"842 / 5,000\n"
+"Translation results\n"
+"ಪ್ರಕರಣ ದಾಖಲಿಸಲು ಕ್ರಮಗಳು:"
+
+#: .\content\templates\main\index.html:77
+#: .\content\templates\main\index.html:97
+msgid "Go to File Missing Tab"
+msgstr "ಫೈಲ್ ಮಿಸ್ಸಿಂಗ್ ಟ್ಯಾಬ್‌ಗೆ ಹೋಗಿ"
+
+#: .\content\templates\main\index.html:78
+#: .\content\templates\main\index.html:96
+msgid "Upload 3-5 faces of the missing person"
+msgstr "ಕಾಣೆಯಾದ ವ್ಯಕ್ತಿಯ 3-5 ಮುಖಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+
+#: .\content\templates\main\index.html:79
+msgid "Enter the details and hit submit"
+msgstr "ವಿವರಗಳನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಸಲ್ಲಿಸು ಒತ್ತಿರಿ"
+
+#: .\content\templates\main\index.html:80
+msgid "You will be notified if the case was successfully submitted"
+msgstr "ಪ್ರಕರಣವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಿದರೆ ನಿಮಗೆ ಸೂಚಿಸಲಾಗುತ್ತದೆ"
+
+#: .\content\templates\main\index.html:83
+msgid "To upload a person you found:"
+msgstr "ನೀವು ಕಂಡುಕೊಂಡ ವ್ಯಕ್ತಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲು:"
+
+#: .\content\templates\main\index.html:86
+msgid "Go to Find Match Tab"
+msgstr "ಫೈಂಡ್ ಮ್ಯಾಚ್ ಟ್ಯಾಬ್‌ಗೆ ಹೋಗಿ"
+
+#: .\content\templates\main\index.html:87
+msgid "Upload face of the missing person"
+msgstr "ಕಾಣೆಯಾದ ವ್ಯಕ್ತಿಯ ಮುಖವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+
+#: .\content\templates\main\index.html:88
+msgid "Enter your phone number and details of where you found them"
+msgstr ""
+"ನಿಮ್ಮ ಫೋನ್ ಸಂಖ್ಯೆ ಮತ್ತು ನೀವು ಅವುಗಳನ್ನು ಎಲ್ಲಿ ಕಂಡುಕೊಂಡಿದ್ದೀರಿ ಎಂಬುದರ "
+"ವಿವರಗಳನ್ನು ನಮೂದಿಸಿ"
+
+#: .\content\templates\main\index.html:89
+msgid ""
+"Hit submit and matching is initiated, wait until the process is completed"
+msgstr ""
+"ಸಲ್ಲಿಸು ಒತ್ತಿರಿ ಮತ್ತು ಹೊಂದಾಣಿಕೆಯನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗಿದೆ, ಪ್ರಕ್ರಿಯೆಯು "
+"ಪೂರ್ಣಗೊಳ್ಳುವವರೆಗೆ ಕಾಯಿರಿ"
+
+#: .\content\templates\main\index.html:92
+msgid "To view all the people who went missing:"
+msgstr "ಕಾಣೆಯಾದ ಎಲ್ಲ ಜನರನ್ನು ವೀಕ್ಷಿಸಲು:"
+
+#: .\content\templates\main\index.html:95
+msgid "Go to Missing Cases Tab"
+msgstr "ಮಿಸ್ಸಿಂಗ್ ಕೇಸ್‌ಗಳ ಟ್ಯಾಬ್‌ಗೆ ಹೋಗಿ"
+
+#: .\content\templates\main\index.html:98
+msgid "All the people who have not been found yet are displayed"
+msgstr "ಇನ್ನೂ ಪತ್ತೆಯಾಗದ ಎಲ್ಲಾ ಜನರನ್ನು ಪ್ರದರ್ಶಿಸಲಾಗುತ್ತದೆ"
+
+#: .\content\templates\main\index.html:108
+msgid "Leaderboard"
+msgstr "ಲೀಡರ್‌ಬೋರ್ಡ್"
+
+#: .\content\templates\main\index.html:111
+msgid "Today"
+msgstr "ಇಂದು"
+
+#: .\content\templates\main\index.html:112
+msgid "All Time"
+msgstr "ಎಲ್ಲ ಸಮಯದಲ್ಲು"
+
+#: .\content\templates\main\index.html:113
+msgid "Month"
+msgstr "ತಿಂಗಳು"

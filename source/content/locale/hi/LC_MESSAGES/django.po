@@ -1,0 +1,603 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-10 16:39+0530\n"
+"PO-Revision-Date: 2022-06-10 16:48+0000\n"
+"Last-Translator: Administrator 1 <locatemissing19@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\accounts\forms.py:25
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: .\accounts\forms.py:31
+msgid "Remember me"
+msgstr "पहचाना की नहीं"
+
+#: .\accounts\forms.py:40
+msgid "You entered an invalid password."
+msgstr "आपने एक अमान्य पासवर्ड दर्ज किया है।"
+
+#: .\accounts\forms.py:46
+msgid "Username"
+msgstr "उपयोगकर्ता नाम"
+
+#: .\accounts\forms.py:59
+msgid "You entered an invalid username."
+msgstr "आपने एक अमान्य उपयोगकर्ता नाम दर्ज किया है।"
+
+#: .\accounts\forms.py:62 .\accounts\forms.py:86 .\accounts\forms.py:110
+#: .\accounts\forms.py:197 .\accounts\forms.py:215 .\accounts\forms.py:258
+msgid "This account is not active."
+msgstr "यह खाता सक्रिय नहीं है।"
+
+#: .\accounts\forms.py:70 .\accounts\forms.py:122 .\accounts\forms.py:161
+#: .\accounts\forms.py:187 .\accounts\forms.py:228 .\accounts\forms.py:248
+msgid "Email"
+msgstr "ईमेल"
+
+#: .\accounts\forms.py:83 .\accounts\forms.py:168 .\accounts\forms.py:194
+#: .\accounts\forms.py:255
+msgid "You entered an invalid email address."
+msgstr "आपने एक अमान्य विद्युतडाक पता डाला है।"
+
+#: .\accounts\forms.py:94 .\accounts\forms.py:135 .\accounts\forms.py:205
+msgid "Email or Username"
+msgstr "ईमेल या उपयोगकर्ता का नाम"
+
+#: .\accounts\forms.py:107 .\accounts\forms.py:142 .\accounts\forms.py:212
+msgid "You entered an invalid email address or username."
+msgstr "आपने एक अमान्य ईमेल पता या उपयोगकर्ता नाम दर्ज किया है।"
+
+#: .\accounts\forms.py:122
+msgid "Required. Enter an existing email address."
+msgstr "आवश्यक। एक मौजूदा ईमेल पता दर्ज करें।"
+
+#: .\accounts\forms.py:129
+msgid "You can not use this email address."
+msgstr "आप इस ईमेल पते का उपयोग नहीं कर सकते।"
+
+#: .\accounts\forms.py:145 .\accounts\forms.py:171
+msgid "This account has already been activated."
+msgstr "यह खाता पहले ही सक्रिय हो चुका है।"
+
+#: .\accounts\forms.py:149 .\accounts\forms.py:175
+msgid "Activation code not found."
+msgstr "सक्रियण कोड नहीं मिला।"
+
+#: .\accounts\forms.py:153 .\accounts\forms.py:179
+msgid ""
+"Activation code has already been sent. You can request a new code in 24 "
+"hours."
+msgstr ""
+"सक्रियण कोड पहले ही भेजा जा चुका है। आप 24 घंटे में एक नए कोड का अनुरोध कर "
+"सकते हैं।"
+
+#: .\accounts\forms.py:223 .\accounts\models.py:33
+msgid "First name"
+msgstr "संतोष"
+
+#: .\accounts\forms.py:224 .\accounts\models.py:34
+msgid "Last name"
+msgstr "उपनाम"
+
+#: .\accounts\forms.py:238
+msgid "Please enter another email."
+msgstr "कृपया कोई अन्य ईमेल दर्ज करें।"
+
+#: .\accounts\forms.py:242
+msgid "You can not use this mail."
+msgstr "कृपया कोई अन्य ईमेल दर्ज करें।"
+
+#: .\accounts\forms.py:266
+msgid "Upload clear Face(s) of the missing person"
+msgstr "कृपया कोई अन्य ईमेल दर्ज करें।"
+
+#: .\accounts\forms.py:267
+msgid "Date of Birth"
+msgstr "जन्म की तारीख"
+
+#: .\accounts\forms.py:272 .\accounts\forms.py:284 .\accounts\models.py:20
+#: .\accounts\models.py:51
+msgid "State"
+msgstr "राज्य"
+
+#: .\accounts\forms.py:273 .\accounts\forms.py:285
+msgid "Postcode"
+msgstr "पोस्टकोड"
+
+#: .\accounts\forms.py:282
+msgid "Upload clear Face of the missing person"
+msgstr "लापता व्यक्ति का स्पष्ट चेहरा अपलोड करें"
+
+#: .\accounts\forms.py:283
+msgid "Enter your Contact Number"
+msgstr "अपना संपर्क नंबर दर्ज करें"
+
+#: .\accounts\models.py:17 .\accounts\models.py:48
+msgid "Street"
+msgstr "सड़क"
+
+#: .\accounts\models.py:18 .\accounts\models.py:49
+msgid "Area"
+msgstr "क्षेत्र"
+
+#: .\accounts\models.py:19 .\accounts\models.py:50
+msgid "City"
+msgstr "शहर"
+
+#: .\accounts\models.py:21 .\accounts\models.py:52
+msgid "Pin code"
+msgstr "पिन कोड"
+
+#: .\accounts\models.py:40
+msgid "Sex"
+msgstr "लिंग"
+
+#: .\accounts\models.py:42
+msgid "Date of Missing"
+msgstr "गुम होने की तिथि"
+
+#: .\accounts\models.py:43
+msgid "Time of Missing"
+msgstr "गुम होने का समय"
+
+#: .\accounts\models.py:47
+msgid "Addition Info"
+msgstr "अतिरिक्त जानकारी"
+
+#: .\accounts\templates\accounts\emails\activate_profile.html:11
+#: .\accounts\templates\accounts\emails\activate_profile.txt:3
+msgid "To activate your profile, please follow this link:"
+msgstr "अपनी प्रोफ़ाइल सक्रिय करने के लिए, कृपया इस लिंक का अनुसरण करें:"
+
+#: .\accounts\templates\accounts\emails\change_email.html:15
+#: .\accounts\templates\accounts\emails\change_email.txt:3
+msgid "To change your current email address, please follow the link:"
+msgstr "अपना वर्तमान ईमेल पता बदलने के लिए, कृपया लिंक का अनुसरण करें:"
+
+#: .\accounts\templates\accounts\emails\forgotten_username.html:15
+#: .\accounts\templates\accounts\emails\forgotten_username.txt:3
+msgid "Your username is:"
+msgstr "आपका यूज़रनेम है:"
+
+#: .\accounts\templates\accounts\emails\restore_password_email.html:15
+#: .\accounts\templates\accounts\emails\restore_password_email.txt:3
+msgid ""
+"You received this email because you requested a password reset for your user"
+" account."
+msgstr ""
+"आपको यह ईमेल इसलिए प्राप्त हुआ है क्योंकि आपने अपने उपयोगकर्ता खाते के लिए "
+"पासवर्ड रीसेट करने का अनुरोध किया था।"
+
+#: .\accounts\templates\accounts\emails\restore_password_email.html:19
+#: .\accounts\templates\accounts\emails\restore_password_email.txt:5
+msgid "Please, go to the following page and choose a new password:"
+msgstr "कृपया, निम्न पृष्ठ पर जाएं और एक नया पासवर्ड चुनें:"
+
+#: .\accounts\templates\accounts\log_in.html:8
+#: .\accounts\templates\accounts\log_in.html:15
+#: .\accounts\templates\accounts\remind_username.html:23
+#: .\accounts\templates\accounts\resend_activation_code.html:23
+#: .\accounts\templates\accounts\restore_password.html:23
+#: .\content\templates\layouts\default\page.html:353
+msgid "Log in"
+msgstr "लॉग इन करें"
+
+#: .\accounts\templates\accounts\log_in.html:23
+msgid "Forgot your password?"
+msgstr "पासवर्ड भूल गए हैं?"
+
+#: .\accounts\templates\accounts\log_in.html:26
+msgid "Forgot your username?"
+msgstr "अपना उपयोगकर्ता नाम भूल गए?"
+
+#: .\accounts\templates\accounts\log_out.html:7
+msgid "Logged out"
+msgstr "लॉग आउट"
+
+#: .\accounts\templates\accounts\log_out.html:10
+msgid "Thanks for spending some quality time with the site today."
+msgstr "आज साइट के साथ कुछ गुणवत्तापूर्ण समय बिताने के लिए धन्यवाद।"
+
+#: .\accounts\templates\accounts\log_out.html:14
+msgid "Log in again"
+msgstr "फिर से लॉगिन करें"
+
+#: .\accounts\templates\accounts\profile\change_email.html:8
+msgid "Change email"
+msgstr "बदले ई - मेल"
+
+#: .\accounts\templates\accounts\profile\change_email.html:15
+#: .\accounts\templates\accounts\profile\change_password.html:15
+#: .\accounts\templates\accounts\profile\change_profile.html:15
+#: .\accounts\templates\accounts\restore_password_confirm.html:21
+#: .\content\templates\main\change_language.html:29
+msgid "Change"
+msgstr "परिवर्तन"
+
+#: .\accounts\templates\accounts\profile\change_password.html:8
+#: .\content\templates\layouts\default\page.html:343
+msgid "Change password"
+msgstr "पासवर्ड बदलें"
+
+#: .\accounts\templates\accounts\profile\change_profile.html:8
+#: .\content\templates\layouts\default\page.html:346
+msgid "Change profile"
+msgstr "विवरणिका बदले"
+
+#: .\accounts\templates\accounts\profile\file_missing.html:9
+msgid "Upload details of Person who went Missing"
+msgstr "लापता व्यक्ति का विवरण अपलोड करें"
+
+#: .\accounts\templates\accounts\profile\file_missing.html:19
+msgid "Submit"
+msgstr "प्रस्तुत करना"
+
+#: .\accounts\templates\accounts\profile\found_missing.html:8
+msgid "Upload Found Person Details"
+msgstr "मिला व्यक्ति विवरण अपलोड करें"
+
+#: .\accounts\templates\accounts\profile\found_missing.html:15
+msgid "Start Matching"
+msgstr "मिलान शुरू करें"
+
+#: .\accounts\templates\accounts\profile\match.html:14
+msgid "Your username is"
+msgstr "आपका यूज़रनेम है"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:14
+msgid "Images"
+msgstr "इमेजिस"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:15
+msgid "Name"
+msgstr "नाम"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:16
+msgid "Gender"
+msgstr "लिंग"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:17
+msgid "Went Missing"
+msgstr "गुम होने की तिथि"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:18
+msgid "Age"
+msgstr "आयु"
+
+#: .\accounts\templates\accounts\profile\missing_list.html:19
+msgid "Place"
+msgstr "स्थान"
+
+#: .\accounts\templates\accounts\profile\user_list.html:12
+msgid "User ID"
+msgstr "यूज़र आईडी"
+
+#: .\accounts\templates\accounts\profile\user_list.html:13
+msgid "User Name"
+msgstr "उपयोगकर्ता नाम"
+
+#: .\accounts\templates\accounts\profile\user_list.html:14
+msgid "Email ID"
+msgstr "ईमेल आईडी"
+
+#: .\accounts\templates\accounts\profile\user_list.html:15
+msgid "Cases Filed"
+msgstr "दर्ज मामले"
+
+#: .\accounts\templates\accounts\profile\user_list.html:16
+msgid "People Found"
+msgstr "लोग मिले"
+
+#: .\accounts\templates\accounts\remind_username.html:8
+msgid "Remind a username"
+msgstr "एक उपयोगकर्ता नाम याद दिलाएं"
+
+#: .\accounts\templates\accounts\remind_username.html:15
+#: .\accounts\templates\accounts\resend_activation_code.html:15
+#: .\accounts\templates\accounts\restore_password.html:15
+msgid "Next"
+msgstr "अगला"
+
+#: .\accounts\templates\accounts\resend_activation_code.html:8
+msgid "Resend an activation code"
+msgstr "एक सक्रियण कोड फिर से भेजें"
+
+#: .\accounts\templates\accounts\restore_password.html:8
+#: .\accounts\templates\accounts\restore_password_confirm.html:8
+#: .\accounts\templates\accounts\restore_password_done.html:7
+msgid "Restore password"
+msgstr "पासवर्ड पुनर्स्थापित करें"
+
+#: .\accounts\templates\accounts\restore_password_confirm.html:13
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"कृपया अपना नया पासवर्ड दो बार दर्ज करें ताकि हम सत्यापित कर सकें कि आपने इसे"
+" सही टाइप किया है।"
+
+#: .\accounts\templates\accounts\restore_password_confirm.html:28
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+"पासवर्ड रीसेट लिंक अमान्य था, संभवतः इसलिए कि इसका पहले ही उपयोग किया जा "
+"चुका है। कृपया एक नया पासवर्ड रीसेट करने का अनुरोध करें।"
+
+#: .\accounts\templates\accounts\restore_password_done.html:10
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered."
+msgstr ""
+"यदि आपके द्वारा दर्ज ईमेल के साथ कोई खाता मौजूद है, तो हमने आपको आपका "
+"पासवर्ड सेट करने के निर्देश ईमेल कर दिए हैं।"
+
+#: .\accounts\templates\accounts\restore_password_done.html:11
+msgid "You should receive them shortly."
+msgstr "आपको उन्हें शीघ्र ही प्राप्त करना चाहिए।"
+
+#: .\accounts\templates\accounts\restore_password_done.html:15
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you signed up with, and check your spam folder."
+msgstr ""
+"यदि आपको कोई ईमेल प्राप्त नहीं होता है, तो कृपया सुनिश्चित करें कि आपने वह "
+"पता दर्ज किया है जिसके साथ आपने साइन अप किया है, और अपना स्पैम फ़ोल्डर "
+"जांचें।"
+
+#: .\accounts\templates\accounts\sign_up.html:8
+#: .\content\templates\layouts\default\page.html:356
+msgid "Create an account"
+msgstr "खाता बनाएं"
+
+#: .\accounts\templates\accounts\sign_up.html:15
+msgid "Create"
+msgstr "सृजन करना"
+
+#: .\accounts\views.py:146
+msgid ""
+"You are signed up. To activate the account, follow the link sent to the "
+"mail."
+msgstr ""
+"आप साइन अप हैं। खाते को सक्रिय करने के लिए, मेल पर भेजे गए लिंक का अनुसरण "
+"करें।"
+
+#: .\accounts\views.py:153
+msgid "You are successfully signed up!"
+msgstr "आपने सफलतापूर्वक साइन अप कर लिया है!"
+
+#: .\accounts\views.py:171
+msgid "You have successfully activated your account!"
+msgstr "आपने अपना खाता सफलतापूर्वक सक्रिय कर लिया है!"
+
+#: .\accounts\views.py:201
+msgid "A new activation code has been sent to your email address."
+msgstr "आपके ईमेल पते पर एक नया सक्रियण कोड भेज दिया गया है।"
+
+#: .\accounts\views.py:247
+msgid "Profile data has been successfully updated."
+msgstr "प्रोफ़ाइल डेटा सफलतापूर्वक अपडेट कर दिया गया है।"
+
+#: .\accounts\views.py:281
+msgid "To complete the change of email address, click on the link sent to it."
+msgstr ""
+"ईमेल पते के परिवर्तन को पूरा करने के लिए, उस पर भेजे गए लिंक पर क्लिक करें।"
+
+#: .\accounts\views.py:286
+msgid "Email successfully changed."
+msgstr "ईमेल सफलतापूर्वक बदला गया।"
+
+#: .\accounts\views.py:304
+msgid "You have successfully changed your email!"
+msgstr "आपने अपना ईमेल सफलतापूर्वक बदल लिया है!"
+
+#: .\accounts\views.py:317
+msgid "Your username has been successfully sent to your email."
+msgstr "आपका उपयोगकर्ता नाम आपके ईमेल पर सफलतापूर्वक भेज दिया गया है।"
+
+#: .\accounts\views.py:332
+msgid "Your password was changed."
+msgstr "आपका पासवर्ड बदल दिया गया था।"
+
+#: .\accounts\views.py:344
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr ""
+"आपका पासवर्ड सेट कर दिया गया है। आप आगे बढ़ सकते हैं और अभी लॉग इन कर सकते "
+"हैं।"
+
+#: .\accounts\views.py:400
+msgid "Person not found in the database"
+msgstr "व्यक्ति डेटाबेस में नहीं मिला"
+
+#: .\accounts\views.py:415
+msgid "You have found a missing person! "
+msgstr "आपको एक लापता व्यक्ति मिल गया है!"
+
+#: .\accounts\views.py:443
+msgid " face(s) found in the Image: "
+msgstr "छवि में पाया गया चेहरा:"
+
+#: .\accounts\views.py:471
+msgid "Your case has been submitted."
+msgstr "आपका केस सबमिट कर दिया गया है."
+
+#: .\app\conf\development\settings.py:133
+#: .\app\conf\production\settings.py:115
+msgid "English"
+msgstr "अंग्रेज़ी"
+
+#: .\app\conf\development\settings.py:134
+msgid "Hindi"
+msgstr "हिन्दी"
+
+#: .\app\conf\development\settings.py:135
+msgid "Kannada"
+msgstr "कन्नड़"
+
+#: .\app\conf\production\settings.py:116
+msgid "Russian"
+msgstr "रूसी"
+
+#: .\app\conf\production\settings.py:117
+msgid "Simplified Chinese"
+msgstr "सरलीकृत चीनी"
+
+#: .\app\conf\production\settings.py:118
+msgid "French"
+msgstr "फ्रेंच"
+
+#: .\app\conf\production\settings.py:119
+msgid "Spanish"
+msgstr "स्पैनिश"
+
+#: .\content\templates\layouts\default\page.html:339
+#: .\content\templates\main\change_language.html:10
+msgid "Change language"
+msgstr "भाषा बदलो"
+
+#: .\content\templates\layouts\default\page.html:349
+msgid "Log out"
+msgstr "लॉग आउट"
+
+#: .\content\templates\layouts\default\page.html:375
+msgid "File Case"
+msgstr "फ़ाइल केस"
+
+#: .\content\templates\layouts\default\page.html:377
+msgid "Missing Cases"
+msgstr "गुम मामले"
+
+#: .\content\templates\layouts\default\page.html:379
+msgid "Find Match"
+msgstr "जोड़ी मिलाओ"
+
+#: .\content\templates\layouts\default\page.html:384
+msgid "Users"
+msgstr "उपयोगकर्ताओं"
+
+#: .\content\templates\main\change_language.html:19
+msgid "Select the language"
+msgstr "भाषा चुनें"
+
+#: .\content\templates\main\index.html:14
+msgid "Found at"
+msgstr "पर मिला"
+
+#: .\content\templates\main\index.html:30
+msgid "What we do?"
+msgstr "हम क्या करते हैं?"
+
+#: .\content\templates\main\index.html:35
+msgid ""
+"India is witnessing a shocking trend in the number of cases of missing "
+"children, women and men being reported across the country. At this time and "
+"age, we see that face recognition  is used in various streams and platforms."
+" We have set out with an objective, \"To Create A Robust And Efficient Face "
+"Recognition To Find People Missing Or Lost\""
+msgstr ""
+"भारत देश भर में लापता बच्चों, महिलाओं और पुरुषों के लापता होने के मामलों की "
+"संख्या में एक चौंकाने वाला रुझान देख रहा है। इस समय और उम्र में, हम देखते "
+"हैं कि विभिन्न धाराओं और प्लेटफार्मों में चेहरे की पहचान का उपयोग किया जाता "
+"है। हमने एक उद्देश्य के साथ निर्धारित किया है, \"लापता या गुम हुए लोगों को "
+"खोजने के लिए एक मजबूत और कुशल चेहरा पहचान बनाना\""
+
+#: .\content\templates\main\index.html:45
+msgid "Total people missing"
+msgstr "कुल लोग लापता"
+
+#: .\content\templates\main\index.html:55
+msgid "Total people found"
+msgstr "कुल लोग मिले"
+
+#: .\content\templates\main\index.html:65
+msgid "No of users"
+msgstr "उपयोगकर्ताओं की संख्या"
+
+#: .\content\templates\main\index.html:74
+msgid "Steps to file a case:"
+msgstr "मामला दर्ज करने के लिए कदम:"
+
+#: .\content\templates\main\index.html:77
+#: .\content\templates\main\index.html:97
+msgid "Go to File Missing Tab"
+msgstr "फाइल मिसिंग टैब पर जाएं"
+
+#: .\content\templates\main\index.html:78
+#: .\content\templates\main\index.html:96
+msgid "Upload 3-5 faces of the missing person"
+msgstr ""
+"जोड़ी मिलाओ\n"
+"लापता व्यक्ति के 3-5 चेहरे अपलोड करें"
+
+#: .\content\templates\main\index.html:79
+msgid "Enter the details and hit submit"
+msgstr "विवरण दर्ज करें और सबमिट दबाएं"
+
+#: .\content\templates\main\index.html:80
+msgid "You will be notified if the case was successfully submitted"
+msgstr "आपको मिले व्यक्ति को अपलोड करने के लिए:"
+
+#: .\content\templates\main\index.html:83
+msgid "To upload a person you found:"
+msgstr "यदि मामला सफलतापूर्वक सबमिट किया गया तो आपको सूचित किया जाएगा"
+
+#: .\content\templates\main\index.html:86
+msgid "Go to Find Match Tab"
+msgstr "फाइंड मैच टैब पर जाएं"
+
+#: .\content\templates\main\index.html:87
+msgid "Upload face of the missing person"
+msgstr "लापता व्यक्ति का चेहरा अपलोड करें"
+
+#: .\content\templates\main\index.html:88
+msgid "Enter your phone number and details of where you found them"
+msgstr "अपना फ़ोन नंबर और विवरण दर्ज करें कि आपने उन्हें कहाँ पाया"
+
+#: .\content\templates\main\index.html:89
+msgid ""
+"Hit submit and matching is initiated, wait until the process is completed"
+msgstr ""
+"सबमिट दबाएं और मिलान शुरू हो गया है, प्रक्रिया पूरी होने तक प्रतीक्षा करें"
+
+#: .\content\templates\main\index.html:92
+msgid "To view all the people who went missing:"
+msgstr "लापता हुए सभी लोगों को देखने के लिए:"
+
+#: .\content\templates\main\index.html:95
+msgid "Go to Missing Cases Tab"
+msgstr "गुम मामले टैब पर जाएं"
+
+#: .\content\templates\main\index.html:98
+msgid "All the people who have not been found yet are displayed"
+msgstr "वे सभी लोग जो अभी तक नहीं मिले हैं, प्रदर्शित किए जाते हैं"
+
+#: .\content\templates\main\index.html:108
+msgid "Leaderboard"
+msgstr "लीडरबोर्ड"
+
+#: .\content\templates\main\index.html:111
+msgid "Today"
+msgstr "आज"
+
+#: .\content\templates\main\index.html:112
+msgid "All Time"
+msgstr "पूरा समय"
+
+#: .\content\templates\main\index.html:113
+msgid "Month"
+msgstr "महीना"

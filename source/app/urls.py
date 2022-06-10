@@ -12,7 +12,7 @@ urlpatterns = [
 
     path('i18n/', include('django.conf.urls.i18n')),
     path('language/', ChangeLanguageView.as_view(), name='change_language'),
-
+    path('rosetta/', include('rosetta.urls')),
     path('accounts/', include('accounts.urls')),
 ]
 

@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block content %}
-
+<div class="col-md-6 offset-md-3">
     <h4>{% trans 'Logged out' %}</h4>
 
     <p>
@@ -13,5 +13,5 @@
     <p>
         <a href="{% url 'accounts:log_in' %}">{% trans 'Log in again' %}</a>
     </p>
-
+</div>
 {% endblock %}

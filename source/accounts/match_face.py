@@ -41,7 +41,9 @@ def pcaFuse(layer,pipeline):
 def encode_label(missing_labels):
     label_encoder = preprocessing.LabelEncoder()
     labels_dict = dict()
-    u_labels=missing_labels
+    u_labels=[]
+    for m in missing_labels:
+        u_labels.append(m)
     missing_labels_en= label_encoder.fit_transform(missing_labels)
     for i in range(0,len(missing_labels)):
         if missing_labels_en[i] not in labels_dict:

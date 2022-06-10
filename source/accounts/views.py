@@ -33,17 +33,17 @@ from operator import itemgetter
 import phonenumbers
 from requests import request
 import matplotlib.pyplot as plt
+from datetime import datetime
 
+# datetime object containing current date and time
+now = datetime.date(datetime.now())
+now2 = datetime.now()
 from accounts.detect_face import detect_face, FaceAligner
 from accounts.match_face import preprocess,feature_extraction, encode_img, match_faces
-pathToExecutable = (
-    "C:/Program Files/GNU Octave/Octave-7.1.0/mingw64/bin/octave-cli.exe"
-)
-os.environ['OCTAVE_EXECUTABLE'] = pathToExecutable
 from oct2py import octave
 
 from .utils import (
-    send_activation_email, send_reset_password_email, send_forgotten_username_email, send_activation_change_email,
+    send_activation_email, send_found_person, send_reset_password_email, send_forgotten_username_email, send_activation_change_email,
 )
 from .forms import (
     FoundForm, MissingForm, SignInViaUsernameForm, SignInViaEmailForm, SignInViaEmailOrUsernameForm, SignUpForm,
@@ -363,15 +363,18 @@ class FoundMissingView(LoginRequiredMixin, FormView):
     form_class= FoundForm
     img_list=[]
     label_list = []
-
+    #FileMissing.objects.filter(status="Found").update(status="Not found")
     missing_imgs = FileMissing.objects.filter(status='Not found').values('img')
     missing_labels = FileMissing.objects.filter(status='Not found').values('img_id')
+    print(len(missing_imgs),len(missing_labels))
     for img in missing_imgs:
         img_list.append(img['img'])
+
     for img_id in missing_labels:
         label_list.append(img_id['img_id'])
 
     def form_valid(self, form):
+        #FileMissing.objects.filter(status="Found").update(status="Not found")
         request = self.request
         data=request.POST
         missing_imgs = self.img_list
@@ -380,44 +383,79 @@ class FoundMissingView(LoginRequiredMixin, FormView):
         #form.save()
         img= request.FILES.get('img')
         print(img.name)
-        img_save_path =  settings.MEDIA_ROOT+'/check/'+img.name
+        img_save_path =  settings.MEDIA_ROOT+'/check/'+'check.'+img.name.split(".")[-1]
         with open(img_save_path, 'wb+') as f:
             for chunk in img.chunks():
                 f.write(chunk)
         faces = detect_face(img)
-        
-        aligned_img = fa.align(cv2.imread(img_save_path), faces[0]['keypoints']['left_eye'], faces[0]['keypoints']['right_eye'])
+        if len(faces)>0:
+            messages.success(self.request, _('Checking database for the person. Please wait, do not refresh.'))
+            aligned_img = fa.align(cv2.imread(img_save_path), faces[0]['keypoints']['left_eye'], faces[0]['keypoints']['right_eye'])
 
-        final_img_list, labels_encoded, final_labels_list = preprocess(settings.MEDIA_ROOT, missing_imgs,missing_labels,aligned_img)
-        #print(final_img_list)
-        
-        flatten_new,fc7_new,fc6_new,missing_labels_en= feature_extraction(final_img_list,labels_encoded)
-        
-        
-        encoded_missing_imgs=octave.fuse(flatten_new,fc7_new,fc6_new,missing_labels_en)
-        encoded_predict_img = encode_img(labels_encoded,aligned_img)
-        predicted_id,predicted_score,predicted_list = match_faces(encoded_missing_imgs,encoded_predict_img,final_labels_list)
-        
-        newlist = sorted(predicted_list.items(),reverse=True, key=lambda x: x[1])
-        print(newlist)
-        if predicted_score>=5.04:
-            messages.error(self.request, _('Person not found in the database'))
-            return redirect('accounts:found_missing')
-        else:
-            found = Found.objects.create(
-                img_id=predicted_id,
-                img=img,
-                user_id = request.user.username,
-                phone_number=data['phone_number'],
-                street=data['street'],
-                area=data['area'],
-                city=data['city'],
-                state=data['state'],
-                zip_code=data['zip_code'],
-            )
-            FileMissing.objects.filter(img_id=found.img_id).update(status="Found") # this will update only
-            messages.success(self.request, _('You have found a missing person! '+str(predicted_id)))
+            final_img_list, labels_encoded, final_labels_list = preprocess(settings.MEDIA_ROOT, missing_imgs,missing_labels,aligned_img)
+            #print(final_img_list)
             
+            flatten_new,fc7_new,fc6_new,missing_labels_en= feature_extraction(final_img_list,labels_encoded)
+            
+            print(flatten_new.shape,fc7_new.shape,fc6_new.shape,len(missing_labels_en))
+            encoded_missing_imgs=octave.fuse(flatten_new,fc7_new,fc6_new,missing_labels_en)
+            encoded_predict_img = encode_img(labels_encoded,aligned_img)
+            predicted_id,predicted_score,predicted_list = match_faces(encoded_missing_imgs,encoded_predict_img,final_labels_list)
+            
+            newlist = sorted(predicted_list.items(),reverse=True, key=lambda x: x[1])
+            print(newlist,now)
+            
+            if predicted_score>=5.04:
+                messages.error(self.request, _('Person not found in the database'))
+                return redirect('accounts:found_missing')
+            else:
+                raw = 'Select {}-date_of_missing from accounts_filemissing u where u.id=accounts_filemissing.id'.format(now)
+
+                unique_missing = FileMissing.objects.filter(img_id=predicted_id).values('img_id','user_id', 'first_name',
+                'last_name','gender', 'dob', 
+                    'date_of_missing','time_of_missing', 'extra_info',
+                    'street','area','city','state','zip_code').annotate(total_filed=Count('img_id'),days_lost=RawSQL(raw, ()))
+                if unique_missing[0]['days_lost']>1 and unique_missing[0]['state'] != data['state']:
+                    messages.error(self.request, _('Person not found in the database'))
+                    return redirect('accounts:found_missing')
+
+                print(unique_missing)
+                missing = FileMissing.objects.filter(img_id=predicted_id).values('img_id','user_id', 'first_name',
+                    'last_name','gender', 'dob', 
+                        'date_of_missing','time_of_missing', 'extra_info',
+                        'street','area','city','state','zip_code').annotate(total_filed=Count('img_id')).order_by()
+                missing_user=missing[0]
+                #print(missing_user)
+                send_to = User.objects.filter(id=missing_user['user_id']).values('email')
+                #print(missing_user,send_to)
+                
+                found = Found.objects.create(
+                    img_id=predicted_id,
+                    img=img,
+                    user_id = request.user.username,
+                    phone_number=data['phone_number'],
+                    street=data['street'],
+                    area=data['area'],
+                    city=data['city'],
+                    state=data['state'],
+                    zip_code=data['zip_code'],
+                )
+                FileMissing.objects.filter(img_id=found.img_id).update(status="Found") # this will update only
+                dt_string = now2.strftime("%d/%m/%Y %H:%M:%S")
+                context = {'subject': str('Found '+predicted_id),
+                            "person_name": str(missing_user['first_name']+" "+missing_user['last_name']),
+                            "address": str(data['street']+" "+data['area']+" "+data['city']+" "+ data['state']+"-"+data['zip_code']),
+                            "found_at" : dt_string,
+                            "message_user": "We have sent the alert message to the police. You can reply to this chain of mail. Contact the following number:"+str(data['phone_number']),
+                        }
+                print(send_to[0]['email'],context)
+                try:
+                    send_found_person(send_to[0]['email'],context)
+                except:
+                    print("Unable to send mail currently")
+                messages.success(self.request, _('You have found a missing person! '+str(predicted_id)))
+        else:
+            messages.error(self.request, _('Face not found in the Image. Upload again.'))     
         
 
 
