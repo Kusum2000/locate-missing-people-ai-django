@@ -13,13 +13,13 @@ float: none; /* Added */">
       {% if m.user_id == u.id and m.user_id == request.user.id or u.is_superuser %}
       
         {% for f in found %}
-        <div class="card" style="max-width:fit-content ;background-color: #8d5d5de5; color:rgb(246, 240, 205); padding: 10px 10px; margin:5px 10px; display: inline-flex;" >
+        <div class="card " style="max-width:fit-content ;background-color: #8d5d5de5; color:rgb(246, 240, 205); padding: 10px 10px; margin:5px 10px; display: inline-flex;" >
           <div style="margin: auto;">
           <img  src="{{MEDIA_URL}}{{f.img}}" alt="{{f.img_id}}" width="100px"></div>
-          <div class="card-body" style="padding:0;">
-          
-            <h5 class="card-title">{{f.img_id}}</h5>
-            <p class="card-text"> {% trans 'Found at' %} {{f.street}} {{f.area}}<br/>, {{f.city}}
+          <div class="card-body  justify-content-center" style="padding:0;">
+            
+            <h5 class="card-title"><center>{{m.first_name}} {{m.last_name}}</center></h5>
+            <p class="card-text"> {% trans 'Found at' %}:<br/>{{f.street}} {{f.area}}<br/>, {{f.city}}
               {{f.state}}-{{f.zip_code}} <br/>
               {% if request.user.is_superuser %}{{f.phone_number}}{%endif%} 
             </p>
