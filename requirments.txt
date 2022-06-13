@@ -7,6 +7,9 @@ mtcnn
 django-environ
 trycourier
 
+python manage.py makemessages --all --ignore=gpu_enabled
+python manage.py compilemessages  
+
 
 absl-py @ file:///opt/conda/conda-bld/absl-py_1639803114343/work
 aiohttp @ file:///C:/ci/aiohttp_1646806572557/work

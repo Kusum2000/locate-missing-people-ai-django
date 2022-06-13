@@ -133,8 +133,6 @@ LANGUAGES = [
     ('en', _('English')),
     ('hi',_('Hindi')),
     ('kn',_('Kannada')),
-    #('te',_('Telugu')),
-    #('ta',_('Tamil')),
 ]
 
 TIME_ZONE = 'UTC'

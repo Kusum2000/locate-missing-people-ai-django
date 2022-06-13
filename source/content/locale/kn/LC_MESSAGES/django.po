@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 16:39+0530\n"
-"PO-Revision-Date: 2022-06-10 16:48+0000\n"
+"POT-Creation-Date: 2022-06-13 23:02+0530\n"
+"PO-Revision-Date: 2022-06-13 23:00+0000\n"
 "Last-Translator: Administrator 1 <locatemissing19@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -83,8 +83,8 @@ msgid ""
 "Activation code has already been sent. You can request a new code in 24 "
 "hours."
 msgstr ""
-"ಸಕ್ರಿಯಗೊಳಿಸುವ ಕೋಡ್ ಅನ್ನು ಈಗಾಗಲೇ ಕಳುಹಿಸಲಾಗಿದೆ. ನೀವು 24 ಗಂಟೆಗಳಲ್ಲಿ ಹೊಸ ಕೋಡ್ "
-"ಅನ್ನು ವಿನಂತಿಸಬಹುದು."
+"ಸಕ್ರಿಯಗೊಳಿಸುವ ಕೋಡ್ ಅನ್ನು ಈಗಾಗಲೇ ಕಳುಹಿಸಲಾಗಿದೆ. ನೀವು 24 ಗಂಟೆಗಳಲ್ಲಿ ಹೊಸ ಕೋಡ್ ಅನ್ನು "
+"ವಿನಂತಿಸಬಹುದು."
 
 #: .\accounts\forms.py:223 .\accounts\models.py:33
 msgid "First name"
@@ -170,8 +170,7 @@ msgstr "ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಸಕ್ರಿ
 #: .\accounts\templates\accounts\emails\change_email.html:15
 #: .\accounts\templates\accounts\emails\change_email.txt:3
 msgid "To change your current email address, please follow the link:"
-msgstr ""
-"ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಬದಲಾಯಿಸಲು, ದಯವಿಟ್ಟು ಲಿಂಕ್ ಅನ್ನು ಅನುಸರಿಸಿ:"
+msgstr "ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಬದಲಾಯಿಸಲು, ದಯವಿಟ್ಟು ಲಿಂಕ್ ಅನ್ನು ಅನುಸರಿಸಿ:"
 
 #: .\accounts\templates\accounts\emails\forgotten_username.html:15
 #: .\accounts\templates\accounts\emails\forgotten_username.txt:3
@@ -181,11 +180,11 @@ msgstr "ನಿಮ್ಮ ಬಳಕೆದಾರ ಹೆಸರು:"
 #: .\accounts\templates\accounts\emails\restore_password_email.html:15
 #: .\accounts\templates\accounts\emails\restore_password_email.txt:3
 msgid ""
-"You received this email because you requested a password reset for your user"
-" account."
+"You received this email because you requested a password reset for your user "
+"account."
 msgstr ""
-"ನಿಮ್ಮ ಬಳಕೆದಾರ ಖಾತೆಗೆ ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ನೀವು ವಿನಂತಿಸಿರುವ ಕಾರಣ ನೀವು ಈ "
-"ಇಮೇಲ್ ಅನ್ನು ಸ್ವೀಕರಿಸಿದ್ದೀರಿ."
+"ನಿಮ್ಮ ಬಳಕೆದಾರ ಖಾತೆಗೆ ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ನೀವು ವಿನಂತಿಸಿರುವ ಕಾರಣ ನೀವು ಈ ಇಮೇಲ್ "
+"ಅನ್ನು ಸ್ವೀಕರಿಸಿದ್ದೀರಿ."
 
 #: .\accounts\templates\accounts\emails\restore_password_email.html:19
 #: .\accounts\templates\accounts\emails\restore_password_email.txt:5
@@ -332,24 +331,24 @@ msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
-"ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಎರಡು ಬಾರಿ ನಮೂದಿಸಿ ಇದರಿಂದ ನೀವು ಅದನ್ನು "
-"ಸರಿಯಾಗಿ ಟೈಪ್ ಮಾಡಿರುವುದನ್ನು ನಾವು ಪರಿಶೀಲಿಸಬಹುದು."
+"ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಎರಡು ಬಾರಿ ನಮೂದಿಸಿ ಇದರಿಂದ ನೀವು ಅದನ್ನು ಸರಿಯಾಗಿ ಟೈಪ್ "
+"ಮಾಡಿರುವುದನ್ನು ನಾವು ಪರಿಶೀಲಿಸಬಹುದು."
 
 #: .\accounts\templates\accounts\restore_password_confirm.html:28
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
 msgstr ""
-"ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅಮಾನ್ಯವಾಗಿದೆ, ಬಹುಶಃ ಇದನ್ನು ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ. "
-"ದಯವಿಟ್ಟು ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ವಿನಂತಿಸಿ."
+"ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅಮಾನ್ಯವಾಗಿದೆ, ಬಹುಶಃ ಇದನ್ನು ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು "
+"ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ವಿನಂತಿಸಿ."
 
 #: .\accounts\templates\accounts\restore_password_done.html:10
 msgid ""
 "We've emailed you instructions for setting your password, if an account "
 "exists with the email you entered."
 msgstr ""
-"ನೀವು ನಮೂದಿಸಿದ ಇಮೇಲ್‌ನೊಂದಿಗೆ ಖಾತೆಯು ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ, ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ "
-"ಹೊಂದಿಸಲು ನಾವು ನಿಮಗೆ ಸೂಚನೆಗಳನ್ನು ಇಮೇಲ್ ಮಾಡಿದ್ದೇವೆ."
+"ನೀವು ನಮೂದಿಸಿದ ಇಮೇಲ್‌ನೊಂದಿಗೆ ಖಾತೆಯು ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ, ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಹೊಂದಿಸಲು ನಾವು "
+"ನಿಮಗೆ ಸೂಚನೆಗಳನ್ನು ಇಮೇಲ್ ಮಾಡಿದ್ದೇವೆ."
 
 #: .\accounts\templates\accounts\restore_password_done.html:11
 msgid "You should receive them shortly."
@@ -360,9 +359,8 @@ msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you signed up with, and check your spam folder."
 msgstr ""
-"ನೀವು ಇಮೇಲ್ ಸ್ವೀಕರಿಸದಿದ್ದರೆ, ದಯವಿಟ್ಟು ನೀವು ಸೈನ್ ಅಪ್ ಮಾಡಿದ ವಿಳಾಸವನ್ನು "
-"ನಮೂದಿಸಿರುವಿರಿ ಎಂಬುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ ಮತ್ತು ನಿಮ್ಮ ಸ್ಪ್ಯಾಮ್ ಫೋಲ್ಡರ್ ಅನ್ನು "
-"ಪರಿಶೀಲಿಸಿ."
+"ನೀವು ಇಮೇಲ್ ಸ್ವೀಕರಿಸದಿದ್ದರೆ, ದಯವಿಟ್ಟು ನೀವು ಸೈನ್ ಅಪ್ ಮಾಡಿದ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿರುವಿರಿ "
+"ಎಂಬುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ ಮತ್ತು ನಿಮ್ಮ ಸ್ಪ್ಯಾಮ್ ಫೋಲ್ಡರ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ."
 
 #: .\accounts\templates\accounts\sign_up.html:8
 #: .\content\templates\layouts\default\page.html:356
@@ -373,101 +371,98 @@ msgstr "ಖಾತೆಯನ್ನು ತೆರೆಯಿರಿ"
 msgid "Create"
 msgstr "ರಚಿಸಿ"
 
-#: .\accounts\views.py:146
+#: .\accounts\views.py:150
 msgid ""
-"You are signed up. To activate the account, follow the link sent to the "
-"mail."
+"You are signed up. To activate the account, follow the link sent to the mail."
 msgstr ""
-"ನೀವು ಸೈನ್ ಅಪ್ ಆಗಿದ್ದೀರಿ. ಖಾತೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು, ಮೇಲ್ಗೆ ಕಳುಹಿಸಲಾದ ಲಿಂಕ್ "
-"ಅನ್ನು ಅನುಸರಿಸಿ."
+"ನೀವು ಸೈನ್ ಅಪ್ ಆಗಿದ್ದೀರಿ. ಖಾತೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು, ಮೇಲ್ಗೆ ಕಳುಹಿಸಲಾದ ಲಿಂಕ್ ಅನ್ನು "
+"ಅನುಸರಿಸಿ."
 
-#: .\accounts\views.py:153
+#: .\accounts\views.py:157
 msgid "You are successfully signed up!"
 msgstr "ನೀವು ಯಶಸ್ವಿಯಾಗಿ ಸೈನ್ ಅಪ್ ಆಗಿದ್ದೀರಿ!"
 
-#: .\accounts\views.py:171
+#: .\accounts\views.py:175
 msgid "You have successfully activated your account!"
 msgstr "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ನೀವು ಯಶಸ್ವಿಯಾಗಿ ಸಕ್ರಿಯಗೊಳಿಸಿರುವಿರಿ!"
 
-#: .\accounts\views.py:201
+#: .\accounts\views.py:205
 msgid "A new activation code has been sent to your email address."
 msgstr "ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸಕ್ಕೆ ಹೊಸ ಸಕ್ರಿಯಗೊಳಿಸುವ ಕೋಡ್ ಅನ್ನು ಕಳುಹಿಸಲಾಗಿದೆ."
 
-#: .\accounts\views.py:247
+#: .\accounts\views.py:251
 msgid "Profile data has been successfully updated."
 msgstr "ಪ್ರೊಫೈಲ್ ಡೇಟಾವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ."
 
-#: .\accounts\views.py:281
+#: .\accounts\views.py:285
 msgid "To complete the change of email address, click on the link sent to it."
 msgstr ""
-"ಇಮೇಲ್ ವಿಳಾಸದ ಬದಲಾವಣೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು, ಅದಕ್ಕೆ ಕಳುಹಿಸಲಾದ ಲಿಂಕ್ ಅನ್ನು ಕ್ಲಿಕ್ "
-"ಮಾಡಿ."
+"ಇಮೇಲ್ ವಿಳಾಸದ ಬದಲಾವಣೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು, ಅದಕ್ಕೆ ಕಳುಹಿಸಲಾದ ಲಿಂಕ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ."
 
-#: .\accounts\views.py:286
+#: .\accounts\views.py:290
 msgid "Email successfully changed."
 msgstr "ಇಮೇಲ್ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಬದಲಾಯಿಸಲಾಗಿದೆ."
 
-#: .\accounts\views.py:304
+#: .\accounts\views.py:308
 msgid "You have successfully changed your email!"
 msgstr "ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನೀವು ಯಶಸ್ವಿಯಾಗಿ ಬದಲಾಯಿಸಿರುವಿರಿ!"
 
-#: .\accounts\views.py:317
+#: .\accounts\views.py:321
 msgid "Your username has been successfully sent to your email."
 msgstr "ನಿಮ್ಮ ಬಳಕೆದಾರರ ಹೆಸರನ್ನು ನಿಮ್ಮ ಇಮೇಲ್‌ಗೆ ಯಶಸ್ವಿಯಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆ."
 
-#: .\accounts\views.py:332
+#: .\accounts\views.py:336
 msgid "Your password was changed."
 msgstr "ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಬದಲಾಯಿಸಲಾಗಿದೆ."
 
-#: .\accounts\views.py:344
+#: .\accounts\views.py:348
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr ""
-"ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಹೊಂದಿಸಲಾಗಿದೆ. ನೀವು ಮುಂದೆ ಹೋಗಿ ಈಗ ಲಾಗ್ ಇನ್ ಮಾಡಬಹುದು."
+msgstr "ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಹೊಂದಿಸಲಾಗಿದೆ. ನೀವು ಮುಂದೆ ಹೋಗಿ ಈಗ ಲಾಗ್ ಇನ್ ಮಾಡಬಹುದು."
 
-#: .\accounts\views.py:400
+#: .\accounts\views.py:392
+msgid "Checking database for the person. Please wait, do not refresh."
+msgstr ""
+"ವ್ಯಕ್ತಿಗಾಗಿ ಡೇಟಾಬೇಸ್ ಅನ್ನು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ. ದಯವಿಟ್ಟು ನಿರೀಕ್ಷಿಸಿ, ರಿಫ್ರೆಶ್ ಮಾಡಬೇಡಿ."
+
+#: .\accounts\views.py:409 .\accounts\views.py:419
 msgid "Person not found in the database"
 msgstr "ಡೇಟಾಬೇಸ್‌ನಲ್ಲಿ ವ್ಯಕ್ತಿ ಕಂಡುಬಂದಿಲ್ಲ"
 
-#: .\accounts\views.py:415
+#: .\accounts\views.py:456
 msgid "You have found a missing person! "
 msgstr "ಕಾಣೆಯಾದ ವ್ಯಕ್ತಿಯನ್ನು ನೀವು ಕಂಡುಕೊಂಡಿದ್ದೀರಿ!"
 
-#: .\accounts\views.py:443
+#: .\accounts\views.py:458
+msgid "Face not found in the Image. Upload again."
+msgstr "ಚಿತ್ರದಲ್ಲಿ ಕಂಡುಬರುವ ಮುಖ(ಗಳು):"
+
+#: .\accounts\views.py:485
 msgid " face(s) found in the Image: "
 msgstr "ಚಿತ್ರದಲ್ಲಿ ಕಂಡುಬರುವ ಮುಖ(ಗಳು):"
 
-#: .\accounts\views.py:471
+#: .\accounts\views.py:513
 msgid "Your case has been submitted."
 msgstr "ನಿಮ್ಮ ಪ್ರಕರಣವನ್ನು ಸಲ್ಲಿಸಲಾಗಿದೆ."
 
-#: .\app\conf\development\settings.py:133
-#: .\app\conf\production\settings.py:115
+#: .\app\conf\development\settings.py:133 .\app\conf\production\settings.py:115
 msgid "English"
 msgstr "ಆಂಗ್ಲ"
 
-#: .\app\conf\development\settings.py:134
+#: .\app\conf\development\settings.py:134 .\app\conf\production\settings.py:116
 msgid "Hindi"
 msgstr "ಹಿಂದಿ"
 
-#: .\app\conf\development\settings.py:135
+#: .\app\conf\development\settings.py:135 .\app\conf\production\settings.py:117
 msgid "Kannada"
 msgstr "ಕನ್ನಡ"
 
-#: .\app\conf\production\settings.py:116
-msgid "Russian"
-msgstr "ರಷ್ಯನ್"
+#: .\app\conf\development\settings.py:136
+msgid "Telugu"
+msgstr ""
 
-#: .\app\conf\production\settings.py:117
-msgid "Simplified Chinese"
-msgstr "ಸರಳೀಕೃತ ಚೈನೀಸ್"
-
-#: .\app\conf\production\settings.py:118
-msgid "French"
-msgstr "ಫ್ರೆಂಚ್"
-
-#: .\app\conf\production\settings.py:119
-msgid "Spanish"
-msgstr "ಸ್ಪ್ಯಾನಿಷ್"
+#: .\app\conf\development\settings.py:137
+msgid "Tamil"
+msgstr ""
 
 #: .\content\templates\layouts\default\page.html:339
 #: .\content\templates\main\change_language.html:10
@@ -498,115 +493,130 @@ msgstr "ಬಳಕೆದಾರರು"
 msgid "Select the language"
 msgstr "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"
 
-#: .\content\templates\main\index.html:14
+#: .\content\templates\main\index.html:20
+msgid "Found by:"
+msgstr "ನಲ್ಲಿ ಕಂಡುಬಂದಿದೆ"
+
+#: .\content\templates\main\index.html:22
 msgid "Found at"
 msgstr "ನಲ್ಲಿ ಕಂಡುಬಂದಿದೆ"
 
-#: .\content\templates\main\index.html:30
+#: .\content\templates\main\index.html:39
 msgid "What we do?"
 msgstr "ನಾವು ಏನು ಮಾಡುತ್ತೇವೆ?"
 
-#: .\content\templates\main\index.html:35
+#: .\content\templates\main\index.html:44
 msgid ""
 "India is witnessing a shocking trend in the number of cases of missing "
 "children, women and men being reported across the country. At this time and "
-"age, we see that face recognition  is used in various streams and platforms."
-" We have set out with an objective, \"To Create A Robust And Efficient Face "
+"age, we see that face recognition  is used in various streams and platforms. "
+"We have set out with an objective, \"To Create A Robust And Efficient Face "
 "Recognition To Find People Missing Or Lost\""
 msgstr ""
 "ದೇಶಾದ್ಯಂತ ವರದಿಯಾಗುತ್ತಿರುವ ಮಕ್ಕಳು, ಮಹಿಳೆಯರು ಮತ್ತು ಪುರುಷರು ಕಾಣೆಯಾದ ಪ್ರಕರಣಗಳ "
-"ಸಂಖ್ಯೆಯಲ್ಲಿ ಭಾರತವು ಆಘಾತಕಾರಿ ಪ್ರವೃತ್ತಿಯನ್ನು ನೋಡುತ್ತಿದೆ. ಈ ಸಮಯದಲ್ಲಿ ಮತ್ತು "
-"ವಯಸ್ಸಿನಲ್ಲಿ, ವಿವಿಧ ಸ್ಟ್ರೀಮ್‌ಗಳು ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳಲ್ಲಿ ಮುಖ "
-"ಗುರುತಿಸುವಿಕೆಯನ್ನು ಬಳಸುವುದನ್ನು ನಾವು ನೋಡುತ್ತೇವೆ. \"ಕಾಣೆಯಾದ ಅಥವಾ ಕಳೆದುಹೋದ "
-"ಜನರನ್ನು ಹುಡುಕಲು ದೃಢವಾದ ಮತ್ತು ಸಮರ್ಥ ಮುಖ ಗುರುತಿಸುವಿಕೆಯನ್ನು ರಚಿಸಲು\" ಎಂಬ "
-"ಉದ್ದೇಶವನ್ನು ನಾವು ಹೊಂದಿದ್ದೇವೆ."
+"ಸಂಖ್ಯೆಯಲ್ಲಿ ಭಾರತವು ಆಘಾತಕಾರಿ ಪ್ರವೃತ್ತಿಯನ್ನು ನೋಡುತ್ತಿದೆ. ಈ ಸಮಯದಲ್ಲಿ ಮತ್ತು ವಯಸ್ಸಿನಲ್ಲಿ, "
+"ವಿವಿಧ ಸ್ಟ್ರೀಮ್‌ಗಳು ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳಲ್ಲಿ ಮುಖ ಗುರುತಿಸುವಿಕೆಯನ್ನು ಬಳಸುವುದನ್ನು ನಾವು "
+"ನೋಡುತ್ತೇವೆ. \"ಕಾಣೆಯಾದ ಅಥವಾ ಕಳೆದುಹೋದ ಜನರನ್ನು ಹುಡುಕಲು ದೃಢವಾದ ಮತ್ತು ಸಮರ್ಥ ಮುಖ "
+"ಗುರುತಿಸುವಿಕೆಯನ್ನು ರಚಿಸಲು\" ಎಂಬ ಉದ್ದೇಶವನ್ನು ನಾವು ಹೊಂದಿದ್ದೇವೆ."
 
-#: .\content\templates\main\index.html:45
+#: .\content\templates\main\index.html:54
 msgid "Total people missing"
 msgstr "ಒಟ್ಟು ಜನರು ಕಾಣೆಯಾಗಿದ್ದಾರೆ"
 
-#: .\content\templates\main\index.html:55
+#: .\content\templates\main\index.html:64
 msgid "Total people found"
 msgstr "ಒಟ್ಟು ಜನರು ಕಂಡುಬಂದಿದ್ದಾರೆ"
 
-#: .\content\templates\main\index.html:65
+#: .\content\templates\main\index.html:74
 msgid "No of users"
 msgstr "ಬಳಕೆದಾರರ ಸಂಖ್ಯೆ"
 
-#: .\content\templates\main\index.html:74
+#: .\content\templates\main\index.html:83
 msgid "Steps to file a case:"
 msgstr ""
 "842 / 5,000\n"
 "Translation results\n"
 "ಪ್ರಕರಣ ದಾಖಲಿಸಲು ಕ್ರಮಗಳು:"
 
-#: .\content\templates\main\index.html:77
-#: .\content\templates\main\index.html:97
+#: .\content\templates\main\index.html:86
+#: .\content\templates\main\index.html:106
 msgid "Go to File Missing Tab"
 msgstr "ಫೈಲ್ ಮಿಸ್ಸಿಂಗ್ ಟ್ಯಾಬ್‌ಗೆ ಹೋಗಿ"
 
-#: .\content\templates\main\index.html:78
-#: .\content\templates\main\index.html:96
+#: .\content\templates\main\index.html:87
+#: .\content\templates\main\index.html:105
 msgid "Upload 3-5 faces of the missing person"
 msgstr "ಕಾಣೆಯಾದ ವ್ಯಕ್ತಿಯ 3-5 ಮುಖಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
 
-#: .\content\templates\main\index.html:79
+#: .\content\templates\main\index.html:88
 msgid "Enter the details and hit submit"
 msgstr "ವಿವರಗಳನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಸಲ್ಲಿಸು ಒತ್ತಿರಿ"
 
-#: .\content\templates\main\index.html:80
+#: .\content\templates\main\index.html:89
 msgid "You will be notified if the case was successfully submitted"
 msgstr "ಪ್ರಕರಣವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಿದರೆ ನಿಮಗೆ ಸೂಚಿಸಲಾಗುತ್ತದೆ"
 
-#: .\content\templates\main\index.html:83
+#: .\content\templates\main\index.html:92
 msgid "To upload a person you found:"
 msgstr "ನೀವು ಕಂಡುಕೊಂಡ ವ್ಯಕ್ತಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲು:"
 
-#: .\content\templates\main\index.html:86
+#: .\content\templates\main\index.html:95
 msgid "Go to Find Match Tab"
 msgstr "ಫೈಂಡ್ ಮ್ಯಾಚ್ ಟ್ಯಾಬ್‌ಗೆ ಹೋಗಿ"
 
-#: .\content\templates\main\index.html:87
+#: .\content\templates\main\index.html:96
 msgid "Upload face of the missing person"
 msgstr "ಕಾಣೆಯಾದ ವ್ಯಕ್ತಿಯ ಮುಖವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
 
-#: .\content\templates\main\index.html:88
+#: .\content\templates\main\index.html:97
 msgid "Enter your phone number and details of where you found them"
 msgstr ""
-"ನಿಮ್ಮ ಫೋನ್ ಸಂಖ್ಯೆ ಮತ್ತು ನೀವು ಅವುಗಳನ್ನು ಎಲ್ಲಿ ಕಂಡುಕೊಂಡಿದ್ದೀರಿ ಎಂಬುದರ "
-"ವಿವರಗಳನ್ನು ನಮೂದಿಸಿ"
+"ನಿಮ್ಮ ಫೋನ್ ಸಂಖ್ಯೆ ಮತ್ತು ನೀವು ಅವುಗಳನ್ನು ಎಲ್ಲಿ ಕಂಡುಕೊಂಡಿದ್ದೀರಿ ಎಂಬುದರ ವಿವರಗಳನ್ನು "
+"ನಮೂದಿಸಿ"
 
-#: .\content\templates\main\index.html:89
+#: .\content\templates\main\index.html:98
 msgid ""
 "Hit submit and matching is initiated, wait until the process is completed"
 msgstr ""
-"ಸಲ್ಲಿಸು ಒತ್ತಿರಿ ಮತ್ತು ಹೊಂದಾಣಿಕೆಯನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗಿದೆ, ಪ್ರಕ್ರಿಯೆಯು "
-"ಪೂರ್ಣಗೊಳ್ಳುವವರೆಗೆ ಕಾಯಿರಿ"
+"ಸಲ್ಲಿಸು ಒತ್ತಿರಿ ಮತ್ತು ಹೊಂದಾಣಿಕೆಯನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗಿದೆ, ಪ್ರಕ್ರಿಯೆಯು ಪೂರ್ಣಗೊಳ್ಳುವವರೆಗೆ "
+"ಕಾಯಿರಿ"
 
-#: .\content\templates\main\index.html:92
+#: .\content\templates\main\index.html:101
 msgid "To view all the people who went missing:"
 msgstr "ಕಾಣೆಯಾದ ಎಲ್ಲ ಜನರನ್ನು ವೀಕ್ಷಿಸಲು:"
 
-#: .\content\templates\main\index.html:95
+#: .\content\templates\main\index.html:104
 msgid "Go to Missing Cases Tab"
 msgstr "ಮಿಸ್ಸಿಂಗ್ ಕೇಸ್‌ಗಳ ಟ್ಯಾಬ್‌ಗೆ ಹೋಗಿ"
 
-#: .\content\templates\main\index.html:98
+#: .\content\templates\main\index.html:107
 msgid "All the people who have not been found yet are displayed"
 msgstr "ಇನ್ನೂ ಪತ್ತೆಯಾಗದ ಎಲ್ಲಾ ಜನರನ್ನು ಪ್ರದರ್ಶಿಸಲಾಗುತ್ತದೆ"
 
-#: .\content\templates\main\index.html:108
+#: .\content\templates\main\index.html:117
 msgid "Leaderboard"
 msgstr "ಲೀಡರ್‌ಬೋರ್ಡ್"
 
-#: .\content\templates\main\index.html:111
+#: .\content\templates\main\index.html:120
 msgid "Today"
 msgstr "ಇಂದು"
 
-#: .\content\templates\main\index.html:112
+#: .\content\templates\main\index.html:121
 msgid "All Time"
 msgstr "ಎಲ್ಲ ಸಮಯದಲ್ಲು"
 
-#: .\content\templates\main\index.html:113
+#: .\content\templates\main\index.html:122
 msgid "Month"
 msgstr "ತಿಂಗಳು"
+
+#~ msgid "Russian"
+#~ msgstr "ರಷ್ಯನ್"
+
+#~ msgid "Simplified Chinese"
+#~ msgstr "ಸರಳೀಕೃತ ಚೈನೀಸ್"
+
+#~ msgid "French"
+#~ msgstr "ಫ್ರೆಂಚ್"
+
+#~ msgid "Spanish"
+#~ msgstr "ಸ್ಪ್ಯಾನಿಷ್"

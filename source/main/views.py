@@ -9,10 +9,10 @@ class IndexPageView(TemplateView):
     template_name = 'main/index.html'
     missing= FileMissing.objects.filter(status='Found').values('user_id','img_id','status','first_name','last_name').annotate(total_filed=Count('user_id')) 
 
-    missing_count = FileMissing.objects.filter(status='Not found').values('user_id','img_id','status').annotate(total_filed=Count('user_id')).count()
+    missing_count = FileMissing.objects.filter(status='Not found').values('user_id','img_id','status').annotate(total_filed=Count('img_id')).count()
 
     found_cases1 = Found.objects.values('user_id','img_id','img','found_at','phone_number','street','area','city','state','zip_code').annotate(total_filed=Count('img_id')).order_by('-found_at')
-    found_cases = Found.objects.values('user_id').annotate(total_filed=Count('user_id'))
+    found_cases = Found.objects.values('user_id').annotate(total_filed=Count('user_id')).order_by('-found_at')
     print(found_cases)
     fc=len(found_cases)
     found_count = Found.objects.all().count()
