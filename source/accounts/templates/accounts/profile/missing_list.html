@@ -6,6 +6,51 @@
 
 {% block content %}
 {% if request.user.is_authenticated %}
+<!--found table-->
+<div class="table-responsive" style="margin: auto; width:95%;">
+  <table class="table table-sm">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">{% trans 'Image' %}</th>
+          <th scope="col">{% trans 'Name' %}</th>
+          <th scope="col">{% trans 'Gender' %}</th>
+          <th scope="col">{% trans 'Went Missing' %}</th>
+          <th scope="col">{% trans 'Age' %}</th>
+          <th scope="col">{% trans 'Place' %}</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for x in individual_cases %}
+        <tr>
+          <th scope="row">{{ x.img_id }}</th>
+          <td>
+            <div class="card-group">
+
+              {% for m in missing_cases %}
+                {% if m.img_id == x.img_id %}
+                    <div class="card" style="max-width:10em ;" >
+                        <img class="card-img" src="{{MEDIA_URL}}{{m.img}}" alt="{{m.img_id}}" width="30px">
+                        <div class="card-img-overlay" style="padding:0;">
+                        </div>
+                    </div>
+                      
+                  {% endif %}
+                {% endfor %}
+              </div>
+          </td>
+          <td>{{ x.first_name }} {{ x.last_name }}</td>
+          <td>{{ x.gender }}</td>
+          <td>{{ x.date_of_missing }} {{x.time_of_missing}}</td>
+          <td>{{ x.age}}</td>
+          <td>{{ x.street }} {{ x.area }}, {{x.city}} {{x.state}} {{x.zip_code}}</td>
+          
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+<!--missing table-->
 <div class="table-responsive" style="margin: auto; width:95%;">
     <table class="table table-sm">
         <thead class="thead-light">
