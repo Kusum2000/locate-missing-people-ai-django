@@ -20,6 +20,10 @@ class Found(models.Model):
     state = INStateField(_("State"),blank=False)
     zip_code = models.CharField(_("Pin code"),max_length=6,blank=False )
 
+    def delete(self, using=None, keep_parents=False):
+        self.img.storage.delete(self.img.name)
+        super().delete()
+
 
 class FileMissing(models.Model):
     STATUS=(
@@ -51,6 +55,10 @@ class FileMissing(models.Model):
     state = INStateField(_("State"),blank=False)
     zip_code = models.CharField(_("Pin code"),max_length=6,blank=False )
     status = models.CharField(max_length=20, null=True, choices=STATUS, default='Not found')
+
+    def delete(self, using=None, keep_parents=False):
+        self.img.storage.delete(self.img.name)
+        super().delete()
 
 
 class Activation(models.Model):

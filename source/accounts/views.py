@@ -2,7 +2,9 @@ import os
 from re import template
 import cv2
 from PIL import Image
+from django.http import HttpResponseRedirect
 from django.http.response import StreamingHttpResponse
+from django.urls import reverse
 import imutils
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -23,6 +25,7 @@ from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.utils.translation import gettext_lazy as _
+from django.template import loader
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
@@ -389,7 +392,7 @@ class FoundMissingView(LoginRequiredMixin, FormView):
                 f.write(chunk)
         faces = detect_face(img)
         if len(faces)>0:
-            messages.success(self.request, _('Checking database for the person. Please wait, do not refresh.'))
+            #messages.success(self.request, _('Checking database for the person. Please wait, do not refresh.'))
             aligned_img = fa.align(cv2.imread(img_save_path), faces[0]['keypoints']['left_eye'], faces[0]['keypoints']['right_eye'])
 
             final_img_list, labels_encoded, final_labels_list = preprocess(settings.MEDIA_ROOT, missing_imgs,missing_labels,aligned_img)
@@ -542,26 +545,44 @@ def video_stream(request):
 class MatchView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/match.html'
 
+def delete_found(request, img_id):
+    print(img_id)
+    found = Found.objects.get(img_id=img_id)
+    found.delete()
+    missing = FileMissing.objects.filter(img_id=img_id)
+    missing.update(status='Not found')
+    return HttpResponseRedirect(reverse('accounts:view_missing'))
+    
+def delete_missing(request, img_id):
+    print(img_id)
+    missing = FileMissing.objects.filter(img_id=img_id)
+    missing.delete()
+    return HttpResponseRedirect(reverse('accounts:view_missing'))
 
-    
-    
 class ViewMissingView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/missing_list.html'
 
-    raw = 'Select date_of_missing-dob from accounts_filemissing u where u.id=accounts_filemissing.id'
-    path = settings.MEDIA_ROOT
-    missing_cases = FileMissing.objects.filter(status='Not found').order_by('-date_of_missing').values('img_id','img')
-    unique_missing = FileMissing.objects.filter(status='Not found').values('img_id','user_id', 'first_name',
-    'last_name','gender', 'dob', 
-        'date_of_missing','time_of_missing', 'extra_info',
-        'street','area','city','state','zip_code').annotate(total_filed=Count('img_id'),age=RawSQL(raw, ())).order_by('-date_of_missing','time_of_missing')
-    found_cases = Found.objects.values('user_id','img_id').annotate(total_filed=Count('img_id')).order_by()
-    #print(unique_missing)
-    extra_context={'individual_cases':unique_missing,'missing_cases':missing_cases, 'path':path}
+    def get_context_data(self, *args, **kwargs):
+        raw = 'Select date_of_missing-dob from accounts_filemissing u where u.id=accounts_filemissing.id'
+        path = settings.MEDIA_ROOT
+        missing_cases = FileMissing.objects.filter(status='Not found').order_by('-date_of_missing').values('img_id','img')
+        unique_missing = FileMissing.objects.filter(status='Not found').values('img_id','user_id', 'first_name',
+        'last_name','gender', 'dob', 
+            'date_of_missing','time_of_missing', 'extra_info',
+            'street','area','city','state','zip_code').annotate(total_filed=Count('img_id'),age=RawSQL(raw, ())).order_by('-date_of_missing','time_of_missing')
+        
+        found_cases = Found.objects.values('user_id','img_id','img','found_at','phone_number','street','area','city','state','zip_code').order_by('-found_at')
+        missing_cases_found = FileMissing.objects.filter(status='Found').values('img_id','img')
+        u_missing_cases_found = FileMissing.objects.filter(status='Found').values('img_id','first_name','last_name').annotate(total_filed=Count('img_id'))
+        print(u_missing_cases_found)
+        context={'individual_cases':unique_missing, 'found_cases':found_cases,'missing_found': missing_cases_found,'u_missing_found':u_missing_cases_found,'missing_cases':missing_cases, 'path':path}
+        return context
 
 class ViewUsersView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/user_list.html'
-    users=User.objects.all()
-    missing_cases = FileMissing.objects.values('user_id','img_id','status').annotate(total_filed=Count('user_id')).order_by('-date_of_missing')
-    found_cases = Found.objects.values('user_id','img_id','found_at').annotate(total_filed=Count('img_id')).order_by('-found_at')
-    extra_context={'users':users,'missing':missing_cases,'found':found_cases}
+    def get_context_data(self, *args, **kwargs):
+        users=User.objects.all()
+        missing_cases = FileMissing.objects.values('user_id','img_id','status').annotate(total_filed=Count('user_id')).order_by('-date_of_missing')
+        found_cases = Found.objects.values('user_id','img_id','found_at').annotate(total_filed=Count('img_id')).order_by('-found_at')
+        context={'users':users,'missing':missing_cases,'found':found_cases}
+        return context

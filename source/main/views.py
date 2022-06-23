@@ -13,7 +13,7 @@ class IndexPageView(TemplateView):
 
     # override context data
     def get_context_data(self, *args, **kwargs):
-        
+        #FileMissing.objects.filter(status='Found').update(status='Not found')
 
         missing= FileMissing.objects.filter(status='Found').values('user_id','img_id','status','first_name','last_name').annotate(total_filed=Count('user_id')) 
 

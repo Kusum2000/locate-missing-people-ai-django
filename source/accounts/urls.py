@@ -6,7 +6,7 @@ from .views import (
     FoundMissingView, LogInView, MatchView, ResendActivationCodeView, RemindUsernameView, SignUpView, ActivateView, LogOutView,
     ChangeEmailView, ChangeEmailActivateView, ChangeProfileView, ChangePasswordView,
     RestorePasswordView, RestorePasswordDoneView, RestorePasswordConfirmView,
-    FileMissingView, ViewMissingView, ViewUsersView, video_stream,
+    FileMissingView, ViewMissingView, ViewUsersView, delete_found, delete_missing, video_stream,
 )
 
 app_name = 'accounts'
@@ -34,6 +34,10 @@ urlpatterns = [
     path('missing/file', FileMissingView.as_view(), name='file_missing'),
     path('missing/view', ViewMissingView.as_view(), name='view_missing'),
     path('missing/matchlive', MatchView.as_view(), name='match_missing'),
+
+    path('missing/delete_found/<img_id>', delete_found, name='delete_found'),
+    path('missing/delete_missing/<img_id>', delete_missing, name='delete_missing'),
+
     path('missing/match', FoundMissingView.as_view(), name='found_missing'),
     path('monitor/', video_stream, name='monitor'),
     path('user-list/', ViewUsersView.as_view(), name='user_list'),

@@ -9,26 +9,37 @@
 <!--found table-->
 <div class="table-responsive" style="margin: auto; width:95%;">
   <table class="table table-sm">
-      <thead class="thead-light">
+      <thead class="table-info">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">{% trans 'Image' %}</th>
+          <th scope="col">{% trans 'Found Image' %}</th>
+          <th scope="col">{% trans 'Previous Images' %}</th>
           <th scope="col">{% trans 'Name' %}</th>
-          <th scope="col">{% trans 'Gender' %}</th>
-          <th scope="col">{% trans 'Went Missing' %}</th>
-          <th scope="col">{% trans 'Age' %}</th>
+          <th scope="col">{% trans 'Found on' %}</th>
           <th scope="col">{% trans 'Place' %}</th>
+        {% if request.user.is_superuser %}
+          <th scope="col">{% trans 'Action' %}</th>
+        {% endif %}
         </tr>
       </thead>
       <tbody>
-          {% for x in individual_cases %}
+          {% for f in found_cases %}
         <tr>
-          <th scope="row">{{ x.img_id }}</th>
+          <th scope="row">{{ f.img_id }}</th>
+          <td>
+            <div class="card-group">
+                    <div class="card" style="max-width:10em ;" >
+                        <img class="card-img" src="{{MEDIA_URL}}{{f.img}}" alt="{{m.img_id}}" width="30px">
+                        <div class="card-img-overlay" style="padding:0;">
+                        </div>
+                    </div>
+              </div>
+          </td>
           <td>
             <div class="card-group">
 
-              {% for m in missing_cases %}
-                {% if m.img_id == x.img_id %}
+              {% for m in missing_found %}
+                {% if m.img_id == f.img_id %}
                     <div class="card" style="max-width:10em ;" >
                         <img class="card-img" src="{{MEDIA_URL}}{{m.img}}" alt="{{m.img_id}}" width="30px">
                         <div class="card-img-overlay" style="padding:0;">
@@ -39,11 +50,19 @@
                 {% endfor %}
               </div>
           </td>
-          <td>{{ x.first_name }} {{ x.last_name }}</td>
-          <td>{{ x.gender }}</td>
-          <td>{{ x.date_of_missing }} {{x.time_of_missing}}</td>
-          <td>{{ x.age}}</td>
-          <td>{{ x.street }} {{ x.area }}, {{x.city}} {{x.state}} {{x.zip_code}}</td>
+          <td>
+            {% for u in u_missing_found %}
+                {% if u.img_id == f.img_id %}
+                  {{ u.first_name }} {{ u.last_name }}
+                      
+                  {% endif %}
+                {% endfor %}
+          </td>
+          <td>{{ f.found_at}}</td>
+          <td>{{ f.street }} {{ f.area }}, {{f.city}} {{f.state}} {{f.zip_code}}</td>
+          {% if request.user.is_superuser %}
+          <td><a class="btn btn-info" href="delete_found/{{ f.img_id }}">Not Same</a></td>
+          {% endif %}
           
         </tr>
         {% endfor %}
@@ -62,18 +81,20 @@
             <th scope="col">{% trans 'Went Missing' %}</th>
             <th scope="col">{% trans 'Age' %}</th>
             <th scope="col">{% trans 'Place' %}</th>
+            <th scope="col">{% trans 'Extra Info' %}</th>
+            <th scope="col">{% trans 'Action' %}</th>
           </tr>
         </thead>
         <tbody>
             {% for x in individual_cases %}
           <tr>
             <th scope="row">{{ x.img_id }}</th>
-            <td>
+            <td style="min-width:30em;">
               <div class="card-group">
 
                 {% for m in missing_cases %}
                   {% if m.img_id == x.img_id %}
-                      <div class="card" style="max-width:10em ;" >
+                      <div class="card" style="max-width:10em ; " >
                           <img class="card-img" src="{{MEDIA_URL}}{{m.img}}" alt="{{m.img_id}}" width="30px">
                           <div class="card-img-overlay" style="padding:0;">
                           </div>
@@ -88,7 +109,10 @@
             <td>{{ x.date_of_missing }} {{x.time_of_missing}}</td>
             <td>{{ x.age}}</td>
             <td>{{ x.street }} {{ x.area }}, {{x.city}} {{x.state}} {{x.zip_code}}</td>
-            
+            <td>{{ x.extra_info }}</td>
+            {% if request.user.is_superuser %}
+            <td><a class="btn btn-danger" href="delete_missing/{{ x.img_id }}">Delete</a></td>
+          {% endif %}
           </tr>
           {% endfor %}
         </tbody>
