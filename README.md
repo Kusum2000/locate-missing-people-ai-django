@@ -1,34 +1,139 @@
-# Simple Django Login and Registration
+# AI based Django application to locate Missing People using Facial Features
 
 An example of Django project with basic user functionality.
 
-## Screenshots
-
-| Log In | Create an account | Authorized page |
-| -------|--------------|-----------------|
-| <img src="./screenshots/login.png" width="200"> | <img src="./screenshots/create_an_account.png" width="200"> | <img src="./screenshots/authorized_page.png" width="200"> |
-
-| Password reset | Set new password | Password change |
-| ---------------|------------------|-----------------|
-| <img src="./screenshots/password_reset.png" width="200"> | <img src="./screenshots/set_new_password.png" width="200"> | <img src="./screenshots/password_change.png" width="200"> |
-
 ## Functionality
 
+### The following features were forked from <https://github.com/egorsmkv/simple-django-login-and-register>
+
 - Log in
-    - via username & password
-    - via email & password
-    - via email or username & password
-    - with a remember me checkbox (optional)
+  - via username & password
+  - via email & password
+  - via email or username & password
+  - with a remember me checkbox (optional)
 - Create an account
 - Log out
-- Profile activation via email
 - Reset password
+- Send/ Resend activation code
 - Remind a username
-- Resend an activation code
 - Change password
-- Change email
 - Change profile
-- Multilingual: English, French, Russian, Simplified Chinese and Spanish
+
+### Additional features added
+
+- File Missing Case
+- Match found person with missing people in database
+- Admin Privilege
+  - Delete records
+  - View user activities
+- Live dashboard for:
+  - Total people missing, people found, users registered
+  - Details of people found
+  - Users Leaderboard
+- Mail: activation code, reset password link, found missing person
+- Multiple languages: English, Hindi, Kannada.
+
+## Project Tree
+
+```text
+locate-missing-people-ai-django
+├─ .git
+├─ .gitignore
+├─ conda-requirements.txt
+├─ dcaFuse.m
+├─ fuse.m
+├─ LICENSE
+├─ README.md
+├─ requirments.txt
+├─ screenshots
+│  ├─ authorized_page.png
+│  ├─ create_an_account.png
+│  ├─ login.png
+│  ├─ password_change.png
+│  ├─ password_reset.png
+│  └─ set_new_password.png
+└─ source
+   ├─ accounts
+   │  ├─ admin.py
+   │  ├─ apps.py
+   │  ├─ detect_face.py
+   │  ├─ face_recog.ipynb
+   │  ├─ FeatureExtraction.ipynb
+   │  ├─ forms.py
+   │  ├─ match_face.py
+   │  ├─ migrations
+   │  ├─ models.py
+   │  ├─ templates
+   │  │  └─ accounts
+   │  │     ├─ emails
+   │  │     │  ├─ activate_profile.html
+   │  │     │  ├─ activate_profile.txt
+   │  │     │  ├─ change_email.html
+   │  │     │  ├─ change_email.txt
+   │  │     │  ├─ forgotten_username.html
+   │  │     │  ├─ forgotten_username.txt
+   │  │     │  ├─ restore_password_email.html
+   │  │     │  └─ restore_password_email.txt
+   │  │     ├─ log_in.html
+   │  │     ├─ log_out.html
+   │  │     ├─ profile
+   │  │     │  ├─ change_email.html
+   │  │     │  ├─ change_password.html
+   │  │     │  ├─ change_profile.html
+   │  │     │  ├─ file_missing.html
+   │  │     │  ├─ found_missing.html
+   │  │     │  ├─ match.html
+   │  │     │  ├─ missing_list.html
+   │  │     │  └─ user_list.html
+   │  │     ├─ remind_username.html
+   │  │     ├─ resend_activation_code.html
+   │  │     ├─ restore_password.html
+   │  │     ├─ restore_password_confirm.html
+   │  │     ├─ restore_password_done.html
+   │  │     └─ sign_up.html
+   │  ├─ urls.py
+   │  ├─ utils.py
+   │  ├─ views.py
+   │  └─ __init__.py
+   ├─ app
+   │  ├─ conf
+   │  │  ├─ development
+   │  │  │  ├─ settings.py
+   │  │  │  └─ __init__.py
+   │  │  ├─ production
+   │  │  │  ├─ settings.py
+   │  │  │  └─ __init__.py
+   │  │  └─ __init__.py
+   │  ├─ settings.py
+   │  ├─ urls.py
+   │  ├─ wsgi.py
+   │  └─ __init__.py
+   ├─ content
+   │  ├─ assets
+   │  │  ├─ css
+   │  │  ├─ favicon.png
+   │  │  ├─ js
+   │  │  └─ vendor
+   │  │     ├─ bootstrap
+   │  │     ├─ jquery
+   │  │     └─ popper
+   │  ├─ locale
+   │  │  ├─ hi
+   │  │  └─ kn
+   │  └─ templates
+   │     ├─ layouts
+   │     │  └─ default
+   │     │     └─ page.html
+   │     └─ main
+   │        ├─ change_language.html
+   │        └─ index.html
+   ├─ main
+   │  ├─ apps.py
+   │  ├─ views.py
+   │  └─ __init__.py
+   └─ manage.py
+
+```
 
 ## Installing
 
@@ -72,6 +177,7 @@ python source/manage.py collectstatic
 
 Just run this command:
 
-```
+```bash
 python source/manage.py runserver
 ```
+
