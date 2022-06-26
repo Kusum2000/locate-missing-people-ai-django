@@ -51,6 +51,10 @@ Note: The images of people used belong to the FGNet Dataset.
 
 ### Basic Features
 
+
+https://user-images.githubusercontent.com/67104521/175833724-561aa923-8460-40ac-8ba8-8cf6c7f0d4a3.mp4
+
+
 #### Account Activation
 
 #### Forgot Password / Username
