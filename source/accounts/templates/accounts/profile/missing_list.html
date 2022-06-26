@@ -82,7 +82,9 @@
             <th scope="col">{% trans 'Age' %}</th>
             <th scope="col">{% trans 'Place' %}</th>
             <th scope="col">{% trans 'Extra Info' %}</th>
+            {% if request.user.is_superuser %}
             <th scope="col">{% trans 'Action' %}</th>
+            {% endif %}
           </tr>
         </thead>
         <tbody>

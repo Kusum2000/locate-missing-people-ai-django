@@ -409,59 +409,55 @@ class FoundMissingView(LoginRequiredMixin, FormView):
             print(newlist,now)
             
             if predicted_score>=5.04:
+                predicted_id = newlist[1][0]
+                print(predicted_id)
+        
+            raw = 'Select {}-date_of_missing from accounts_filemissing u where u.id=accounts_filemissing.id'.format(now)
+            unique_missing = FileMissing.objects.filter(img_id=predicted_id).values('img_id','user_id', 'first_name',
+            'last_name','gender', 'dob', 
+                'date_of_missing','time_of_missing', 'extra_info',
+                'street','area','city','state','zip_code').annotate(total_filed=Count('img_id'),days_lost=RawSQL(raw, ()))
+            if unique_missing[0]['days_lost']>1 and unique_missing[0]['state'] != data['state']:
                 messages.error(self.request, _('Person not found in the database'))
                 return redirect('accounts:found_missing')
-            else:
-                raw = 'Select {}-date_of_missing from accounts_filemissing u where u.id=accounts_filemissing.id'.format(now)
-
-                unique_missing = FileMissing.objects.filter(img_id=predicted_id).values('img_id','user_id', 'first_name',
+            print(unique_missing)
+            missing = FileMissing.objects.filter(img_id=predicted_id).values('img_id','user_id', 'first_name',
                 'last_name','gender', 'dob', 
                     'date_of_missing','time_of_missing', 'extra_info',
-                    'street','area','city','state','zip_code').annotate(total_filed=Count('img_id'),days_lost=RawSQL(raw, ()))
-                if unique_missing[0]['days_lost']>1 and unique_missing[0]['state'] != data['state']:
-                    messages.error(self.request, _('Person not found in the database'))
-                    return redirect('accounts:found_missing')
-
-                print(unique_missing)
-                missing = FileMissing.objects.filter(img_id=predicted_id).values('img_id','user_id', 'first_name',
-                    'last_name','gender', 'dob', 
-                        'date_of_missing','time_of_missing', 'extra_info',
-                        'street','area','city','state','zip_code').annotate(total_filed=Count('img_id')).order_by()
-                missing_user=missing[0]
-                #print(missing_user)
-                send_to = User.objects.filter(id=missing_user['user_id']).values('email')
-                #print(missing_user,send_to)
-                
-                found = Found.objects.create(
-                    img_id=predicted_id,
-                    img=img,
-                    user_id = request.user.username,
-                    phone_number=data['phone_number'],
-                    street=data['street'],
-                    area=data['area'],
-                    city=data['city'],
-                    state=data['state'],
-                    zip_code=data['zip_code'],
-                )
-                FileMissing.objects.filter(img_id=found.img_id).update(status="Found") # this will update only
-                dt_string = now2.strftime("%d/%m/%Y %H:%M:%S")
-                context = {'subject': str('Found '+predicted_id),
-                            "person_name": str(missing_user['first_name']+" "+missing_user['last_name']),
-                            "address": str(data['street']+" "+data['area']+" "+data['city']+" "+ data['state']+"-"+data['zip_code']),
-                            "found_at" : dt_string,
-                            "message_user": "We have sent the alert message to the police. You can reply to this chain of mail. Contact the following number:"+str(data['phone_number']),
-                        }
-                print(send_to[0]['email'],context)
-                try:
-                    send_found_person(send_to[0]['email'],context)
-                except:
-                    print("Unable to send mail currently")
-                messages.success(self.request, _('You have found a missing person! '+str(predicted_id)))
+                    'street','area','city','state','zip_code').annotate(total_filed=Count('img_id')).order_by()
+            missing_user=missing[0]
+            #print(missing_user)
+            send_to = User.objects.filter(id=missing_user['user_id']).values('email')
+            #print(missing_user,send_to)
+            
+            found = Found.objects.create(
+                img_id=predicted_id,
+                img=img,
+                user_id = request.user.username,
+                phone_number=data['phone_number'],
+                street=data['street'],
+                area=data['area'],
+                city=data['city'],
+                state=data['state'],
+                zip_code=data['zip_code'],
+            )
+            FileMissing.objects.filter(img_id=found.img_id).update(status="Found") # this will update only
+            dt_string = now2.strftime("%d/%m/%Y %H:%M:%S")
+            context = {'subject': str('Found '+predicted_id),
+                        "person_name": str(missing_user['first_name']+" "+missing_user['last_name']),
+                        "address": str(data['street']+" "+data['area']+" "+data['city']+" "+ data['state']+"-"+data['zip_code']),
+                        "found_at" : dt_string,
+                        "message_user": "We have sent the alert message to the police. You can reply to this chain of mail. Contact the following number:"+str(data['phone_number']),
+                    }
+            print(send_to[0]['email'],context)
+            try:
+                send_found_person(send_to[0]['email'],context)
+            except:
+                print("Unable to send mail currently")
+            messages.success(self.request, _('You have found a missing person! '+str(predicted_id)))
         else:
             messages.error(self.request, _('Face not found in the Image. Upload again.'))     
-        
-
-
+    
 
         return redirect('accounts:found_missing')
 
@@ -577,6 +573,12 @@ class ViewMissingView(LoginRequiredMixin,TemplateView):
         print(u_missing_cases_found)
         context={'individual_cases':unique_missing, 'found_cases':found_cases,'missing_found': missing_cases_found,'u_missing_found':u_missing_cases_found,'missing_cases':missing_cases, 'path':path}
         return context
+
+def delete_user(request, username):
+    print(username)
+    user = User.objects.filter(username=username)
+    user.delete()
+    return HttpResponseRedirect(reverse('accounts:user_list'))
 
 class ViewUsersView(LoginRequiredMixin,TemplateView):
     template_name = 'accounts/profile/user_list.html'

@@ -14,6 +14,7 @@
                 <th scope="col">{% trans 'Email ID' %}</th>
                 <th scope="col">{% trans 'Cases Filed' %}</th>
                 <th scope="col">{% trans 'People Found' %}</th>
+                <th scope="col">{% trans 'Action' %}</th>
               </tr>
             </thead>
             <tbody>
@@ -44,6 +45,9 @@
                 {% endif %}
                 {% endfor %}
                 </td>
+                {% if not x.is_superuser %}
+                <td><a class="btn btn-danger" href="delete_user/{{ x.username }}">Remove User</a></td>
+                {% endif %}
               </tr>
               {% endfor %}
             </tbody>
