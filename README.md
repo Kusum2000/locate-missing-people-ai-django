@@ -1,6 +1,6 @@
 # AI based Django application to locate Missing People using Facial Features
 
-A Django based age invariant face recognition project, to find missing people with the joint help of common people and organizations.
+A Django based age invariant face recognition project. In an effort to file report and find missing people with the joint help of the community.
 
 ## Functionalities
 
