@@ -64,6 +64,7 @@ https://user-images.githubusercontent.com/67104521/175833724-561aa923-8460-40ac-
 ### Email is sent to Admin and the user who filed the FIR if, the person is found
 
 ### File a new missing case
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/67104521/175930069-b32a0c11-a8b1-4093-bb22-aa14844863e2.gif)
 
 ## Project Structure
 
