@@ -51,20 +51,27 @@ Note: The images of people used belong to the FGNet Dataset.
 
 ### Basic Features
 
-
-https://user-images.githubusercontent.com/67104521/175833724-561aa923-8460-40ac-8ba8-8cf6c7f0d4a3.mp4
-
+https://user-images.githubusercontent.com/67104521/175930225-fc4764bd-b1b7-4145-8bb6-b0545a582988.mp4
 
 #### Account Activation
 
+![image](https://user-images.githubusercontent.com/67104521/175934533-2d5a6372-d570-4c4d-8492-87b4c5ddfc05.png)
+
 #### Forgot Password / Username
 
-### Start match with Missing People in the database
+![image](https://user-images.githubusercontent.com/67104521/175934875-9a8f6a8c-e67c-41c0-885a-2f3edf92e5e4.png) | ![image](https://user-images.githubusercontent.com/67104521/175935096-989d6a3b-2149-4e49-a243-c91bf32d3506.png)
+
+### Find match with Missing People in the database
+
+https://user-images.githubusercontent.com/67104521/175930273-487f595f-6a91-4d21-bbf7-663b813f3dc9.mp4
 
 ### Email is sent to Admin and the user who filed the FIR if, the person is found
 
+![image](https://user-images.githubusercontent.com/67104521/175935312-2a45ca92-0ca0-4e0f-ba73-e712abd4e272.png)
+
 ### File a new missing case
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/67104521/175930069-b32a0c11-a8b1-4093-bb22-aa14844863e2.gif)
+
+https://user-images.githubusercontent.com/67104521/175930291-cbfec054-67bf-4239-adf9-988aa6a655c0.mp4
 
 ## Project Structure
 
