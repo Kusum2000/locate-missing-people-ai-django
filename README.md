@@ -18,19 +18,14 @@ A Django based age invariant face recognition project. In an effort to file repo
   - Total people missing, people found, users registered
   - Details of people found
   - Users Leaderboard
-- Mail: activation code, reset password link, found missing person
+- Mail: account activation, reset password, remind username, found missing person
   - [Courier](https://www.courier.com/): A multi-channel notifications service that allows you to bring your own email provider, including support for SMTP and most popular transactional email APIs.
 - Multilingual: English, Hindi, Kannada.
   
 ### The following basic features were forked from [egorsmkv GitHub](https://github.com/egorsmkv/simple-django-login-and-register)
 
-- Log in
-  - via username & password
-  - via email & password
-  - via email or username & password
-  - with a remember me checkbox (optional)
+- Log in & Log out
 - Create an account
-- Log out
 - Reset password
 - Send/ Resend activation code
 - Remind a username
@@ -59,7 +54,7 @@ https://user-images.githubusercontent.com/67104521/175930225-fc4764bd-b1b7-4145-
 
 #### Forgot Password / Username
 
-![image](https://user-images.githubusercontent.com/67104521/175934875-9a8f6a8c-e67c-41c0-885a-2f3edf92e5e4.png) | ![image](https://user-images.githubusercontent.com/67104521/175935096-989d6a3b-2149-4e49-a243-c91bf32d3506.png)
+![image](https://user-images.githubusercontent.com/67104521/175934875-9a8f6a8c-e67c-41c0-885a-2f3edf92e5e4.png)  ![image](https://user-images.githubusercontent.com/67104521/175935096-989d6a3b-2149-4e49-a243-c91bf32d3506.png)
 
 ### Find match with Missing People in the database
 
