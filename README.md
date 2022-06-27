@@ -61,7 +61,7 @@ https://user-images.githubusercontent.com/67104521/175833724-561aa923-8460-40ac-
 
 ### Start match with Missing People in the database
 
-### Email is sent to Admin and the user who filed the FIR if, the person is found
+### When the missing person is found, an email is sent to Admin and the user who filed the FIR
 
 ### File a new missing case
 

@@ -496,7 +496,7 @@ class FileMissingView(LoginRequiredMixin, FormView):
                     date_of_missing = data['date_of_missing'],
                     time_of_missing = data['time_of_missing'],
                     extra_info = data['extra_info'],
-
+                    gender = data['gender'],
                     street = data['street'],
                     area = data['area'],
                     city = data['city'],
