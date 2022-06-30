@@ -209,7 +209,7 @@ Just run this command:
 python source/manage.py runserver
 ```
 
-## Reference
+## References
 
 ```text
 Age-invariant face recognition based on deep features analysis
